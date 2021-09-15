@@ -1,0 +1,84 @@
+<apex:page Controller="ReviewPageController" lightningStylesheets="false" standardStylesheets="false">
+    <apex:stylesheet value="{!URLFOR($Resource.ReviewStyles)}"/>
+    <head>
+
+    </head>
+    <body>
+        Hello
+        <apex:pageBlock title="All Reviews">
+            <apex:repeat value="{!PotionReviews}" var="review">
+                {!review.Reviewer_Name__c} said "{!review.Review_Message__c}" <br/>
+                Rating: {!review.Review_Rating__c} out of 5 <br/>
+            </apex:repeat>
+        </apex:pageBlock>
+        
+        <div id='newReview'>
+            <apex:form >
+                <apex:pageBlock title="Create a new Review">
+                    Review Description:
+                    <apex:inputField value="{!newReview.Review_Message__c}" required="true"/>
+                    Reviewer Name:
+                    <apex:inputField value="{!newReview.Reviewer_Name__c}" required="true"/>
+                    Review Rating:
+                    <apex:inputField value="{!newReview.Review_Rating__c}" required="true"/>
+                    <apex:inputField value="{!newReview.Potion_Type__c}" required="true"/>
+                    <apex:commandButton action="{!saveReview}" value="Save Review"/>
+                </apex:pageBlock>
+            </apex:form>
+        </div>
+        
+    </body>
+    <!--
+    <div class="slds-page-header">
+            <span class="slds-page-header__title slds-truncate" title="Home">Home</span>
+            <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
+                <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
+                    Menu
+                    <span class="slds-assistive-text">Show More</span>
+                </button>
+                <div class="slds-dropdown slds-dropdown_right">
+                    <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/home" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Home</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/NewAccount" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">New Account</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/PotionsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Potions</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/CartPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Cart</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/ReviewsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Reviews</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/AboutUsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">About Us</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/FAQPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">FAQ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>         
+        </div>
+    -->
+    
+    
+    
+</apex:page>

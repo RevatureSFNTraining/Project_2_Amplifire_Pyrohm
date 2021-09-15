@@ -1,0 +1,17 @@
+<apex:page controller="FAQController">
+    <apex:pageBlock title="FAQ Page">
+        <apex:pageBlockSection title="Question Search">
+            <apex:form >
+                <apex:outputLabel value="Question Search" for="Question"></apex:outputLabel>
+                <apex:inputText id="Question" title="Question Search" />
+                <apex:commandButton action="{!executeSearch}" id="Search"/>
+            </apex:form> 
+        </apex:pageBlockSection>
+        <apex:pageBlockSection >
+            <apex:pageBlockTable value="{!QandA}" var="q">
+                <apex:column value="{!q.Question__c}"/>
+                <apex:column value="{!q.Answer__c}"/>
+            </apex:pageBlockTable>    
+        </apex:pageBlockSection>                
+    </apex:pageBlock>
+</apex:page>

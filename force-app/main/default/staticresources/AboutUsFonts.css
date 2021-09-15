@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm&family=Cinzel+Decorative&display=swap');
+
+
+body{
+  background-color: #1e1e1f;
+}
+
+h2{
+  text-align:center;
+  color:#6f54fc;
+  font-family:'CinzelDecorative',Black;
+  font-size:44pt
+}
+p1{
+  text-align:center;
+  color:#6f54fc;
+  font-family:'CinzelDecorative';
+  font-size:30pt;
+  margin-top:-50px;
+}
+p2{
+  text-align:left;
+  color:#dba6ee;
+  font-family:'Charm';
+  font-size:16pt;
+}

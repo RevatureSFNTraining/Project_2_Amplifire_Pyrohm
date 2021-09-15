@@ -1,0 +1,156 @@
+<apex:page standardStylesheets="false" controller="ReviewPageController" extensions="ReviewControllerExtension">
+    <style>
+
+    </style>
+    <slds/>
+	
+	<body style="background-color:#1e1e1f">
+        <!--<div class="slds-page-header">
+            <span class="slds-page-header__title slds-truncate" title="Home">Home</span>
+            <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
+                <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
+                    Menu
+                    <span class="slds-assistive-text">Show More</span>
+                </button>
+                <div class="slds-dropdown slds-dropdown_right">
+                    <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/home" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Home</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/NewAccount" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">New Account</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/PotionsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Potions</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/CartPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Cart</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/ReviewsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Reviews</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/AboutUsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">About Us</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/FAQPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">FAQ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>         
+        </div>-->
+        <h2 style="text-align:center; color:#6f54fc; font-family:CinzelDecorativeBlack;font-size:44pt;">A From an Essence of Potential to Our Essential Potions</h2>
+        <h3 >
+            <style>
+              .stars {
+                background-color: white;
+                height: 5px;
+                width: 5px;
+                border-radius: 50%;
+                animation-iteration-count: 1;
+                opacity: 0.25;
+              }
+            
+              .star-1 {
+                margin-top: 2%;
+                margin-left: 60%;
+                animation-duration: 10s;
+                animation-name: twinkle;
+              }
+            
+              .star-2 {
+                margin-top: 4%;
+                margin-left: 25%;
+                animation-duration: 5s;
+                animation-name: twinkle;
+              }
+            
+              .star-3 {
+                margin-top: 0%;
+                margin-left: 10%;
+                animation-duration: 8s;
+                animation-name: twinkle;
+              }
+                .star-4 {
+                margin-top: 0%;
+                margin-left: 32%;
+                animation-duration: 7s;
+                animation-name: twinkle;
+              }
+                .star-5 {
+                top: 1%;
+                margin-left: 80%;
+                animation-duration: 4s;
+                animation-name: twinkle;
+              }
+            
+              @keyframes twinkle {
+                0% {
+                	color: white;
+					transform: scale(-100);
+					opacity: .3;
+                	border:2px solid linear-gradient(35deg, #15bdc5, #dba6ee);
+                }
+               }
+            
+              #back {
+                pading:0px;
+                margin: -30px;
+                length: 100%;
+                height: 80px;
+                background: linear-gradient(35deg, #15bdc5, #dba6ee);
+                outline:transparent;
+              }
+			</style>
+			<div id="back">
+                
+            	<div class="star-1 stars"></div>
+                <div class="star-2 stars"></div>
+                <div class="star-5 stars"></div>
+                <div class="star-3 stars"></div>
+                <div class="star-4 stars"></div>
+				<p1 >
+                Our Wand-erful History</p1>
+               
+                
+            </div>
+           	<!--<div id="back">
+                <div class="star-4 stars"></div>
+                <div class="star-5 stars"></div>
+            </div>-->
+            <br/>
+            <br style="padding-bottom:20px;"/>
+            
+			<p2 >
+            	Imagine: sitting alone in a bleak, gray room, staring out the dirty window 
+            	at the droplets of rain as they seem to race each other, asking yourself 
+            	"is this all the fun life has to offer? Where's the magic?"
+            	<br/>
+            	<br style="padding-bottom:20px;"/>
+            	That's exactly what happened to our founder.  After his time working for
+                an NYC borough as a detective, he decided he still had one mysetery left to solve:
+                where to find magic. Though Jake Peralta never found magic in the real 
+                world, but he did learn how to create it.
+            </p2>
+
+        </h3>
+    </body>
+
+
+
+
+</apex:page>

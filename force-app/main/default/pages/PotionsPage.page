@@ -1,0 +1,78 @@
+<apex:page standardController="Potion__c" recordSetVar="pots" extensions="PotionExtension" lightningStylesheets="true">
+    <style type="text/css"> 
+        .custPopup{ background-color: white; border-width: 2px; border-style: solid; z-index: 9999; left: 50%; padding:11px; position: absolute; width: 600px; margin-left: -240px; top:100px; } 
+        .popupBackground{ background-color:black; opacity: 0.20; filter: alpha(opacity = 20); position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 9998; } 
+    </style>
+    <apex:slds />
+
+    <body>
+        <div class="slds-page-header">
+            <span class="slds-page-header__title slds-truncate" title="Home">Home</span>
+            <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
+                <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
+                    Menu
+                    <span class="slds-assistive-text">Show More</span>
+                </button>
+                <div class="slds-dropdown slds-dropdown_right">
+                    <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/home" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Home</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/NewAccount" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">New Account</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/PotionsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Potions</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/ReviewsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Reviews</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/AboutUsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">About Us</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/FAQPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">FAQ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <apex:form >
+            <apex:outputPanel id="tstpopup"> 
+            <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/> 
+            <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}"> 
+                <apex:commandButton value="Hide Pop up" action="{!closePopup}" rerender="tstpopup"/> 
+            </apex:outputPanel> 
+        </apex:outputPanel> 
+            <apex:pageBlock >
+                <apex:pageBlockSection >
+            <apex:dataList value="{!pots}" var="pot">
+                <apex:panelGrid columns="2">
+                    <apex:panelGroup >
+                        <p>Potion Price</p>
+
+                        <apex:outputField value="{!pot.Total_Price__c}" />
+                    </apex:panelGroup>
+
+                    <apex:commandLink action="{!setId}" value="Add to cart">
+                        <apex:param name="p1" assignto="{!addedPot}" value="{!pot.id}" />
+                    </apex:commandLink>
+                </apex:panelGrid>
+            </apex:dataList>
+            </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:form>
+    </body>
+</apex:page>
