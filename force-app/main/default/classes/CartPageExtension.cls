@@ -32,6 +32,10 @@ public class CartPageExtension {
     public void showPopup() 
     {
         displayPopup = true; 
+        Potion_Order__c potOrder = (Potion_Order__c)ctllr.getRecord();
+        potOrder.Potion_Type__c = potion.Id;
+        
+
     }
     
     

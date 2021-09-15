@@ -1,10 +1,8 @@
-<apex:page Controller="ReviewPageController" lightningStylesheets="false" standardStylesheets="false">
-    <apex:stylesheet value="{!URLFOR($Resource.ReviewStyles)}"/>
+<apex:page showHeader="false" standardStylesheets="false" controller="homeController">
     <head>
+        <!--<apex:stylesheet value="{!URLFOR($Resource.style)}"/>-->
         <apex:slds />
     </head>
-    
-    
     <body>
         <div class="slds-page-header">
             <span class="slds-page-header__title slds-truncate" title="Home">Home</span>
@@ -54,33 +52,37 @@
                 </div>
             </div>         
         </div>
-        
-        
-        
-        Hello
-        <apex:pageBlock title="All Reviews">
-            <apex:repeat value="{!PotionReviews}" var="review">
-                {!review.Reviewer_Name__c} said "{!review.Review_Message__c}" <br/>
-                Rating: {!review.Review_Rating__c} out of 5 <br/>
-            </apex:repeat>
-        </apex:pageBlock>
-        
-        <div id='newReview'>
-            <apex:form >
-                <apex:pageBlock title="Create a new Review">
-                    Review Description:
-                    <apex:inputField value="{!newReview.Review_Message__c}" required="true"/>
-                    Reviewer Name:
-                    <apex:inputField value="{!newReview.Reviewer_Name__c}" required="true"/>
-                    Review Rating:
-                    <apex:inputField value="{!newReview.Review_Rating__c}" required="true"/>
-                    <apex:inputField value="{!newReview.Potion_Type__c}" required="true"/>
-                    <apex:commandButton action="{!saveReview}" value="Save Review"/>
-                </apex:pageBlock>
-            </apex:form>
+        <div class="container">
+            <article class="slds-card">
+                <div class="slds-card__header">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                Current Moon Phase
+                            </h2>
+                        </div>
+                    </header>
+                    <div class="slds-card__body slds-card__body_inner">
+                        {!CalloutResponseContentsAstronomy}
+                    </div>
+                </div>
+            </article>
+            <article class="slds-card">
+                <div class="slds-card__header">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                Current Weather
+                            </h2>
+                        </div>
+                    </header>
+                    <div class="slds-card__body slds-card__body_inner">
+                        {!CalloutResponseContentsWeather}
+                    </div>
+                </div>
+            </article>
         </div>
         
-    </body>  
-    
-    
+        
+    </body>
 </apex:page>

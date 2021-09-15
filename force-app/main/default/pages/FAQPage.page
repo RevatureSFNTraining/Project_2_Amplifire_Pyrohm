@@ -1,10 +1,33 @@
-<apex:page controller="FAQController">
+<apex:page controller="FAQController" showHeader="false" standardStylesheets="false">
+    <apex:slds />
+    <html>  
+        <body>
+            <div class="slds-page-header">
+                <span class="slds-page-header__title slds-truncate" title="Home">Home</span>
+                <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
+                    <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
+                        Menu
+                        <span class="slds-assistive-text">Show More</span>
+                    </button>
+                    <div class="slds-dropdown slds-dropdown_right">
+                        <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
+                            <li class="slds-dropdown__item" role="presentation">
+                                <a href="/testing" role="menuitem" tabindex="0">
+                                    <span class="slds-truncate" title="Menu Item One">Test</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>         
+            </div>    
+        </body>
+    </html>
     <apex:pageBlock title="FAQ Page">
         <apex:pageBlockSection title="Question Search">
             <apex:form >
                 <apex:outputLabel value="Question Search" for="Question"></apex:outputLabel>
                 <apex:inputText id="Question" title="Question Search" />
-                <apex:commandButton action="{!executeSearch}" id="Search"/>
+                <apex:commandButton value="Search" action="{!executeSearch}" id="Search"/>
             </apex:form> 
         </apex:pageBlockSection>
         <apex:pageBlockSection >
@@ -12,6 +35,6 @@
                 <apex:column value="{!q.Question__c}"/>
                 <apex:column value="{!q.Answer__c}"/>
             </apex:pageBlockTable>    
-        </apex:pageBlockSection>                
+        </apex:pageBlockSection>
     </apex:pageBlock>
 </apex:page>

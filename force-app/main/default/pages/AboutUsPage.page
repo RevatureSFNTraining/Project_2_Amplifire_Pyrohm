@@ -1,11 +1,9 @@
 <apex:page standardStylesheets="false" controller="ReviewPageController" extensions="ReviewControllerExtension">
-    <style>
-
-    </style>
-    <slds/>
+    <apex:slds />
 	
+    <!--Menu for other pages-->
 	<body style="background-color:#1e1e1f">
-        <!--<div class="slds-page-header">
+        <div class="slds-page-header">
             <span class="slds-page-header__title slds-truncate" title="Home">Home</span>
             <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
                 <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
@@ -52,8 +50,10 @@
                     </ul>
                 </div>
             </div>         
-        </div>-->
-        <h2 style="text-align:center; color:#6f54fc; font-family:CinzelDecorativeBlack;font-size:44pt;">A From an Essence of Potential to Our Essential Potions</h2>
+        </div>
+        
+        <h2 style="text-align:center; color:#6f54fc; font-family:'Cinzel Decorative',cursive;font-size:44pt;">A From an Essence of Potential to Our Essential Potions</h2>
+       
         <h3 >
             <style>
               .stars {
@@ -116,26 +116,26 @@
                 outline:transparent;
               }
 			</style>
-			<div id="back">
+			
+            <div id="back">
                 
             	<div class="star-1 stars"></div>
                 <div class="star-2 stars"></div>
                 <div class="star-5 stars"></div>
                 <div class="star-3 stars"></div>
                 <div class="star-4 stars"></div>
-				<p1 >
+				<p1 style="text-align:center;color:#6f54fc;font-family:'Cinzel Decorative', cursive;font-size:30pt;margin-top:-50px;">
                 Our Wand-erful History</p1>
-               
-                
             </div>
            	<!--<div id="back">
                 <div class="star-4 stars"></div>
                 <div class="star-5 stars"></div>
             </div>-->
+           
             <br/>
             <br style="padding-bottom:20px;"/>
             
-			<p2 >
+			<p2 style="text-align:left;color:#dba6ee;font-family:'Charm';font-size:16pt;">
             	Imagine: sitting alone in a bleak, gray room, staring out the dirty window 
             	at the droplets of rain as they seem to race each other, asking yourself 
             	"is this all the fun life has to offer? Where's the magic?"
@@ -148,6 +148,7 @@
             </p2>
 
         </h3>
+    
     </body>
 
 
