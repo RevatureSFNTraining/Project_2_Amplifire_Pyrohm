@@ -1,7 +1,10 @@
-<apex:page Controller="ReviewPageController" lightningStylesheets="false" standardStylesheets="false">
-    <apex:stylesheet value="{!URLFOR($Resource.ReviewStyles)}"/>
+<apex:page Controller="ReviewPageController" lightningStylesheets="true">
+    
     <head>
         <apex:slds />
+		<!--
+        <apex:stylesheet value="{!URLFOR($Resource.ReviewStyles)}"/>
+		-->
     </head>
     
     
@@ -56,12 +59,20 @@
         </div>
         
         
-        
-        Hello
+
         <apex:pageBlock title="All Reviews">
             <apex:repeat value="{!PotionReviews}" var="review">
-                {!review.Reviewer_Name__c} said "{!review.Review_Message__c}" <br/>
-                Rating: {!review.Review_Rating__c} out of 5 <br/>
+                <article class='slds-card'>
+                    <div class='slds-media__body'>
+                        <h2 class="slds-card__header-title">
+							{!review.Reviewer_Name__c}
+                        </h2>
+                    </div>
+                    <div class='slds-card__body slds-card__body_inner'>
+                         "{!review.Review_Message__c}" <br/>
+                		Rating: {!review.Review_Rating__c} out of 5 <br/>
+                    </div>
+                </article>                
             </apex:repeat>
         </apex:pageBlock>
         
@@ -74,6 +85,7 @@
                     <apex:inputField value="{!newReview.Reviewer_Name__c}" required="true"/>
                     Review Rating:
                     <apex:inputField value="{!newReview.Review_Rating__c}" required="true"/>
+                    Potion Type:
                     <apex:inputField value="{!newReview.Potion_Type__c}" required="true"/>
                     <apex:commandButton action="{!saveReview}" value="Save Review"/>
                 </apex:pageBlock>

@@ -1,27 +1,58 @@
 <apex:page controller="FAQController" showHeader="false" standardStylesheets="false">
-    <apex:slds />
-    <html>  
-        <body>
-            <div class="slds-page-header">
-                <span class="slds-page-header__title slds-truncate" title="Home">Home</span>
-                <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
-                    <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
-                        Menu
-                        <span class="slds-assistive-text">Show More</span>
-                    </button>
-                    <div class="slds-dropdown slds-dropdown_right">
-                        <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
-                            <li class="slds-dropdown__item" role="presentation">
-                                <a href="/testing" role="menuitem" tabindex="0">
-                                    <span class="slds-truncate" title="Menu Item One">Test</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>         
-            </div>    
-        </body>
-    </html>
+    <head>
+        <!--<apex:stylesheet value="{!URLFOR($Resource.style)}"/>-->
+        <apex:slds />
+    </head>
+    <body>
+        <div class="slds-page-header">
+            <span class="slds-page-header__title slds-truncate" title="Home">Home</span>
+            <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
+                <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
+                    Menu
+                    <span class="slds-assistive-text">Show More</span>
+                </button>
+                <div class="slds-dropdown slds-dropdown_right">
+                    <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/home" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Home</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/NewAccount" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">New Account</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/PotionsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Potions</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/CartPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Cart</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/ReviewsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">Reviews</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/AboutUsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">About Us</span>
+                            </a>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <a href="/FAQPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Menu Item One">FAQ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>         
+        </div>        
+    </body>
     <apex:pageBlock title="FAQ Page">
         <apex:pageBlockSection title="Question Search">
             <apex:form >
