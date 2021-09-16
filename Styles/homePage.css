@@ -1,0 +1,21 @@
+.slds-grid.slds-has-coordinates {
+	max-width: 600px;
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cardContainer article {
+    margin: 3rem;
+}
+
+@media all and (min-width: 1200px) {
+    .container {
+        flex-direction: row;
+    }
+}
