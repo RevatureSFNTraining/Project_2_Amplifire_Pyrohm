@@ -36,7 +36,3 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
-
-#api key in component
-force-app/main/default/components/locationMap.component
-force-app/main/default/components/locationMap.component-meta.xml
