@@ -11,6 +11,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}"/>
         </head>
+        
         <body class="slds-scope">
             <c:MenuHeader title="Home Page"/>
             <c:locationMap/>
