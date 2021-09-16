@@ -1,35 +1,19 @@
 public class PotionExtension {
-    //private final Potion__c pot;
     
-    public Id addedPot{
-        get;
-        set;
-    }
+    public Id potId{get;set;}
     
-    public PotionExtension(ApexPages.StandardSetController stdController){
-        //pot = (Potion__C)stdController.getRecord();
-    }
+    public PotionExtension(ApexPages.StandardSetController stdController){}
     
     public PageReference setId(){
+        // Start with defalut id value
         String tempId = 'a015f000003jCdX';
-        if(addedPot != null) {
-            tempId = addedPot;
+        if(potId != null) {
+            tempId = potId;
         }
+
+        // Assign url parameters with potion id
         PageReference requestPage = Page.CartPage;
         requestPage.getParameters().put('potId', tempId);
-        //requestPage.getParameters().put('Id', 'a015f000003jCdX');
-        requestPage.setRedirect(true);
         return requestPage;        
     }
-
-    public boolean displayPopup {get;set;} 
-    public void closePopup() 
-    {
-        displayPopup = false; 
-    } 
-    public void showPopup() 
-    {
-        displayPopup = true; 
-    }
-
 }

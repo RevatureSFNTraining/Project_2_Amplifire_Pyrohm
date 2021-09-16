@@ -20,7 +20,7 @@ public class homeController {
     
     	public static List<String> getCalloutResponseContentsWeather() {            
      
-            String urlWeather = 'http://api.weatherapi.com/v1/current.json?key=f90129e267b94b479df182646211409&q=auto:ip&aqi=no';
+            String urlWeather = 'http://api.weatherapi.com/v1/current.json?key=f90129e267b94b479df182646211409&q=70122&aqi=no';
             List<String> weatherAttributes = new List<String>();
             Http h = new Http();
             

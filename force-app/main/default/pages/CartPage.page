@@ -1,36 +1,71 @@
-<apex:page id="hi" standardController="Potion_Order__c" extensions="CartPageExtension" lightningStylesheets="true">
+<apex:page standardController="Potion_Order__c" applyHtmlTag="false" showHeader="false" extensions="CartPageExtension" lightningStylesheets="true">
+    <html>
+
     <head>
-        <style type="text/css"> 
-            .custPopup{ background-color: white; border-radius: 20px; border-width: 1px; border-style: solid; z-index: 9999; left: 50%; padding:20px; position: absolute; width: 600px; margin-left: -240px; top:100px; } 
-            .popupBackground{ background-color:black; opacity: 0.20; filter: alpha(opacity = 20); position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 9998; } 
+        <style type="text/css">
+            .custPopup {
+                background-color: white;
+                border-radius: 20px;
+                border-width: 1px;
+                border-style: solid;
+                z-index: 9999;
+                left: 50%;
+                padding: 20px;
+                position: absolute;
+                width: 600px;
+                margin-left: -240px;
+                top: 100px;
+            }
+
+            .popupBackground {
+                background-color: black;
+                opacity: 0.20;
+                filter: alpha(opacity=20);
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 9998;
+            }
         </style>
+        <apex:slds />
+        <meta charset="UTF-8" />
+        <title>Cart Page</title>
+        <meta name="description" content="Place order for potion" />
+        <meta name="keywords" content="potion, potions, supply, kraken, witch, magic" />
+        <meta name="author" content="Kraken Code" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}" />
     </head>
 
-
-    <apex:slds />
     <body>
-        <c:MenuHeader title="Cart Page"/>
+        <c:MenuHeader title="Cart Page" />
         <apex:form >
-        <apex:outputPanel id="popup"> 
-            <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/> 
-
-            <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}"> 
-                <p>Thank you for your order!</p><br></br>
-                Total cost:<apex:outputText value=" ${!orderTotalPrice}"/><br></br><br></br>
-            <apex:commandButton value="Close" action="{!closePopup}" rerender="popup"/> 
-            </apex:outputPanel> 
-        </apex:outputPanel> 
-    <apex:outputPanel >
-    <apex:pageBlock >
-        <!-- <apex:pageMessages id="popup"/> -->
-        <apex:pageBlockSection >
-            <apex:outputText label="Potion Price" value="${!Potion.Total_Price__c}"/>
-            <apex:outputtext value="{!Potion.Name}"/>
-			<apex:inputField value="{!Potion_Order__c.Number_of_Potions__c}"/>
-          <apex:commandButton id="ordbtn" action="{!showPopUp}" value="Place Order" />
-        </apex:pageBlockSection>
-    </apex:pageBlock>    
-    </apex:outputPanel>
-    </apex:form>
+            <apex:outputPanel id="popup">
+                <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}" />
+                <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
+                    <p>Thank you for your order!</p>
+                    <br></br>
+                    Total cost:
+                    <apex:outputText value=" ${!orderTotalPrice}" />
+                    <br></br>
+                    <br></br>
+                    <apex:commandButton value="Close" action="{!closePopup}" rerender="popup" />
+                </apex:outputPanel>
+            </apex:outputPanel>
+            <apex:outputPanel >
+                <apex:pageBlock >
+                    <apex:pageBlockSection >
+                        <apex:outputText label="Potion Price" value="${!Potion.Total_Price__c}" />
+                        <apex:outputtext value="{!Potion.Name}" />
+                        <apex:inputField value="{!Potion_Order__c.Number_of_Potions__c}" />
+                        <apex:commandButton id="ordbtn" action="{!showPopUp}" value="Place Order" />
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:outputPanel>
+        </apex:form>
     </body>
+
+    </html>
 </apex:page>

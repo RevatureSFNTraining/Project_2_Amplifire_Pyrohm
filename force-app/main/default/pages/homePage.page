@@ -2,7 +2,7 @@
     <html>
         <head>
             <!--<apex:stylesheet value="{!URLFOR($Resource.style)}"/>-->
-            <apex:slds/>
+            <apex:slds />
             <meta charset="UTF-8"/>
             <title>Kraken Potions</title>
             <meta name="description" content="Kraken Potion Supply"/>
@@ -13,6 +13,7 @@
         </head>
         <body class="slds-scope">
             <c:MenuHeader title="Home Page"/>
+            <c:locationMap/>
             <div class="container">
                 <article class="slds-card">
                     <div class="slds-card__header">
@@ -38,7 +39,7 @@
                             </div>
                         </header>
                         <div class="slds-card__body slds-card__body_inner">
-                            <apex:pageBlock>
+                            <apex:pageBlock >
                                 <apex:pageBlockTable value="{!CalloutResponseContentsWeather}" var="attr">
                                     <apex:column value="{!attr}"></apex:column>
                                 </apex:pageBlockTable>

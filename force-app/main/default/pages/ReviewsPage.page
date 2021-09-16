@@ -9,78 +9,36 @@
     
     
     <body>
-        <div class="slds-page-header">
-            <span class="slds-page-header__title slds-truncate" title="Home">Home</span>
-            <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
-                <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
-                    Menu
-                    <span class="slds-assistive-text">Show More</span>
-                </button>
-                <div class="slds-dropdown slds-dropdown_right">
-                    <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
-                        <li class="slds-dropdown__item" role="presentation">
-                            <a href="/home" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="Menu Item One">Home</span>
-                            </a>
-                        </li>
-                        <li class="slds-dropdown__item" role="presentation">
-                            <a href="/NewAccount" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="Menu Item One">New Account</span>
-                            </a>
-                        </li>
-                        <li class="slds-dropdown__item" role="presentation">
-                            <a href="/PotionsPage" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="Menu Item One">Potions</span>
-                            </a>
-                        </li>
-                        <li class="slds-dropdown__item" role="presentation">
-                            <a href="/CartPage" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="Menu Item One">Cart</span>
-                            </a>
-                        </li>
-                        <li class="slds-dropdown__item" role="presentation">
-                            <a href="/ReviewsPage" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="Menu Item One">Reviews</span>
-                            </a>
-                        </li>
-                        <li class="slds-dropdown__item" role="presentation">
-                            <a href="/AboutUsPage" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="Menu Item One">About Us</span>
-                            </a>
-                        </li>
-                        <li class="slds-dropdown__item" role="presentation">
-                            <a href="/FAQPage" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="Menu Item One">FAQ</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>         
-        </div>
-        
-        
+        <c:MenuHeader title="Reviews Page"/>
 
         <apex:pageBlock title="All Reviews">
-            <apex:repeat value="{!PotionReviews}" var="review">
-                <article class='slds-card'>
-                    <div class='slds-media__body'>
-                        <h2 class="slds-card__header-title">
-							{!review.Reviewer_Name__c}
-                        </h2>
-                    </div>
-                    <div class='slds-card__body slds-card__body_inner'>
-                         "{!review.Review_Message__c}" <br/>
-                		Rating: {!review.Review_Rating__c} out of 5 <br/>
-                    </div>
-                </article>                
-            </apex:repeat>
+            <apex:outputPanel layout="block" style="overflow:auto;width:80%;height:250px;margin-left:10%;margin-right:10%">
+                <apex:repeat value="{!PotionReviews}" var="review">
+                    <article class='slds-card slds-text-align_center slds-align_center' style='width:30%'>
+                        <div class='slds-media__body slds-border_bottom'>
+                            <h2 class="slds-card__header-title">
+                                {!review.Reviewer_Name__c}
+                            </h2>
+                        </div>
+                        <div class='slds-card__body slds-card__body_inner'>
+                             "{!review.Review_Message__c}" <br/>
+                             
+                        </div>
+                        <footer class="slds-card__footer">
+                            Rating: {!review.Review_Rating__c} out of 5 <br/>
+                            Potion Type:   
+                            <apex:outputLink value="/{!review.Potion_Type__c}"> {!review.Potion_Type__r.Name}</apex:outputLink>
+                        </footer>
+                    </article>                
+                </apex:repeat>
+            </apex:outputPanel>
         </apex:pageBlock>
         
         <div id='newReview'>
             <apex:form >
                 <apex:pageBlock title="Create a new Review">
                     Review Description:
-                    <apex:inputField value="{!newReview.Review_Message__c}" required="true"/>
+                    <apex:inputField value="{!newReview.Review_Message__c}" required="true" style="width:650px; height:300px"/>
                     Reviewer Name:
                     <apex:inputField value="{!newReview.Reviewer_Name__c}" required="true"/>
                     Review Rating:

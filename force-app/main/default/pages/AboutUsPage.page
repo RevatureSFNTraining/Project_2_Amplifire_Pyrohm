@@ -146,23 +146,49 @@
             	"is this all the fun life has to offer? Where's the magic?"
             	<br/>
             	<br style="padding-bottom:20px;"/>
-            	That's exactly what happened to our founder.  After his time working for
-                an NYC borough as a detective, he decided he still had one mysetery left to solve:
-                where to find magic. Though Jake Peralta never found magic in the real 
+            	That's exactly what happened to our founder.  After his time working in
+                an NYC borough as a detective, he decided he still had one mystery left to solve:
+                where to find magic. Though Mr. Peralta never found magic in the real 
                 world, but he did learn how to create it.
                 <br/>
             	<br style="padding-bottom:20px;"/>
+                There was a lot of trial and error, but he finally cracked the biggest case of his
+                life: potions, and their proper ingredient ratio. He wanted to share this with the world--
+                he'd ACTUALLY created magic! 
                 <br/>
             	<br style="padding-bottom:20px;"/>
+                Now, you've never met Jake. But let me tell you--when he sets his mind to something,
+                there's no stopping him. He was laughed at, teased, and then, finally, believed. 
+                <br/>
+            	<br style="padding-bottom:20px;"/>
+                Welcome to Kraken Potion Brewing Company, where we can make your dreams come true (and also help you dream).
+            	<br/>
+            	<br style="padding-bottom:20px;"/>
+                <br/>
+            	<br style="padding-bottom:20px;"/>            
             </p2>
 
         </h3>
     
     </body>
+    <!--show reviews-->
     <body>
-        
-    	<apex:repeat value="{!reCon}" var="ih8u">{!ih8u.Review_Message__c}<br/><br style="padding:10px;"/></apex:repeat>
+    	<apex:pageBlock >
+            <div class="slds-text-align_center slds-p-bottom_small slds-text-title_bold">Real Reviews From Real Customers!</div>      
+            <apex:repeat value="{!reCon}" var="ih8u">
+                      <article class='slds-card' style="width:20%; margin-left:40%; margin-right:40%; ">
+                            <div class="slds-card-header slds-text-align_center slds-p-top_x-small">
+                                {!ih8u.Review_Rating__c} stars for {!ih8u.Potion_Type__r.Name}!
+                          	</div>
+                            <footer class="slds-card__footer slds-text-align_center slds-p-bottom_large slds-p-top_large">
+                    			"{!ih8u.Review_Message__c}" <br/>
+                    		</footer>
+                          	<footer class="slds-card__footer slds-text-align_center"><apex:outputLink value="/{!ih8u.Potion_Type__c}"> {!ih8u.Potion_Type__r.Name}</apex:outputLink></footer>
+                          	
 
+                      </article>                
+            </apex:repeat>
+		</apex:pageBlock>
     </body>
 
 </apex:page>

@@ -1,0 +1,33 @@
+<apex:component selfClosing="true">
+    <div class="slds-grid slds-has-coordinates">
+        <div class="slds-map_container">
+          <div class="slds-map">
+            <iframe id="GoogleMapID" title="Google Maps iframe" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC46zjJVECKALS0ICLgj9u2ZqB_vCT84Cg&q=6120+Franklin+Ave,+New+Orleans,+LA+70122"></iframe>
+          </div>
+        </div>
+        <div class="slds-coordinates">
+          <div class="slds-coordinates__header">
+            <h2 class="slds-coordinates__title">Kraken Potions</h2>
+          </div>
+          <ul class="slds-coordinates__list">
+            <li class="slds-coordinates__item">
+              <span class="slds-assistive-text" aria-live="polite"></span>
+              <button class="slds-coordinates__item-action slds-button_reset slds-media" aria-pressed="false">
+               <!-- <span class="slds-media__figure">
+                  <span class="slds-icon_container slds-icon-standard-account" title="Description of icon when needed">
+                    <svg class="slds-icon" aria-hidden="true">
+                      <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Description of icon when needed</span>
+                  </span>
+                </span> -->
+                <span class="slds-media__body">
+                  <span class="slds-text-link">Worldwide Corporate Headquarters</span>
+                  <span>6120 Franklin Ave, New Orleans, LA 70122</span>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+</apex:component>

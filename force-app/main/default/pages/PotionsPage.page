@@ -1,31 +1,36 @@
-<apex:page standardController="Potion__c" recordSetVar="pots" extensions="PotionExtension" lightningStylesheets="true">
+<apex:page standardController="Potion__c" applyHtmlTag="false" showHeader="false" recordSetVar="pots" extensions="PotionExtension" lightningStylesheets="true">
+    <html>
     <head>
         <apex:slds />
+        <meta charset="UTF-8"/>
+        <title>Potions Page</title>
+        <meta name="description" content="Browse potions"/>
+        <meta name="keywords" content="potion, potions, supply, kraken, witch, magic"/>
+        <meta name="author" content="Kraken Code"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}"/>
     </head>
 
     <body>
-        <c:MenuHeader title="Potions Page"/>
+        <c:MenuHeader title="Potions Page" />
         <apex:form >
-            
-
             <apex:pageBlock >
                 <apex:pageBlockSection >
-            <apex:dataList value="{!pots}" var="pot">
-                <apex:panelGrid columns="2">
-                    <apex:panelGroup >
-                        <!-- <p>Potion Price</p> -->
-                        <apex:outputField value="{!pot.Name}" /><br></br>
-
-                        <apex:outputField value="{!pot.Total_Price__c}" />
-                    </apex:panelGroup>
-
-                    <apex:commandLink action="{!setId}" value="Add to cart">
-                        <apex:param name="p1" assignto="{!addedPot}" value="{!pot.id}" />
-                    </apex:commandLink>
-                </apex:panelGrid>
-            </apex:dataList>
-            </apex:pageBlockSection>
+                    <apex:dataList value="{!pots}" var="pot">
+                        <apex:panelGrid columns="2">
+                            <apex:panelGroup >
+                                <apex:outputField value="{!pot.Name}" />
+                                <br></br>
+                                <apex:outputField value="{!pot.Total_Price__c}" />
+                            </apex:panelGroup>
+                            <apex:commandLink action="{!setId}" value="Add to cart">
+                                <apex:param name="p1" assignto="{!potId}" value="{!pot.id}" />
+                            </apex:commandLink>
+                        </apex:panelGrid>
+                    </apex:dataList>
+                </apex:pageBlockSection>
             </apex:pageBlock>
         </apex:form>
     </body>
+    </html>
 </apex:page>

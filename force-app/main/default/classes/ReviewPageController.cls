@@ -23,7 +23,7 @@ public class ReviewPageController {
             if(setController == null)
             {
                 setController = new ApexPages.StandardSetController(Database.getQueryLocator(
-                		[SELECT Name, Potion_Type__c, Review_Message__c, Review_Rating__c, Reviewer_Name__c FROM Potion_Review__c]
+                		[SELECT Name, Potion_Type__c, Potion_Type__r.Name, Review_Message__c, Review_Rating__c, Reviewer_Name__c FROM Potion_Review__c]
                 		));
             }
             return setController;
@@ -36,7 +36,7 @@ public class ReviewPageController {
     public ReviewPageController()
     {
         setController = new ApexPages.StandardSetController(Database.getQueryLocator(
-                [SELECT Name, Potion_Type__c, Review_Message__c, Review_Rating__c, Reviewer_Name__c FROM Potion_Review__c]
+                [SELECT Name, Potion_Type__c, Potion_Type__r.Name, Review_Message__c, Review_Rating__c, Reviewer_Name__c FROM Potion_Review__c]
                 ));
         newReview = new Potion_Review__c();
     }
