@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Cinzel+Decorative&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Cinzel+Decorative:wght@400;700&display=swap');
+
 :root {
 	--main-bg-color: #1e1e1f;
 	--blurple: #6f54fc;
@@ -15,16 +16,26 @@
 
 body {
 	min-height: 100vh;
+	font-family: 'Assistant', sans-serif;
 }
 
-.slds-page-header {
+#header {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
 	margin: 0 0 3rem 0;
+	padding: 1rem;
+	background-color: #6f54fc;
+	border-bottom: 5px solid #dba6ee;
+	color: white;
+	font-family: 'Cinzel Decorative', cursive;
+	font-weight: 700;
 }
 
-
+#headerTitle {
+	font-weight: 700;
+}
 
 .container {
 	display: flex;

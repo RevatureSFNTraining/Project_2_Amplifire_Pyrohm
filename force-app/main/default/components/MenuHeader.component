@@ -1,7 +1,7 @@
 <apex:component selfClosing="true">
     <apex:attribute name="title" type="String" required="true" description="Title of page" />
-    <div class="slds-page-header">
-        <span class="slds-page-header__title slds-truncate" title="{!title}">{!title}</span>
+    <div class="header" id="header">
+        <span class="slds-page-header__title slds-truncate" id="headerTitle" title="{!title}">{!title}</span>
         <div style="display:flex; justify-content:flex-end">
             <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
                 <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
