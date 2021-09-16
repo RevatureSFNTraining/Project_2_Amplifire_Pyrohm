@@ -11,7 +11,7 @@ public with sharing class CartPageExtensionTest {
         );
         insert pot;
 
-        Pagereference pageRef = Page.CartPage;
+        PageReference pageRef = Page.CartPage;
         pageRef.getParameters().put('potId', pot.Id);
         Test.setCurrentPage(pageRef);
 
@@ -26,9 +26,10 @@ public with sharing class CartPageExtensionTest {
         List<Potion_Order__c> potOrders = [SELECT id from Potion_Order__c];
         System.assertEquals(1, potOrders.size());
 
-        // cpe.closePopup();
+        PageReference nePage = cpe.closePopup();
 
+        Test.setCurrentPage(nePage);
 
-        // System.assertEquals(Page.PotionsPage, ApexPages.currentPage());
+        System.assertEquals(Page.PotionsPage.getUrl(), ApexPages.currentPage().getUrl());
     }
 }

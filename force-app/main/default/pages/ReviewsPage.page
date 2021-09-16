@@ -1,10 +1,11 @@
-<apex:page Controller="ReviewPageController" lightningStylesheets="true">
+<apex:page Controller="ReviewPageController" lightningStylesheets="true" showHeader="false" applyHtmlTag="false">
     
     <head>
         <apex:slds />
 		<!--
         <apex:stylesheet value="{!URLFOR($Resource.ReviewStyles)}"/>
 		-->
+
     </head>
     
     
@@ -12,27 +13,30 @@
         <c:MenuHeader title="Reviews Page"/>
 
         <apex:pageBlock title="All Reviews">
-            <apex:outputPanel layout="block" style="overflow:auto;width:80%;height:250px;margin-left:10%;margin-right:10%">
-                <apex:repeat value="{!PotionReviews}" var="review">
-                    <article class='slds-card slds-text-align_center slds-align_center' style='width:30%'>
-                        <div class='slds-media__body slds-border_bottom'>
-                            <h2 class="slds-card__header-title">
-                                {!review.Reviewer_Name__c}
-                            </h2>
-                        </div>
-                        <div class='slds-card__body slds-card__body_inner'>
-                             "{!review.Review_Message__c}" <br/>
-                             
-                        </div>
-                        <footer class="slds-card__footer">
-                            Rating: {!review.Review_Rating__c} out of 5 <br/>
-                            Potion Type:   
-                            <apex:outputLink value="/{!review.Potion_Type__c}"> {!review.Potion_Type__r.Name}</apex:outputLink>
-                        </footer>
-                    </article>                
-                </apex:repeat>
-            </apex:outputPanel>
+            <div align='center'>
+                <apex:outputPanel layout="block" style="overflow:auto;width:100%;height:250px">
+                    <apex:repeat value="{!PotionReviews}" var="review">
+                        <article class='slds-card slds-text-align_center slds-align_center' style='width:70%'>
+                            <div class='slds-media__body slds-border_bottom'>
+                                <h2 class="slds-card__header-title">
+                                    {!review.Reviewer_Name__c}
+                                </h2>
+                            </div>
+                            <div class='slds-card__body slds-card__body_inner'>
+                                 "{!review.Review_Message__c}" <br/>
+                                 
+                            </div>
+                            <footer class="slds-card__footer">
+                                Rating: {!review.Review_Rating__c} out of 5 <br/>
+                                Potion Type:   
+                                <apex:outputLink value="/{!review.Potion_Type__c}"> {!review.Potion_Type__r.Name}</apex:outputLink>
+                            </footer>
+                        </article>                
+                    </apex:repeat>
+                </apex:outputPanel>
+			</div>
         </apex:pageBlock>
+            
         
         <div id='newReview'>
             <apex:form >
@@ -41,7 +45,7 @@
                     <apex:inputField value="{!newReview.Review_Message__c}" required="true" style="width:650px; height:300px"/>
                     Reviewer Name:
                     <apex:inputField value="{!newReview.Reviewer_Name__c}" required="true"/>
-                    Review Rating:
+                    Review Rating: (Enter a whole number value from 0-5)
                     <apex:inputField value="{!newReview.Review_Rating__c}" required="true"/>
                     Potion Type:
                     <apex:inputField value="{!newReview.Potion_Type__c}" required="true"/>

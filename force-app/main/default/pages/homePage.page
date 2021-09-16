@@ -14,7 +14,7 @@
         
         <body class="slds-scope">
             <c:MenuHeader title="Home Page"/>
-            <c:locationMap/>
+            <c:locationMap />
             <div class="container">
                 <article class="slds-card">
                     <div class="slds-card__header">

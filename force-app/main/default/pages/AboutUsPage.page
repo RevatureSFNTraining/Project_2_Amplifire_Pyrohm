@@ -114,7 +114,7 @@
                 pading:0px;
                 margin: -30px;
                 length: 100%;
-                height: 80px;
+                height: 10%;
                 background: linear-gradient(35deg, #15bdc5, #dba6ee);
                 outline:transparent;
               }
@@ -161,8 +161,9 @@
                 there's no stopping him. He was laughed at, teased, and then, finally, believed. 
                 <br/>
             	<br style="padding-bottom:20px;"/>
-                Welcome to Kraken Potion Brewing Company, where we can make your dreams come true (and also help you dream).
-            	<br/>
+                Welcome to Kraken Potion Brewing Company, where we can make your dreams come true (and also help you <apex:outputLink value="/{!LuDr.Id}"> dream</apex:outputLink>).
+            	
+                <br/>
             	<br style="padding-bottom:20px;"/>
                 <br/>
             	<br style="padding-bottom:20px;"/>            
