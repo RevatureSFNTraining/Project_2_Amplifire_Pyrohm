@@ -16,6 +16,7 @@
 
 body {
 	min-height: 100vh;
+	background-color: var(--main-bg-color) !important;
 	font-family: 'Assistant', sans-serif;
 }
 
@@ -25,12 +26,20 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	margin: 0 0 3rem 0;
-	padding: 1rem;
-	background-color: #6f54fc;
-	border-bottom: 5px solid #dba6ee;
+	padding: 0.5rem;
+	background-color: var(--blurple);
+	border-bottom: 3px solid var(--pinkish);
 	color: white;
 	font-family: 'Cinzel Decorative', cursive;
 	font-weight: 700;
+}
+
+#navMenu {
+	color: var(--blurple);
+}
+
+#navMenu.menuItemText {
+	color: var(--blurple);
 }
 
 #headerTitle {

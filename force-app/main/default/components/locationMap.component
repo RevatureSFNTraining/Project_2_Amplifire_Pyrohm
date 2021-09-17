@@ -1,8 +1,8 @@
 <apex:component selfClosing="true">
-    <div class="slds-grid slds-has-coordinates">
+    <div id="googleMap" class="slds-grid slds-has-coordinates">
         <div class="slds-map_container">
-          <div class="slds-map">
-            <iframe id="GoogleMapID" title="Google Maps iframe" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC46zjJVECKALS0ICLgj9u2ZqB_vCT84Cg&q=6120+Franklin+Ave,+New+Orleans,+LA+70122"></iframe>
+          <div id="map" class="slds-map">
+            <iframe style="filter: invert(90%)" id="GoogleMapID" title="Google Maps iframe" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC46zjJVECKALS0ICLgj9u2ZqB_vCT84Cg&q=6120+Franklin+Ave,+New+Orleans,+LA+70122"></iframe>
           </div>
         </div>
         <div class="slds-coordinates">
@@ -12,9 +12,9 @@
           <ul class="slds-coordinates__list">
             <li class="slds-coordinates__item">
               <span class="slds-assistive-text" aria-live="polite"></span>
-              <button class="slds-coordinates__item-action slds-button_reset slds-media" aria-pressed="false">
+              <button id="mapLiContent" class="slds-coordinates__item-action slds-button_reset slds-media" aria-pressed="false">
                 <span class="slds-media__body">
-                  <span class="slds-text-link">Come and see us!</span>
+                  <span id="mapLinkText" class="slds-text-link">Come and see us!</span>
                   <span>6120 Franklin Ave, New Orleans, LA 70122</span>
                 </span>
               </button>

@@ -1,16 +1,46 @@
+#welcomeHeader {
+    margin: 0 auto 3rem auto;
+    font-size: 2rem;
+    color: var(--blurple);
+    font-family: 'Cinzel Decorative', cursive;
+    text-align: center;
+}
+
 .slds-grid.slds-has-coordinates {
 	max-width: 600px;
 }
 
-.cardContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+#googleMap {
+    background-color: var(--main-bg-color);
+    color: var(--blurple);
 }
 
-.cardContainer article {
+#mapLinkText {
+    text-decoration: none;
+    color: var(--blurple);
+}
+
+#mapLiContent:hover {
+    background-color: hsl(240, 2%, 7%);
+}
+
+#mapLiContent:focus {
+    background-color: hsl(240, 2%, 12%);
+}
+
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#astroCard, #weatherCard {
+    background-color: var(--main-bg-color);
+    color: var(--blurple);
+    border-color: var(--blurple);
+    padding: 2rem;
     margin: 3rem;
 }
 

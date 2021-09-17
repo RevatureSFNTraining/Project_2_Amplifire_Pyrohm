@@ -2,7 +2,7 @@
     <apex:attribute name="title" type="String" required="true" description="Title of page" />
     <div class="header" id="header">
         <span class="slds-page-header__title slds-truncate" id="headerTitle" title="{!title}">{!title}</span>
-        <div style="display:flex; justify-content:flex-end">
+        <div id="navMenu" style="display:flex; justify-content:flex-end">
             <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
                 <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
                     Menu
@@ -12,7 +12,7 @@
                     <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
                         <li class="slds-dropdown__item" role="presentation">
                             <a href="/homePage" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="Home">Home</span>
+                                <span class="slds-truncate menu-item-text" title="Home">Home</span>
                             </a>
                         </li>
                         <li class="slds-dropdown__item" role="presentation">

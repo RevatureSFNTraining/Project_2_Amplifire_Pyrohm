@@ -1,5 +1,5 @@
 <apex:page showHeader="false" applyHtmlTag="false" standardStylesheets="false" controller="homeController">
-    <html>
+  <html>
         <head>
             <apex:stylesheet value="{!URLFOR($Resource.mainCSS)}"/>
             <apex:stylesheet value="{!URLFOR($Resource.homePageCSS)}"/>
@@ -15,11 +15,11 @@
         
         <body class="slds-scope">
             <c:MenuHeader title="Home Page"/>
+            <h1 id="welcomeHeader">Wecome to Kraken Potion Brewing Company!</h1>
             <div class="container">
-                
                 <c:locationMap />
                 <div class="cardContainer">
-                    <article class="slds-card">
+                    <article id="astroCard" class="slds-card">
                         <div class="slds-card__header">
                             <header class="slds-media slds-media_center slds-has-flexi-truncate">
                                 <div class="slds-media__body">
@@ -33,7 +33,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="slds-card">
+                    <article id="weatherCard" class="slds-card">
                         <div class="slds-card__header">
                             <header class="slds-media slds-media_center slds-has-flexi-truncate">
                                 <div class="slds-media__body">
