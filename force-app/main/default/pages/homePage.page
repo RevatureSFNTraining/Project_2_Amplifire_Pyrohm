@@ -1,5 +1,5 @@
 <apex:page showHeader="false" applyHtmlTag="false" standardStylesheets="false" controller="homeController">
-  <html>
+  <html lang="en">
         <head>
             <apex:stylesheet value="{!URLFOR($Resource.mainCSS)}"/>
             <apex:stylesheet value="{!URLFOR($Resource.homePageCSS)}"/>
