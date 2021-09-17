@@ -37,11 +37,16 @@
 }
 
 #astroCard, #weatherCard {
-    background-color: var(--main-bg-color);
-    color: var(--blurple);
+    color: var(--main-bg-color);
     border-color: var(--blurple);
+    font-weight: 700;
     padding: 2rem;
     margin: 3rem;
+    background: linear-gradient(to bottom right, #dba6ee, #6f54fc);
+}
+
+#moonCardTitle, #weatherCardTitle {
+    font-weight: 700;
 }
 
 @media all and (min-width: 1200px) {

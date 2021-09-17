@@ -23,7 +23,7 @@
                         <div class="slds-card__header">
                             <header class="slds-media slds-media_center slds-has-flexi-truncate">
                                 <div class="slds-media__body">
-                                    <h2 class="slds-card__header-title">
+                                    <h2 id="moonCardTitle" class="slds-card__header-title">
                                         Current Moon Phase
                                     </h2>
                                 </div>
@@ -37,7 +37,7 @@
                         <div class="slds-card__header">
                             <header class="slds-media slds-media_center slds-has-flexi-truncate">
                                 <div class="slds-media__body">
-                                    <h2 class="slds-card__header-title">
+                                    <h2 id="weatherCardTitle" class="slds-card__header-title">
                                         Current Weather
                                     </h2>
                                 </div>
