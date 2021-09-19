@@ -1,0 +1,56 @@
+#welcomeHeader {
+    margin: 0 auto 3rem auto;
+    font-size: 2rem;
+    color: var(--blurple);
+    font-family: 'Cinzel Decorative', cursive;
+    text-align: center;
+}
+
+.slds-grid.slds-has-coordinates {
+	max-width: 600px;
+}
+
+#googleMap {
+    background-color: var(--main-bg-color);
+    color: var(--blurple);
+}
+
+#mapLinkText {
+    text-decoration: none;
+    color: var(--blurple);
+}
+
+#mapLiContent:hover {
+    background-color: hsl(240, 2%, 7%);
+}
+
+#mapLiContent:focus {
+    background-color: hsl(240, 2%, 12%);
+}
+
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#astroCard, #weatherCard {
+    color: var(--main-bg-color);
+    border-color: var(--blurple);
+    font-weight: 700;
+    padding: 2rem;
+    margin: 3rem;
+    background: linear-gradient(to bottom right, #dba6ee, #6f54fc);
+}
+
+#moonCardTitle, #weatherCardTitle {
+    font-weight: 700;
+}
+
+@media all and (min-width: 1200px) {
+    .container {
+        flex-direction: row;
+    }
+}

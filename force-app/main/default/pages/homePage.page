@@ -3,7 +3,7 @@
         <head>
             <apex:stylesheet value="{!URLFOR($Resource.mainCSS)}"/>
             <apex:stylesheet value="{!URLFOR($Resource.homePageCSS)}"/>
-            <apex:slds/>
+            <apex:slds />
             <meta charset="UTF-8"/>
             <title>Kraken Potions</title>
             <meta name="description" content="Kraken Potion Supply"/>
@@ -15,7 +15,7 @@
         
         <body class="slds-scope">
             <c:MenuHeader title="Home Page"/>
-            <h1 id="welcomeHeader">Wecome to Kraken Potion Brewing Company!</h1>
+            <h1 id="welcomeHeader">Welcome to Kraken Potion Brewing Company!</h1>
             <div class="container">
                 <c:locationMap />
                 <div class="cardContainer">

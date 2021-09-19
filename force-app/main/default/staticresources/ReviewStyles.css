@@ -1,12 +1,261 @@
-body
+#pageStyle 
 {
-background-color: #1e1e1f;
-color: #6f54fc;
+    background-color: #1e1e1f; 
+    color: #6f54fc;
+    font-family: Charm;
+    font-size: 15pt;
 }
 
-#newReview
+#newReviewDiv
 {
-text-align: center;
-align: center;
-border-style: dotted;
+    text-align: center;
+    border-style: double;
+    color: black;
+    width: 100%;
+    margin-bottom: 10%;
+    background: linear-gradient(to bottom right, #dba6ee, #6f54fc);
+}
+
+#createReviewHeader
+{
+    color: black;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-align: left;
+    align-self: flex-start;
+    font-size: 20pt;
+    background: linear-gradient(50deg, #15bdc5, #dba6ee);
+    border-style: groove;
+    border-width: 3px;
+    border-color:indigo;
+    width: fit-content;
+}
+
+#listReviewsHeader
+{
+    color: black;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-align: left;
+    font-size: 20pt;
+    background: linear-gradient(50deg, #15bdc5, #dba6ee);
+    border-style: groove;
+    border-width: 3px;
+    border-color:indigo;
+    width: fit-content;
+}
+
+#cardHeader
+{
+    background: linear-gradient(50deg, #dba6ee, #15bdc5);
+    color:#1e1e1f;
+    text-align: center;
+}
+
+#reviewCard
+{
+    width: 95%;
+    border-color:black;
+    border-width: 3px;
+}
+
+#potionDiv
+{   
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    animation-name: potionDiv;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+#saveButton
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.outputPanel
+{
+    overflow: auto;
+    width: 100%;
+    height: 250px;
+    border-style: groove;
+    border-width: 5px;
+    border-color: indigo;
+    background: linear-gradient(to bottom right, #dba6ee, #6f54fc);
+}
+
+.inputForm
+{
+    border-style: groove;
+    border-width: 5px;
+    border-color: indigo;
+}
+
+.inputField
+{
+    border-style: groove;
+    border-width: 2px;
+    border-color: indigo;
+}
+
+.descriptionField
+{
+    width:90%;
+    height:200px;    
+}
+
+.potionTypeSearch
+{
+    width: 30%;
+}
+
+.potionImg
+{
+    width: 2.5%;
+    height: auto;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+#potionImg1
+{
+    animation-name: potionBottle;
+}
+
+#potionImg2
+{
+    animation-name: potionBottle2;
+}
+
+#potionImg3
+{
+    animation-name: potionBottle3;
+}
+
+#potionImg4
+{
+    animation-name: potionBottle4;
+}
+
+@keyframes potionDiv
+{
+    0%
+    {
+        transform: translateX(-20%);
+    }
+    25%
+    {
+        transform: translateX(25%);
+    }
+    50%
+    {
+        transform: translateX(50%);
+    }
+    75%
+    {
+        transform: translateX(75%);
+    }
+    100%
+    {
+        transform: translateX(120%);
+    }
+}
+
+@keyframes potionBottle
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    25%
+    {
+        transform: rotate(90deg);
+    }
+    50%
+    {
+        transform: rotate(180deg);
+    }
+    75%
+    {
+        transform: rotate(270deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes potionBottle2
+{
+    0%
+    {
+        transform: rotate(90deg);
+    }
+    25%
+    {
+        transform: rotate(180deg);
+    }
+    50%
+    {
+        transform: rotate(270deg);
+    }
+    75%
+    {
+        transform: rotate(360deg);
+    }
+    100%
+    {
+        transform: rotate(450deg);
+    }
+}
+
+@keyframes potionBottle3
+{
+    0%
+    {
+        transform: rotate(180deg);
+    }
+    25%
+    {
+        transform: rotate(270deg);
+    }
+    50%
+    {
+        transform: rotate(360deg);
+    }
+    75%
+    {
+        transform: rotate(450deg);
+    }
+    100%
+    {
+        transform: rotate(540deg);
+    }
+}
+
+@keyframes potionBottle4
+{
+    0%
+    {
+        transform: rotate(270deg);
+    }
+    25%
+    {
+        transform: rotate(360deg);
+    }
+    50%
+    {
+        transform: rotate(450deg);
+    }
+    75%
+    {
+        transform: rotate(540deg);
+    }
+    100%
+    {
+        transform: rotate(630deg);
+    }
 }

@@ -1,6 +1,7 @@
-<apex:page standardController="Potion__c" applyHtmlTag="false" showHeader="false" recordSetVar="pots" extensions="PotionExtension" lightningStylesheets="true">
+<apex:page standardController="Potion__c" applyHtmlTag="false" showHeader="false" recordSetVar="pots" extensions="PotionExtension" lightningStylesheets="true" >
     <html>
     <head>
+        <apex:stylesheet value="{!URLFOR($Resource.mainCSS)}"/>
         <apex:slds />
         <meta charset="UTF-8"/>
         <title>Potions Page</title>
@@ -11,25 +12,34 @@
         <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}"/>
     </head>
 
-    <body>
+    <body class="slds-scope">
         <c:MenuHeader title="Potions Page" />
         <apex:form >
-            <apex:pageBlock >
-                <apex:pageBlockSection >
-                    <apex:dataList value="{!pots}" var="pot">
-                        <apex:panelGrid columns="2">
-                            <apex:panelGroup >
+            <!-- <apex:pageBlock> -->
+                <!-- <apex:pageBlockSection> -->
+                    <div class="slds-grid slds-gutters slds-wrap" style="background: linear-gradient(35deg, #15bdc5, #dba6ee);padding:20px;border-radius:15px;margin:30px">
+                    <apex:repeat value="{!pots}" var="pot">
+                        <div class="slds-col slds-size_1-of-2" style="padding:10px">
+                        <!-- <apex:panelGrid columns="2"> -->
+                        <div class="slds-grid" style="margin:auto;width:450px;padding:10px;background:white;border-radius:10px;font-family: 'Cinzel Decorative', cursive;">
+                            <img src='{!URLFOR($Resource.krakenIco)}' style="padding-right: 15px; object-fit:contain" />
+                            <div class="slds-col" style="padding:0px">
                                 <apex:outputField value="{!pot.Name}" />
                                 <br></br>
                                 <apex:outputField value="{!pot.Total_Price__c}" />
-                            </apex:panelGroup>
+                            </div>
+                            <div class="slds-col slds-size_1-of-3" style="display:flex;justify-content:center;align-items:center">
                             <apex:commandLink action="{!setId}" value="Add to cart">
                                 <apex:param name="p1" assignto="{!potId}" value="{!pot.id}" />
                             </apex:commandLink>
-                        </apex:panelGrid>
-                    </apex:dataList>
-                </apex:pageBlockSection>
-            </apex:pageBlock>
+                            </div>
+                        </div>
+                        <!-- </apex:panelGrid> -->
+                    </div>
+                    </apex:repeat>
+                    </div>
+                <!-- </apex:pageBlockSection> -->
+            <!-- </apex:pageBlock> -->
         </apex:form>
     </body>
     </html>

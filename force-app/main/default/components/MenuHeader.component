@@ -2,6 +2,14 @@
     <apex:attribute name="title" type="String" required="true" description="Title of page" />
     <div class="header" id="header">
         <span class="slds-page-header__title slds-truncate" id="headerTitle" title="{!title}">{!title}</span>
+        
+        <!-- star animations -->
+        <div class="star-1 stars"></div>
+        <div class="star-2 stars"></div>
+        <div class="star-3 stars"></div>
+        <div class="star-4 stars"></div>
+        <div class="star-5 stars"></div>
+
         <div id="navMenu" style="display:flex; justify-content:flex-end">
             <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
                 <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
