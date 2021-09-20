@@ -2,32 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
 
   #all{
-    background-color: #1e1e1f !important;
+    background-color: #1e1e1f;
   }
 
   #essence{
-    text-align:center !important;
-    color:#6f54fc !important;
-    font-family:'Cinzel Decorative', cursive !important;
-    font-size:44pt !important;
-    padding:20px !important;
-    font-weight:bold !important;
+    text-align:center;
+    color:#6f54fc;
+    font-family:'Cinzel Decorative', cursive;
+    font-size:44pt;
+    padding:20px;
+    font-weight:bold;
   }
   #wand{
-    text-align:center !important;
-    color:#6f54fc !important;
-    font-family:'Cinzel Decorative', cursive !important;
-    font-size:30pt !important;
-    margin-bottom:100px !important;
-    margin-top:-80px !important;
+    text-align:center;
+    color:#6f54fc;
+    font-family:'Cinzel Decorative', cursive;
+    font-size:30pt;
+    /*margin-bottom:100px;
+    margin-top:-80px;*/
   }
   #p1{
-    text-align:center !important;
-    color:#dba6ee !important;
-    font-family:'Charm' !important;
-    font-size:16pt !important;
-    padding-left:20% !important;
-    padding-right:20% !important;
-    padding-top:2% !important;
+    text-align:center;
+    color:#dba6ee;
+    font-family:'Charm';
+    font-size:16pt;
+    padding-left:20%;
+    padding-right:20%;
+    padding-top:2%;
   }
 </style>

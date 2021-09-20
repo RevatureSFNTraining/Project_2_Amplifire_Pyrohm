@@ -7,7 +7,7 @@
         </div>
         <div class="slds-coordinates">
           <div class="slds-coordinates__header">
-            <h2 class="slds-coordinates__title">Kraken Potions</h2>
+            <h2 id="KrakenPotions" class="slds-coordinates__title">Kraken Potions</h2>
           </div>
           <ul class="slds-coordinates__list">
             <li class="slds-coordinates__item">

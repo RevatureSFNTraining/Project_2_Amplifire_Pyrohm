@@ -14,7 +14,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}"/>
             <style>
-              .stars {
+              .stars2 {
                 background-color: white;
                 height: 5px;
                 width: 5px;
@@ -23,41 +23,41 @@
                 opacity: 0.25;
               }
             
-              .star-1 {
-                top:2%;
+              .star-12 {
+                top:52%;
                 left:60%;
                 animation-duration: 8s, 2s;
-                animation-name: twinkle, twinkle2;
+                animation-name: twinkle, twinkle22;
                 animation-delay: 0s, 8.1s;
               }
             
-              .star-2 {
-                top:4%;
+              .star-22 {
+                top:54%;
                 left:25%;
                 animation-duration: 5s, 3s;
-                animation-name: twinkle, twinkle2;
+                animation-name: twinkle, twinkle22;
                 animation-delay: 0s, 5.1s;
               }
             
-              .star-3 {
+              .star-32 {
                 top:0%;
                 left:10%;
                 animation-duration: 6s, 1s;
-                animation-name: twinkle, twinkle2;
+                animation-name: twinkle, twinkle22;
                 animation-delay: 0s, 6.1s;
               }
-              .star-4 {
+              .star-42 {
                 top:0%;
                 left:32%;
                 animation-duration: 7s, 1s;
-                animation-name: twinkle, twinkle2;
+                animation-name: twinkle, twinkle22;
                 animation-delay: 0s, 7.1s;
               }
-                .star-5 {
+                .star-52 {
                 top:1%;
                 left:80%;
                 animation-duration: 4s, 2s;
-                animation-name: twinkle, twinkle2;
+                animation-name: twinkle, twinkle22;
                 animation-delay: 0s, 4.1s;
               }
             
@@ -70,7 +70,7 @@
                 }
               }
                 
-              @keyframes twinkle2 {
+              @keyframes twinkle22 {
                 20% {
                     color: white;
                     transform: scale(-.5);
@@ -88,13 +88,13 @@
                 
             <h1 id="essence">From an Essence of Potential to Our Essential Potions</h1>
            
-            <div id="back" style="display:flex;justify-content:space-around;align-items:center;margin: 8vh 0 5vh 0;height: 110px;background: linear-gradient(35deg, #15bdc5, #dba6ee);outline:transparent; !important;" >
+            <div id="back" style="display:flex;justify-content:space-around;align-items:center;margin: 8vh 0 5vh 0;height: 110px;background: linear-gradient(35deg, #15bdc5, #dba6ee);outline:transparent; !important; position:relative;" >
                 
-                <div class="star-1 stars" style="position:absolute;"></div>
-                <div class="star-2 stars" style="position:absolute;"></div>
-                <div class="star-3 stars" style="position:absolute;"></div>
-                <div class="star-4 stars" style="position:absolute;"></div>
-                <div class="star-5 stars" style="position:absolute;"></div>
+                <div class="star-12 stars2" style="position:absolute;"></div>
+                <div class="star-22 stars2" style="position:absolute;"></div>
+                <div class="star-32 stars2" style="position:absolute;"></div>
+                <div class="star-42 stars2" style="position:absolute;"></div>
+                <div class="star-52 stars2" style="position:absolute;"></div>
                 <h2 id="wand">Our Wand-erful History</h2>
               
               </div>
