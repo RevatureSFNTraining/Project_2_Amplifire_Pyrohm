@@ -44,7 +44,7 @@
     <body class="slds-scope">
         <c:MenuHeader title="Cart Page" />
         <!-- <apex:messages/> -->
-        <apex:form style="margin:15px;font-family: 'Cinzel Decorative', cursive;">
+        <apex:form style="margin:15px;font-family: 'Charm';">
             <apex:outputPanel id="popup">
                 <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}" />
                 <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">

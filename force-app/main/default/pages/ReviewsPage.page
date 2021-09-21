@@ -17,61 +17,79 @@
         <body id='pageStyle' class='slds-scope'>
             <c:MenuHeader title="Reviews Page"/>
             <div class='container'>
-                <apex:pageBlock >
-                    <div id='listReviewsHeader'>
-                        All Reviews
-                    </div>
-                    <div align='center'>
-                        <apex:outputPanel layout="block" styleClass="outputPanel">
-                            <apex:repeat value="{!reviewList}" var="review">
-                                <article id='reviewCard' class='slds-card slds-text-align_center slds-align_center'>
-                                    <div id='cardHeader' class='slds-media__body slds-border_bottom'>
-                                        <h2 class="slds-card__header-title">
-                                            {!review.Reviewer_Name__c}
-                                        </h2>
-                                    </div>
-                                    <div class='slds-card__body slds-card__body_inner'>
-                                        "{!review.Review_Message__c}" <br/>
-                                        
-                                    </div>
-                                    <footer class="slds-card__footer">
-                                        Rating: {!review.Review_Rating__c} out of 5 <br/>
-                                        Potion Type:   
-                                        <apex:outputLink value="/{!review.Potion_Type__c}"> {!review.Potion_Type__r.Name}</apex:outputLink>
-                                    </footer>
-                                </article>                
-                            </apex:repeat>
-                        </apex:outputPanel>
-                    </div>
-                </apex:pageBlock>
 
-                <div id='potionDiv'>
-                    <img id='potionImg1' class='potionImg' src='{!$Resource.ReviewPotions + "/potionImages/blue.png"}'/>
-                    <img id='potionImg2' class='potionImg' src='{!$Resource.ReviewPotions + "/potionImages/red.png"}'/>
-                    <img id='potionImg3' class='potionImg' src='{!$Resource.ReviewPotions + "/potionImages/yellow.png"}'/>
-                    <img id='potionImg4' class='potionImg' src='{!$Resource.ReviewPotions + "/potionImages/green.png"}'/>
-                </div>       
-                
                 <div id='createReviewHeader'>
                     Create a new review!
                 </div>
                 <div id='newReviewDiv'>
                     <apex:form styleClass="inputForm">
-                        <apex:pageBlock >
-                            Review Description:
-                            <apex:inputField styleClass="descriptionField inputField" value="{!newReview.Review_Message__c}" required="true"/>
-                            Reviewer Name:
-                            <apex:inputField styleClass="inputField" value="{!newReview.Reviewer_Name__c}" required="true"/>
-                            Review Rating: (Enter a whole number value from 0-5)
-                            <apex:inputField styleClass="inputField" value="{!newReview.Review_Rating__c}" required="true"/>
-                            Potion Name:
-                            <apex:inputField styleClass="potionTypeSearch inputField" value="{!newReview.Potion_Type__c}" required="true"/>
-                            <div id='saveButton'>
-                                <apex:commandButton action="{!saveReview}" value="Save Review"/>
-                            </div>
-                        </apex:pageBlock>
+                        Review Description:
+                        <apex:inputField styleClass="descriptionField inputField" value="{!newReview.Review_Message__c}" required="true"/>
+                        
+                        Reviewer Name:
+                        <apex:inputField styleClass="inputField" value="{!newReview.Reviewer_Name__c}" required="true"/>
+                        
+                        Review Rating: (Enter a whole number value from 0-5)
+                        <apex:inputField styleClass="inputField" value="{!newReview.Review_Rating__c}" required="true"/>
+                        
+                        Potion Name:
+                        <apex:inputField styleClass="potionTypeSearch inputField" value="{!newReview.Potion_Type__c}" required="true"/>
+                        
+                        <div id='saveButton'>
+                            <apex:commandButton action="{!saveReview}" value="Save Review"/>
+                        </div>
                     </apex:form>
                 </div>
+
+                <div id='listReviewsHeader'>
+                    All Reviews
+                </div>
+                <div align='center'>
+                    <apex:outputPanel layout="block" styleClass="outputPanel">
+                        <apex:repeat value="{!reviewList}" var="review">
+                            <article id='reviewCard' class='slds-card slds-text-align_center slds-align_center'>
+                                <div id='cardHeader' class='slds-media__body slds-border_bottom'>
+                                    <div id='cHead' class="slds-card__header-title">
+                                        {!review.Reviewer_Name__c}
+                                    </div>
+                                </div>
+                                <div class='slds-card__body slds-card__body_inner'>
+                                    "{!review.Review_Message__c}" <br/>
+                                        
+                                </div>
+                                <footer class="slds-card__footer">
+                                    Rating: {!review.Review_Rating__c} out of 5 <br/>
+                                    Potion Type:   
+                                    <apex:outputLink value="/{!review.Potion_Type__c}"> {!review.Potion_Type__r.Name}</apex:outputLink>
+                                </footer>
+                            </article>                
+                        </apex:repeat>
+                    </apex:outputPanel>
+                </div>
+
+                <div id='leftDiv'>
+                    <img class='potionImg potionImg1' src='{!$Resource.ReviewPotions + "/potionImages/blue.png"}'/>
+                    <br/>
+                    <img class='potionImg potionImg2' src='{!$Resource.ReviewPotions + "/potionImages/red.png"}'/>
+                    <br/>
+                    <img class='potionImg potionImg3' src='{!$Resource.ReviewPotions + "/potionImages/yellow.png"}'/>
+                    <br/>
+                    <img class='potionImg potionImg4' src='{!$Resource.ReviewPotions + "/potionImages/green.png"}'/>   
+                </div>
+                
+
+                
+                <div id='rightDiv'>
+                    <img class='potionImg potionImg1' src='{!$Resource.ReviewPotions + "/potionImages/blue.png"}'/>
+                    <br/>
+                    <img class='potionImg potionImg2' src='{!$Resource.ReviewPotions + "/potionImages/red.png"}'/>
+                    <br/>
+                    <img class='potionImg potionImg3' src='{!$Resource.ReviewPotions + "/potionImages/yellow.png"}'/>
+                    <br/>
+                    <img class='potionImg potionImg4' src='{!$Resource.ReviewPotions + "/potionImages/green.png"}'/>
+                </div>   
+                
+                 
             </div>     
         </body>  
     </html>

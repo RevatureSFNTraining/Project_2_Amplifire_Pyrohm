@@ -19,13 +19,13 @@
                 <div class="slds-dropdown slds-dropdown_right">
                     <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
                         <li class="slds-dropdown__item" role="presentation">
-                            <a href="/homePage" role="menuitem" tabindex="0">
+                            <a href="/" role="menuitem" tabindex="0">
                                 <span class="slds-truncate menu-item-text" title="Home">Home</span>
                             </a>
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
-                            <a href="/NewAccount" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="New Account">New Account</span>
+                            <a href="/AccountsPage" role="menuitem" tabindex="0">
+                                <span class="slds-truncate" title="Accounts">Accounts</span>
                             </a>
                         </li>
                         <li class="slds-dropdown__item" role="presentation">

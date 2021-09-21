@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Positive_Number</fullName>
+    <active>true</active>
+    <errorConditionFormula>!REGEX( TEXT(Number_of_Potions__c) , &apos;[1-9]\\d{0,6}&apos;)</errorConditionFormula>
+    <errorDisplayField>Number_of_Potions__c</errorDisplayField>
+    <errorMessage>Please enter positive integer between 1 and 9999999</errorMessage>
+</ValidationRule>

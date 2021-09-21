@@ -13,6 +13,7 @@
             <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}"/>
         </head>
         
+        
         <body class="slds-scope">
             <c:MenuHeader title="Home Page"/>
             <h1 id="welcomeHeader">Welcome to Kraken Potion Brewing Company!</h1>

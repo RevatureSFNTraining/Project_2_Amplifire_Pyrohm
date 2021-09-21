@@ -24,7 +24,7 @@
               }
             
               .star-12 {
-                top:52%;
+                top:0%;
                 left:60%;
                 animation-duration: 8s, 2s;
                 animation-name: twinkle, twinkle22;
@@ -32,7 +32,7 @@
               }
             
               .star-22 {
-                top:54%;
+                top:64%;
                 left:25%;
                 animation-duration: 5s, 3s;
                 animation-name: twinkle, twinkle22;
@@ -40,21 +40,21 @@
               }
             
               .star-32 {
-                top:0%;
+                top:51%;
                 left:10%;
                 animation-duration: 6s, 1s;
                 animation-name: twinkle, twinkle22;
                 animation-delay: 0s, 6.1s;
               }
               .star-42 {
-                top:0%;
+                top:80%;
                 left:32%;
                 animation-duration: 7s, 1s;
                 animation-name: twinkle, twinkle22;
                 animation-delay: 0s, 7.1s;
               }
                 .star-52 {
-                top:1%;
+                top:76%;
                 left:80%;
                 animation-duration: 4s, 2s;
                 animation-name: twinkle, twinkle22;
@@ -88,7 +88,7 @@
                 
             <h1 id="essence">From an Essence of Potential to Our Essential Potions</h1>
            
-            <div id="back" style="display:flex;justify-content:space-around;align-items:center;margin: 8vh 0 5vh 0;height: 110px;background: linear-gradient(35deg, #15bdc5, #dba6ee);outline:transparent; !important; position:relative;" >
+            <div id="back" style="display:flex;justify-content:space-around;align-items:center;height: 110px;background: linear-gradient(35deg, #15bdc5, #dba6ee);outline:transparent; !important; position:relative;" >
                 
                 <div class="star-12 stars2" style="position:absolute;"></div>
                 <div class="star-22 stars2" style="position:absolute;"></div>

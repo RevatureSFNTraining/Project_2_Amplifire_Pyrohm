@@ -1,19 +1,17 @@
-<apex:page controller="FAQController" applyHtmlTag="false" showHeader="false" standardStylesheets="false">
+<apex:page controller="FAQController" applyHtmlTag="false" showHeader="false" StandardStylesheets="false">
     <style>
 
     .fsWrapper{
         
-        width: 1500px;
+        width: 85vw;
         
         margin: 0 auto;
         
     }
         
     .dataTable table{
-        
-        /*width: 100%;*/
 
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Charm';
         
         border: solid 1px #E0E3E5;
         
@@ -30,10 +28,12 @@
         border-left: solid 1px #E0E3E5;
         
         color: #fff;
+
+        font-family: 'Charm';
         
         font-size: 16px;
         
-        font-weight: bold;
+        font-weight: bolder;
         
         padding: 11px 2px 10px 5px;
         
@@ -64,7 +64,8 @@
         margin-top: 0px;
         
         margin-left: 0px;
-        
+
+        font-family: 'Charm';
     }
         
     .actionBtnWrapper .btn{
@@ -77,9 +78,7 @@
         
         font-size: 13px;
         
-        font-weight: 600;
-        
-        font-family: arial, sans-serif;
+        font-weight: 600;        
         
         text-align: center;
         
@@ -124,16 +123,14 @@
                 <apex:pageBlock >
                     <apex:pageBlockSection >
                         <apex:form styleClass="fsWrapper">
-                            <apex:outputLabel value="Question: " for="question" style="font-weight: bold; color: #ffffff;"></apex:outputLabel>
+                            <apex:outputLabel value="Question: " for="question" style="font-family:'Charm';font-weight: bold;font-size:16px;color: #ffffff;"></apex:outputLabel>
                             <apex:inputText id="question" title="Question Search" value="{!searchInput}" />
-                            <div class="actionBtnWrapper">
-                                <apex:commandButton value="Search" action="{!QandA}" id="Search" styleClass="btn" />
-                            </div>
+                            <apex:commandButton value="Search" action="{!QandA}" id="Search" style="padding: 0px 4px;background:#6f54fc;font-family:'Charm';font-size:13pt;font-weight:bold" />                                              
                         </apex:form>
                     </apex:pageBlockSection>
                     <apex:pageBlockTable value="{!updatedFAQ}" var="q" styleClass="dataTable" width="10000px">
-                        <apex:column value="{!q.Question__c}" />
-                        <apex:column value="{!q.Answer__c}" />
+                        <apex:column value="{!q.Question__c}" style="font-family: 'Charm';font-size:16pt;font-weight:bold"/>
+                        <apex:column value="{!q.Answer__c}" style="font-family: 'Charm';font-size:16pt;"/>
                     </apex:pageBlockTable>
                 </apex:pageBlock>
             </div>                    

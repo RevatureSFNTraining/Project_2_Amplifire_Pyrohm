@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Cinzel+Decorative:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Charm&family=Cinzel+Decorative:wght@400;700&display=swap');
 
 :root {
 	--main-bg-color: #1e1e1f;
@@ -17,7 +17,7 @@
 body {
 	min-height: 100vh;
 	background-color: var(--main-bg-color) !important;
-	font-family: 'Assistant', sans-serif;
+	font-family: 'Charm', sans-serif;
 }
 
 #header {
@@ -68,7 +68,7 @@ body {
   .star-1 {
 	top:2%;
 	left:60%;
-	animation-duration: 2s;
+	animation-duration: 1s;
 	animation-name: twinkle2;
   }
 

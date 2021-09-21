@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Ad_Message</fullName>
+    <active>true</active>
+    <errorConditionFormula>LEN( Advertisement_Message__c)  &lt; 50</errorConditionFormula>
+    <errorDisplayField>Advertisement_Message__c</errorDisplayField>
+    <errorMessage>Your advertisement message should be at least 50 characters long.</errorMessage>
+</ValidationRule>
