@@ -78,6 +78,7 @@
     animation-iteration-count: infinite;
     position: fixed;
     left: 0;
+    z-index: -1;
 }
 
 #leftDiv
@@ -91,12 +92,13 @@
     animation-iteration-count: infinite;
     position: fixed;
     right: 0;
+    z-index: -1;
 }
 
 #saveButton
 {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 .outputPanel

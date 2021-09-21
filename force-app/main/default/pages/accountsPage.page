@@ -1,17 +1,30 @@
 <apex:page Controller="AddEditDeleteAccountController" standardStylesheets="false" lightningStylesheets="true" applyHtmlTag="false" showHeader="false">
     <style>
+        .atable table {
+    table-layout: fixed;
+    width: 80%; 
+        
+}
         
     .atable th{
         background: linear-gradient(to top, #15dbc5, #dba6ee);
         font-size: 18px;
         font-family: 'Cinzel Decorative', 'Times New Roman';
         text-decoration: underline;
+        font-weight: bold !important;
         }
         
     .atable td{
         background: linear-gradient(90deg, #15dbc5, #dba6ee);
         font-size: 16px;
         font-family: 'Charm', 'Helvetica';
+        display: table-cell;
+        padding: 2px 15px 2px 15px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: auto;
+        max-width: 150px;
         }
         
     .addacc{
@@ -28,7 +41,9 @@
 		color:white !important;
 		background:#6f54fc !important;
         font-size: 16px !important;
-        font-family: 'Charm', 'Helvetica' !important;        
+        font-family: 'Charm', 'Helvetica' !important; 
+        
+        
 }
      
     </style>

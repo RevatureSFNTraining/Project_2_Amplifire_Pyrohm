@@ -1,28 +1,45 @@
 <apex:page Controller="AddEditDeleteAccountController" standardStylesheets="false" lightningStylesheets="true" applyHtmlTag="false" showHeader="false">
     <style>
+       
+       #page {
+    
+    width: 80vw;
         
+}
+  
     .atable th{
         background: linear-gradient(to top, #15dbc5, #dba6ee);
         font-size: 18px;
         font-family: 'Cinzel Decorative', 'Times New Roman';
         text-decoration: underline;
+         font-weight: bold !important;
         }
         
     .atable td{
         background: linear-gradient(90deg, #15dbc5, #dba6ee);
         font-size: 16px;
         font-family: 'Charm', 'Helvetica';
+        display: table-cell;
+  		padding: 2px 15px 2px 15px;
+ 		white-space: nowrap;
+  		text-overflow: ellipsis;
+  		overflow: hidden;
+  		width: auto;
+  		max-width: 1px;
+        text-align: center;
         }
         
-    .addacc{
-        background: linear-gradient(to top, #15dbc5, #dba6ee);        
+    .b{
+        background: linear-gradient(to top, #15dbc5, #dba6ee);   
+        text-align: center;
         }
     
          .buttonb{
 		color:white !important;
 		background:#6f54fc !important;
         font-size: 16px !important;
-        font-family: 'Charm', 'Helvetica' !important;        
+        font-family: 'Charm', 'Helvetica' !important; 
+        
 }
     
     </style>
@@ -41,13 +58,13 @@
          <body class='slds-scope'>
             <c:MenuHeader title="Add Accounts Page"/>
             <div class = 'container'>
-	<apex:form >
+	<apex:form id="page">
 	<apex:pageBlock >
 		<apex:pageBlockTable value="{!accountList}" var="at" styleClass="atable">
 			<apex:column headerValue="Account Name">
                     <apex:inputField value="{!at.Name}"/>
                 </apex:column>
-                <apex:column headerValue="Phone">
+                <apex:column headerValue="Phone Number">
                     <apex:inputField value="{!at.Phone}"/>
                 </apex:column>
                 <apex:column >
@@ -63,7 +80,6 @@
                         Billing City<br/>Shipping City
                     </apex:facet>
                     <apex:inputField value="{!at.BillingCity}"/>
-                    <br/>
                     <apex:inputField value="{!at.ShippingCity}"/>
                 </apex:column>
                 <apex:column >
@@ -91,11 +107,11 @@
                     <apex:inputField value="{!at.ShippingCountry}"/>
                 </apex:column>
 		</apex:pageBlockTable>
-		<apex:pageBlockButtons styleClass="addacc">
+		<div class='b'>
 			<apex:commandButton value="Add Accounts Row" action="{!addAccount}" styleClass="buttonb"/>
 			<apex:commandButton value="Save Accounts" action="{!saveAccount}" styleClass="buttonb"/>
             <apex:commandButton value="Go Back" action="{!URLFOR($Page.accountsPage)}" immediate="true" styleClass="buttonb"/>
-		</apex:pageBlockButtons>
+        </div>
 	</apex:pageBlock>
 	</apex:form>
                 </div>
