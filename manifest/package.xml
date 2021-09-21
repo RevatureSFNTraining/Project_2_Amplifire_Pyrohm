@@ -26,10 +26,6 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>CustomPermission</name>
-	</types>
-	<types>
-		<members>*</members>
 		<name>GlobalValueSet</name>
 	</types>
     <types>
@@ -43,10 +39,6 @@
 	<types>
 		<members>*</members>
 		<name>StaticResource</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>Workflow</name>
 	</types>
 	<version>52.0</version>
 </Package>
