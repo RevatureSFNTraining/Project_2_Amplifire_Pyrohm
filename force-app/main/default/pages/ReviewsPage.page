@@ -11,10 +11,13 @@
             <meta name="author" content="Kraken Code"/>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}"/>
+
+            
             
         </head>
 
         <body id='pageStyle' class='slds-scope'>
+            
             <c:MenuHeader title="Reviews Page"/>
             <div class='container'>
 
@@ -22,7 +25,7 @@
                     Create a new review!
                 </div>
                 <div id='newReviewDiv'>
-                    <apex:form styleClass="inputForm">
+                    <apex:form id="newRevForm" styleClass="inputForm">
                         Review Description:
                         <apex:inputField styleClass="descriptionField inputField" value="{!newReview.Review_Message__c}" required="true"/>
                         
@@ -34,9 +37,11 @@
                         
                         Potion Name:
                         <apex:inputField styleClass="potionTypeSearch inputField" value="{!newReview.Potion_Type__c}" required="true"/>
-                        
+ 
+
                         <div id='saveButton'>
-                            <apex:commandButton action="{!saveReview}" value="Save Review"/>
+                            <!--<apex:commandButton action="{!saveReview}" value="Save Review"/>-->
+                            <apex:commandLink action="{!saveReview}" value="Save Review" styleClass="btn" />
                         </div>
                     </apex:form>
                 </div>
@@ -66,7 +71,8 @@
                         </apex:repeat>
                     </apex:outputPanel>
                 </div>
-
+                
+                <!--
                 <div id='leftDiv'>
                     <img class='potionImg potionImg1' src='{!$Resource.ReviewPotions + "/potionImages/blue.png"}'/>
                     <br/>
@@ -88,6 +94,7 @@
                     <br/>
                     <img class='potionImg potionImg4' src='{!$Resource.ReviewPotions + "/potionImages/green.png"}'/>
                 </div>   
+                -->
                 
                  
             </div>     

@@ -97,8 +97,16 @@
 
 #saveButton
 {
+    padding: 0.5%;
+    margin: auto;
+    background-color: antiquewhite;
+    width: fit-content;
+    border-style: groove;
+    border-width: 5px;
+    border-color: indigo;
     margin-top: 1%;
     margin-bottom: 1%;
+    
 }
 
 .outputPanel
@@ -245,88 +253,6 @@
     }
 }
 
-/*
-
-@keyframes potionDiv
-{
-    0%
-    {
-        transform: translateX(0%);
-    }
-    12.5%
-    {
-        transform: translateX(22.5%);
-    }
-    25%
-    {
-        transform: translateX(45%);
-    }
-    37.5%
-    {
-        transform: translateX(67.5%);
-    }
-    50%
-    {
-        transform: translateX(89%);
-    }
-    62.5%
-    {
-        transform: translateX(67.5%);
-    }
-    75%
-    {
-        transform: translateX(45%);
-    }
-    87.5%
-    {
-        transform: translateX(22.5%);
-    }
-    100%
-    {
-        transform: translateX(0%);
-    }
-}
-
-@keyframes potionBottle
-{
-    0%
-    {
-        transform: rotate(0deg) translateX(0%);
-    }
-    12.5%
-    {
-        transform: rotate(90deg) translateX(22.5%);
-    }
-    25%
-    {
-        transform: rotate(180deg) translateX(45%);
-    }
-    37.5%
-    {
-        transform: rotate(270deg) translateX(67.5%);
-    }
-    50%
-    {
-        transform: rotate(360deg) translateX(89%);
-    }
-    62.5%
-    {
-        transform: rotate(270deg) translateX(67.5%);
-    }
-    75%
-    {
-        transform: rotate(180deg) translateX(45%);
-    }
-    87.5%
-    {
-        transform: rotate(90deg) translateX(22.5%);
-    }
-    100%
-    {
-        transform: rotate(0deg) translateX(0%);
-    }
-}
-*/
 
 @keyframes potionBottle2
 {

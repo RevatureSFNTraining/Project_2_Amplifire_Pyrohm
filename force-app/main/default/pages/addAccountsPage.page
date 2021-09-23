@@ -80,6 +80,7 @@
                         Billing City<br/>Shipping City
                     </apex:facet>
                     <apex:inputField value="{!at.BillingCity}"/>
+                    <br/>
                     <apex:inputField value="{!at.ShippingCity}"/>
                 </apex:column>
                 <apex:column >

@@ -35,7 +35,8 @@ public class ReviewPageController {
         try
         {
             insert newReview;
-            PageReference pref = new ApexPages.StandardController(newReview).view();
+            PageReference pref = new PageReference('https://krakenpotions-developer-edition.na163.force.com/ReviewsPage');
+            //PageReference pref = new ApexPages.StandardController(newReview).view();
 		    return pref;
         }
         catch(DmlException e)

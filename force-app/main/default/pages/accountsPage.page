@@ -134,8 +134,8 @@
                     <apex:commandButton value="Save" action="{!saveRecord}" reRender="blockId" rendered="{!editAccount  == acct.id}" styleClass="buttonb"/>
                 </apex:column>
                 <apex:column >
-                    <apex:commandbutton value="Delete" action="{!deleteAccount}" rerender="blockId" styleClass="buttonb">
-                        <apex:param assignTo="{!aid}" value="{!acct.id}" name="aid"/>
+                   <apex:commandbutton value="Delete" action="{!deleteAccount}" rerender="blockId" styleClass="buttonb">
+                        <apex:param assignTo="{!accountId}" value="{!acct.id}" name="accountId"/>
                     </apex:commandbutton>
                 </apex:column>
             </apex:pageblocktable>
