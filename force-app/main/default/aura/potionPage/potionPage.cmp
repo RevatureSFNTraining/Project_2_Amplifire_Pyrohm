@@ -1,0 +1,13 @@
+<aura:component controller="PotionController">
+    <aura:attribute name="potions" type="Potion__c[]"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <lightning:card title="Potions">
+        <p class="slds-p-horizontal_small">
+            <aura:iteration items="{!v.potions}" var="potion">
+                <h1>{!potion.Name}</h1>
+                <p>{!potion.Type_of_Potion__c}</p>
+                <p>{!potion.Base_Ingredient__c}</p>
+            </aura:iteration>
+        </p>
+    </lightning:card>
+</aura:component>	
