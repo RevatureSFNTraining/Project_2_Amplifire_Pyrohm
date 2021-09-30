@@ -1,0 +1,12 @@
+<aura:component>
+    <aura:attribute name="Ratings" type="Integer[]" default="[0,1,2,3,4,5]" />
+    <aura:attribute name="filterRating" type="Integer"/>
+    <aura:registerEvent name="sendFilterRating" type="c.sendRating" />
+    <lightning:select name="ratingsList" aura:id="picklist" label="Rating" value="{!v.filterRating}"
+                      onchange="{!c.sendRating}">
+        <option value="">choose one...</option>
+        <aura:iteration items="{!v.Ratings}" var="rating">
+            <option value="{!rating}">{!rating}</option>
+        </aura:iteration>
+    </lightning:select>
+</aura:component>

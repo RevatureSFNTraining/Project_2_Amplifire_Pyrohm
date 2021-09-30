@@ -1,0 +1,19 @@
+<aura:component controller="getPotionController">
+    <aura:attribute name="review" type="Potion_Review__c" />
+    <aura:attribute name="potion" type="Potion__c"/>
+    <aura:attribute name="potionError" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:card title="{!v.review.Reviewer_Name__c}">
+        <aura:set attribute="footer">
+            Rating: {!v.review.Review_Rating__c} out of 5
+            <br/>
+            Potion Type: {!v.potion.Name}
+        </aura:set>
+        <div class="slds-text-heading--small slds-border_top slds-border_bottom slds-align_absolute-center">
+            <br/>
+            {!v.review.Review_Message__c}
+            <br/><br/>
+        </div>
+        
+    </lightning:card>
+</aura:component>

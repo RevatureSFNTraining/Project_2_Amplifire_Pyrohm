@@ -42,7 +42,7 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>CustomObject</name>
+		<name>AuraDefinitionBundle</name>
 	</types>
 	<version>52.0</version>
 </Package>

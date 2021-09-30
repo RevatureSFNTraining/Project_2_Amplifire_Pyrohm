@@ -1,0 +1,13 @@
+<aura:component controller="GetPotionIdsController">
+    <aura:attribute name="potions" type="Potion__c[]" />
+    <aura:attribute name="selectedPotion" type="Potion__c" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:registerEvent name="sendPotionSelect" type="c.sendPotionSelect" />
+    <lightning:select name="potionsList" label="Potion" required="true"
+                      value="{!v.selectedPotion}" onchange="{!c.sendPotion}">
+        <option value="">choose one...</option>
+        <aura:iteration items="{!v.potions}" var="potion">
+            <option value="{!potion.Id}">{!potion.Name}</option>
+        </aura:iteration>
+    </lightning:select>
+</aura:component>

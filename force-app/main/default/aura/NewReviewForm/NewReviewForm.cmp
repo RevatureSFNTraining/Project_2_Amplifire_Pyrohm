@@ -1,0 +1,68 @@
+<aura:component controller="DisplayReviewsController" implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="newReview" type="Object" />
+    <aura:attribute name="newReviewError" type="String" />
+    <aura:attribute name="reviews" type="Potion_Review__c" />
+    <force:recordData aura:id="reviewRecordCreator"
+                      fields="Review_Message__c,Reviewer_Name__c,Review_Rating__c,Potion_Type__c"
+                      targetFields="{!v.newReview}"
+                      targetError="{!v.newReviewError}"
+                      />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="sendPotionSelect" event="c:sendPotionSelect"
+                  action="{!c.handleSendPotionSelect}"/>
+    <aura:handler name="sendFilterPotion" event="c:sendPotionSelect"
+                  action="{!c.handlesendFilterPotion}"/>
+    <aura:handler name="sendFilterReviewer" event="c:sendReviewer"
+                  action="{!c.handleSendReviewer}"/>
+    <aura:handler name="sendFilterRating" event="c:sendRating"
+                  action="{!c.handleSendRating}"/>
+    
+    <center>
+        <lightning:layout class="slds-align_absolute-center">
+            <lightning:layoutItem padding="around-small" size="6">
+                <div aria-labelledby="newexpenseform">
+                    <fieldset class="slds-box slds-theme_default slds-container_medium">
+                        <legend id="newexpenseform" class="slds-text-heading_small
+                                                           slds-p-vertical_medium">
+                            Create a New Review!
+                        </legend>
+                        <form class="slds-form_stacked">
+                            <lightning:input aura:id="ReviewField" label="Review Description" value="{!v.newReview.Review_Message__c}" required="true"/>
+                            <lightning:input aura:id="ReviewField" label="Reviewer Name" value="{!v.newReview.Reviewer_Name__c}" required="true"/>
+                            <lightning:slider label="Rating" value="{!v.newReview.Review_Rating__c}" max="5" size="medium" required="true"/>
+                            <c:GetPotionIds/>
+                            <br/>
+                            <lightning:button label="Save Review" variant="brand" onclick="{!c.handleSaveReview}" />
+                        </form>
+                    </fieldset>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </center>
+    
+    <br/>
+    
+    
+    <lightning:card class="slds-box slds-theme_default slds-container_small slds-align_absolute-center">
+        <p class="slds-text-heading_large">All Reviews</p>
+    </lightning:card>
+    <br/>
+    <div class="scrollable slds-box slds-theme_default">
+        <aura:iteration items="{!v.reviews}" var="review">
+            <c:DisplayReview review="{!review}" />
+        </aura:iteration>
+    </div>
+    <lightning:card  title="Filter By:">
+        <div class="slds-grid slds-container_small">
+            <div class="slds-col">
+                <c:filterByPotion/>
+            </div>
+            <div class="slds-col">
+                <c:filterByReviewer/>
+            </div>
+            <div class="slds-col">
+                <c:filterByRating/>
+            </div>
+        </div>
+    </lightning:card>
+</aura:component>

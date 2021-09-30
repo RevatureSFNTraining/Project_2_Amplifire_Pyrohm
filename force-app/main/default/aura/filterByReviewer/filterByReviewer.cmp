@@ -1,0 +1,13 @@
+<aura:component controller="DisplayReviewsController">
+    <aura:attribute name="reviews" type="Potion_Review__c[]" />
+    <aura:attribute name="filterName" type="String" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:registerEvent name="sendFilterReviewer" type="c.sendReviewer" />
+    <lightning:select name="reviewsList" aura:id="picklist" label="Reviewer" value="{!v.filterName}"
+                      onchange="{!c.sendReviewer}">
+        <option value="">choose one...</option>
+        <aura:iteration items="{!v.reviews}" var="review">
+            <option value="{!review.Reviewer_Name__c}">{!review.Reviewer_Name__c}</option>
+        </aura:iteration>
+    </lightning:select>
+</aura:component>
