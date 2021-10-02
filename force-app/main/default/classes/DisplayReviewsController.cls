@@ -21,4 +21,19 @@ public class DisplayReviewsController {
         return [SELECT Id, Review_Message__c, Reviewer_Name__c, Review_Rating__c, Potion_Type__c 
                 FROM Potion_Review__c WHERE Review_Rating__c =: filter];
     }
+    
+    @AuraEnabled
+    public static String getPotionName(Id potionId) {
+        return [SELECT Id, Name FROM Potion__c WHERE Id=: potionId LIMIT 1].Name;
+    }
+    
+    @AuraEnabled
+    public static List<Potion__c> getPotions() {
+        return [SELECT Name, Id FROM Potion__c];
+    }
+    
+    @AuraEnabled
+    public static Potion__c getPotion(Id potionId) {
+        return [SELECT Id, Name From Potion__c WHERE Id =: potionId LIMIT 1];
+    }
 }

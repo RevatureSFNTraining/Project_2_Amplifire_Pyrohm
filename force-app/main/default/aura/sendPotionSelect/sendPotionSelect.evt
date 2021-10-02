@@ -1,3 +1,0 @@
-<aura:event type="COMPONENT">
-    <aura:attribute name="potion" type="Potion__c" />
-</aura:event>

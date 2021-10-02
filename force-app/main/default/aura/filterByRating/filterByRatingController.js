@@ -1,4 +1,5 @@
 ({
+    // Function that fires the event
     sendRating: function(component, event, helper) {
         let rating = component.get("v.filterRating");
         let updateEvent = component.getEvent("sendFilterRating");

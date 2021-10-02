@@ -1,3 +1,0 @@
-<aura:event type="COMPONENT">
-    <aura:attribute name="rating" type="Integer"/>
-</aura:event>
