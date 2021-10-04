@@ -1,3 +1,4 @@
 <aura:application extends="force:slds">
-    <c:potionPage />
+    <c:header />
+    <c:HomePage />
 </aura:application>
