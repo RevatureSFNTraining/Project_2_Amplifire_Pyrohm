@@ -1,0 +1,18 @@
+<aura:component >
+    <aura:attribute name="potion" type="Potion__c"/>
+    
+                <lightning:card title="{!v.potion.Name}" iconName="custom:Potion__C" footer="kraken potions inc">
+                    
+                 <p>potion name: {!v.potion.Name}</p>
+                
+                <h1>Ingredient: {!v.potion.Base_Ingredient__r.Name}</h1>
+                
+                <h1>{!v.potion.Type_of_Potion__c}</h1>
+                
+                <lightning:button variant="brand-outline" label="Close" title="Click Me see all Cards" onclick="{!c.cancelButton}" class="slds-m-left_x-small" />
+                
+            </lightning:card>
+    
+    
+    
+</aura:component>

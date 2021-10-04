@@ -1,65 +1,65 @@
 <apex:page standardController="Potion__c" applyHtmlTag="false" showHeader="false" recordSetVar="pots" extensions="PotionExtension"
-    lightningStylesheets="true">
+           lightningStylesheets="true">
     <html>
+        
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.mainCSS)}" />
+            <apex:slds />
+            <meta charset="UTF-8" />
+            <title>Potions Page</title>
+            <meta name="description" content="Browse potions" />
+            <meta name="keywords" content="potion, potions, supply, kraken, witch, magic" />
+            <meta name="author" content="Kraken Code" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}" />
+            <!-- <style type="text/css">
+@media(max-width: 950px) {
+#potItem {
+width: 300px;
 
-    <head>
-        <apex:stylesheet value="{!URLFOR($Resource.mainCSS)}" />
-        <apex:slds />
-        <meta charset="UTF-8" />
-        <title>Potions Page</title>
-        <meta name="description" content="Browse potions" />
-        <meta name="keywords" content="potion, potions, supply, kraken, witch, magic" />
-        <meta name="author" content="Kraken Code" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="SHORTCUT ICON" href="{!URLFOR($Resource.krakenIco)}" />
-        <!-- <style type="text/css">
-            @media(max-width: 950px) {
-                #potItem {
-                    width: 300px;
-
-                }
-                #mainGrid {
-                    grid-template-columns: 1fr;
-                }
-                #stuff {
-                    width: 100%;
-                }
-            }
-        </style> -->
-    </head>
-
-    <body class="slds-scope">
-        <c:MenuHeader title="Potions Page" />
-        <apex:form >
-            <!-- <div style="display:flex; flex-wrap:wrap; background: linear-gradient(35deg, #15bdc5, #dba6ee);padding:20px;border-radius:15px;margin:30px"> -->
-            <div class="slds-grid slds-gutters slds-wrap" style="background: linear-gradient(35deg, #15bdc5, #dba6ee);padding:20px;border-radius:15px;margin:30px">
-            <!-- <div id="mainGrid" style="display:grid;grid-template-columns:1fr 1fr;background: linear-gradient(35deg, #15bdc5, #dba6ee);padding:20px;border-radius:15px;margin:30px"> -->
-                <apex:repeat value="{!pots}" var="pot">
-                    <!-- <div id="stuff" class="slds-col" style="padding:10px;width:50%"> -->
-                    <div class="slds-col slds-size_1-of-2" style="padding:10px">
-                    <!-- <div style="padding:10px"> -->
-
-                        <div id="potItem" class="slds-grid" style="margin:auto;width:450px;padding:10px;background:white;border-radius:10px;font-family: 'Charm';">
-                        <!-- <div id="potItem" style="display:grid;grid-template-columns:20px 3fr 1fr;margin:auto;max-width:450px;padding:10px;background:white;border-radius:10px;font-family: 'Charm';"> -->
-                            <img src='{!URLFOR($Resource.krakenIco)}' style="padding-right: 15px; object-fit:contain" />
-                            <div class="slds-col" style="padding:0px">
-                            <!-- <div style="padding:0px"> -->
-                                <apex:outputField value="{!pot.Name}" />
-                                <br></br>
-                                <apex:outputField value="{!pot.Total_Price__c}" />
-                            </div>
-                            <div class="slds-col slds-size_1-of-3" style="display:flex;justify-content:center;align-items:center">
-                            <!-- <div style="display:flex;justify-content:center;align-items:center"> -->
-                                <apex:commandLink action="{!setId}" value="Add to cart">
-                                    <apex:param name="p1" assignto="{!potId}" value="{!pot.id}" />
-                                </apex:commandLink>
+}
+#mainGrid {
+grid-template-columns: 1fr;
+}
+#stuff {
+width: 100%;
+}
+}
+</style> -->
+        </head>
+        
+        <body class="slds-scope">
+            <c:MenuHeader title="Potions Page" />
+            <apex:form >
+                <!-- <div style="display:flex; flex-wrap:wrap; background: linear-gradient(35deg, #15bdc5, #dba6ee);padding:20px;border-radius:15px;margin:30px"> -->
+                <div class="slds-grid slds-gutters slds-wrap" style="background: linear-gradient(35deg, #15bdc5, #dba6ee);padding:20px;border-radius:15px;margin:30px">
+                    <!-- <div id="mainGrid" style="display:grid;grid-template-columns:1fr 1fr;background: linear-gradient(35deg, #15bdc5, #dba6ee);padding:20px;border-radius:15px;margin:30px"> -->
+                    <apex:repeat value="{!pots}" var="pot">
+                        <!-- <div id="stuff" class="slds-col" style="padding:10px;width:50%"> -->
+                        <div class="slds-col slds-size_1-of-2" style="padding:10px">
+                            <!-- <div style="padding:10px"> -->
+                            
+                            <div id="potItem" class="slds-grid" style="margin:auto;width:450px;padding:10px;background:white;border-radius:10px;font-family: 'Charm';">
+                                <!-- <div id="potItem" style="display:grid;grid-template-columns:20px 3fr 1fr;margin:auto;max-width:450px;padding:10px;background:white;border-radius:10px;font-family: 'Charm';"> -->
+                                <img src='{!URLFOR($Resource.krakenIco)}' style="padding-right: 15px; object-fit:contain" />
+                                <div class="slds-col" style="padding:0px">
+                                    <!-- <div style="padding:0px"> -->
+                                    <apex:outputField value="{!pot.Name}" />
+                                    <br/>
+                                    <apex:outputField value="{!pot.Total_Price__c}" />
+                                </div>
+                                <div class="slds-col slds-size_1-of-3" style="display:flex;justify-content:center;align-items:center">
+                                    <!-- <div style="display:flex;justify-content:center;align-items:center"> -->
+                                    <apex:commandLink action="{!setId}" value="Add to cart">
+                                        <apex:param name="p1" assignto="{!potId}" value="{!pot.id}" />
+                                    </apex:commandLink>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </apex:repeat>
-            </div>
-        </apex:form>
-    </body>
-
+                    </apex:repeat>
+                </div>
+            </apex:form>
+        </body>
+        
     </html>
 </apex:page>
