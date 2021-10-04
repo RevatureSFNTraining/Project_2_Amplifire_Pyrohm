@@ -91,7 +91,6 @@
         action.setCallback(this, function(response) {
             let state = response.getState();
             if(state === "SUCCESS") {
-                console.log(response.getReturnValue());
                 component.set("v.reviews", response.getReturnValue());
             } else {
                 console.log(state);
