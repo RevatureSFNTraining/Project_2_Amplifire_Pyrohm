@@ -8,7 +8,7 @@
                                                                  'Potion_Type__c': '',
                                                                  'Number_of_Potions__c': 0,
                                                                  'Order_Price__c':0,
-                                                                 'Account_Purchasing__c': '0015f000006neRCAAY',
+                                                                 'Account_Purchasing__c': '0015f0000080iFVAAY',
                                                                  }"/>
     
     <aura:registerEvent name="createOrder" type="c:orderEvent"/>
