@@ -2,7 +2,7 @@
     <div id="googleMap" class="slds-grid slds-has-coordinates">
         <div class="slds-map_container">
           <div id="map" class="slds-map">
-            <iframe style="filter: invert(90%)" id="GoogleMapID" title="Google Maps iframe" src="https://www.google.com/maps/embed/v1/place?key=SECRETKEY&q=6120+Franklin+Ave,+New+Orleans,+LA+70122"></iframe>
+            <iframe style="filter: invert(90%)" id="GoogleMapID" title="Google Maps iframe" src="https://www.google.com/maps/embed/v1/place?key=SECRETKEY&amp;q=6120+Franklin+Ave,+New+Orleans,+LA+70122"></iframe>
           </div>
         </div>
         <div class="slds-coordinates">
