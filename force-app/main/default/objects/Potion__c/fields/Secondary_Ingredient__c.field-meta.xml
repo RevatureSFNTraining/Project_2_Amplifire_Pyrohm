@@ -4,20 +4,6 @@
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
     <label>Secondary Ingredient</label>
-    <lookupFilter>
-        <active>true</active>
-        <filterItems>
-            <field>Ingredient__c.Type_of_Ingredient__c</field>
-            <operation>equals</operation>
-            <value>Secondary</value>
-        </filterItems>
-        <filterItems>
-            <field>$Source.Type_of_Potion__c</field>
-            <operation>equals</operation>
-            <valueField>Ingredient__c.Available_Potion__c</valueField>
-        </filterItems>
-        <isOptional>false</isOptional>
-    </lookupFilter>
     <referenceTo>Ingredient__c</referenceTo>
     <relationshipLabel>Potions (Secondary Ingredient)</relationshipLabel>
     <relationshipName>Potions1</relationshipName>
