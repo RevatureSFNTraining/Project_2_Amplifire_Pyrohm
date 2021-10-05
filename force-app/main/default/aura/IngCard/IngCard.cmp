@@ -16,8 +16,11 @@
             <h3>{!v.ing.Type_of_Ingredient__c}</h3>
         </p>
         
-        <lightning:button label="Set A1" variant="brand" onclick="{!c.cardEventA1}"/>
-        <lightning:button label="Set A2" variant="brand" onclick="{!c.cardEventA2}"/>
+        <div class="slds-align_absolute-center">
+        <lightning:button label="Set Base Ingredient" variant="brand" onclick="{!c.cardEventA1}"/>
+        <lightning:button label="Set Secondary Ingredient" variant="brand" onclick="{!c.cardEventA2}"/>
+        </div>
+        
         
         
         <aura:set attribute="footer">

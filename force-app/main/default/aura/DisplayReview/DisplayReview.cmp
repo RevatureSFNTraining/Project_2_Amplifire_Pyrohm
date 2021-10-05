@@ -1,5 +1,5 @@
 <!-- Component that displays an individual Review record -->
-<aura:component controller="DisplayReviewsController">
+<aura:component controller="DisplayReviewsController" implements="forceCommunity:availableForAllPageTypes" access="global">
     <!-- Attribute Definitions -->
     <!-- Attribute to hold the single potion review record -->
     <aura:attribute name="review" type="Potion_Review__c" />

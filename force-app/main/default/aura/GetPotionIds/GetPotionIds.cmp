@@ -1,5 +1,5 @@
 <!-- Component for displaying the picklist of potions available to review for the form to create a new review -->
-<aura:component controller="DisplayReviewsController">
+<aura:component controller="DisplayReviewsController" implements="forceCommunity:availableForAllPageTypes" access="global">
     <!-- Attribute Definitions -->
     <!-- Attribute to store the List of Potions available in the Org -->
     <aura:attribute name="potions" type="Potion__c[]" />

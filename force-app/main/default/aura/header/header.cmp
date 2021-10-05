@@ -1,5 +1,7 @@
 <aura:component >
-	<aura:attribute name="title" type="String" default="Home Page" />
+    <aura:attribute name="title" type="String" default="Home" />
+    
+    <aura:registerEvent name="switchHeader" type="c:changePage" />
     
     <div class="header" id="header">
         <span class="slds-page-header__title slds-truncate" id="headerTitle" title="{!v.title}">{!v.title}</span>
@@ -10,7 +12,7 @@
         <div class="star-3 stars"></div>
         <div class="star-4 stars"></div>
         <div class="star-5 stars"></div>
-
+        
         <div id="navMenu" style="display:flex; justify-content:flex-end">
             <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
                 <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
@@ -20,34 +22,26 @@
                 <div class="slds-dropdown slds-dropdown_right">
                     <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
                         <li class="slds-dropdown__item" role="presentation">
-                            <a href="/" role="menuitem" tabindex="0">
-                                <span class="slds-truncate menu-item-text" title="Home">Home</span>
-                            </a>
+                            <lightning:button variant="base" label="Home" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Home</lightning:button>
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
-                            <a href="/AccountsPage" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="Accounts">Accounts</span>
-                            </a>
+                            <lightning:button variant="base" label="Review" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Review</lightning:button>
+                            
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
-                            <a href="/PotionsPage" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="Potions">Potions</span>
-                            </a>
+                            <lightning:button variant="base" label="Potion" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Potion</lightning:button>
+                            
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
-                            <a href="/ReviewsPage" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="Reviews">Reviews</span>
-                            </a>
+                            <lightning:button variant="base" label="Ingredient" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Ingredient</lightning:button>
+                            
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
-                            <a href="/AboutUsPage" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="About Us">About Us</span>
-                            </a>
+                            <lightning:button variant="base" label="AboutUs" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">About Us</lightning:button>
+                            
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
-                            <a href="/FAQPage" role="menuitem" tabindex="0">
-                                <span class="slds-truncate" title="FAQ">FAQ</span>
-                            </a>
+                            <lightning:button variant="base" label="Zabian" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Zabian</lightning:button>
                         </li>
                     </ul>
                 </div>

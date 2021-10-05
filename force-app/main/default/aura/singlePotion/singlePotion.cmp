@@ -1,4 +1,4 @@
-<aura:component  controller="PotionController">
+<aura:component  controller="PotionController"  access="global">
     
     <aura:attribute name="potion" type="Potion__c" />   
     <aura:registerEvent name="regAdd" type="c:addToCartEvent"/>

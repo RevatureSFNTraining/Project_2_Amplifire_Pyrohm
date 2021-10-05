@@ -1,0 +1,24 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="pageToShow" type="String" default="Home"/>
+    <aura:handler name="switchHeader" event="c:changePage" action="{!c.handleChangePage}"/>
+    <c:header/>
+    
+    <aura:if isTrue="{!v.pageToShow == 'Home'}">
+        <c:HomePage/>
+    </aura:if>
+    <aura:if isTrue="{!v.pageToShow == 'Review'}">
+        <c:NewReviewForm/>
+    </aura:if>
+    <aura:if isTrue="{!v.pageToShow == 'Potion'}">
+        <c:potions/>
+    </aura:if>
+    <aura:if isTrue="{!v.pageToShow == 'Ingredient'}">
+        <c:IngPage/>
+    </aura:if>
+    <aura:if isTrue="{!v.pageToShow == 'AboutUs'}">
+        <c:AboutUs/>
+    </aura:if>
+    <aura:if isTrue="{!v.pageToShow == 'Zabian'}">
+        <!-- go to zabian's page -->
+    </aura:if>
+</aura:component>

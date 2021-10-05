@@ -4,7 +4,8 @@
     <columns>NAME</columns>
     <columns>Base_Ingredient__c</columns>
     <columns>Secondary_Ingredient__c</columns>
-    <columns>Total_Price__c</columns>
+    <columns>Potion_URL__c</columns>
+    <columns>Type_of_Potion__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

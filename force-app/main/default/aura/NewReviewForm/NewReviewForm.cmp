@@ -1,6 +1,6 @@
 <!-- This Component Is used as the "main" component for this "page" of the SPA -->
 <!-- It's main functionality is to Display a form for creating a new Potion Review -->
-<aura:component controller="DisplayReviewsController" implements="flexipage:availableForRecordHome,force:hasRecordId">
+<aura:component controller="DisplayReviewsController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
     
     <!-- Attribute Definitions -->
     <!-- Attribute of type Object to use in the force:recordData for saving a newly created record on the form -->

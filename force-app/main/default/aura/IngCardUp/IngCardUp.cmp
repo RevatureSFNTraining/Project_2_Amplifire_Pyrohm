@@ -1,9 +1,11 @@
 <aura:component >
     <aura:attribute name="ing" type="Ingredient__c" />
+    <aura:attribute name="ingType" type="String" />
     <lightning:card>
         
         <aura:set attribute="title">
             <lightning:icon iconName="utility:recipe" size="small"/>
+            {!v.ingType} Ingredient:
             {!v.ing.Name}
         </aura:set>
         

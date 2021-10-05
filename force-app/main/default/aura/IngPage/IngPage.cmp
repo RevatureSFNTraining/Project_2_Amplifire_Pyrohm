@@ -1,4 +1,7 @@
 <aura:component controller="IngCont">
+    
+    <ltng:require styles="{!$Resource.mainCSS}"/> 
+    
     <aura:attribute name="search" type="string" />
     <aura:attribute name="ingredientList" type="list" />
     <aura:attribute name="picvalue" type="List"/>
@@ -13,12 +16,12 @@
     
     <div class="slds-grid slds-wrap">
         <div class="slds-col slds-size_1-of-3 slds-p-around_small">
-            <c:IngCardUp ing="{!v.a1}"/>
-            <c:IngCardUp ing="{!v.a2}"/>
+            <c:IngCardUp ing="{!v.a1}" ingType="Base"/>
+            <c:IngCardUp ing="{!v.a2}" ingType="Secondary"/>
         </div>
         
         <div class="slds-col slds-size_1-of-3 slds-p-around_small">
-            <lightning:input class="slds-size--2-of-3" name="Search" label="" value="{!v.potionName}"/>
+            <lightning:input class="slds-size--2-of-3" name="Search" label="Potion Name:" value="{!v.potionName}"/>
             <lightning:select value="" name="TypeSelect" aura:id="TypeSelect" label="Type:" required="true">
                 <option value="">---</option>
                 <option value="Healing">Healing</option>

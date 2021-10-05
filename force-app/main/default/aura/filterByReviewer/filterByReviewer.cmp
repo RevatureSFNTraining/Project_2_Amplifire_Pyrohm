@@ -1,5 +1,5 @@
 <!-- Component to display a picklist that allows you to filter by name of reviewer -->
-<aura:component>
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
     <!-- Attribute Definitions -->
     <!-- Attribute to store all of the reviews passed to this component from parent -->
     <aura:attribute name="reviews" type="Potion_Review__c[]" />
