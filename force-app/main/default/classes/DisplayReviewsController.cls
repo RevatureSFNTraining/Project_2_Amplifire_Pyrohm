@@ -1,5 +1,5 @@
 // Controller for Reviews Components
-public class DisplayReviewsController {
+public without sharing class DisplayReviewsController {
     // Grabs all of the reviews from the org
 	@AuraEnabled
     public static List<Potion_Review__c> getReviews() {

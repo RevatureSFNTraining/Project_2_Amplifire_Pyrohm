@@ -29,7 +29,7 @@
                             
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
-                            <lightning:button variant="base" label="Potion" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Potion</lightning:button>
+                            <lightning:button variant="base" label="Potions" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Potions</lightning:button>
                             
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
@@ -38,10 +38,12 @@
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
                             <lightning:button variant="base" label="AboutUs" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">About Us</lightning:button>
-                            
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
-                            <lightning:button variant="base" label="Zabian" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Zabian</lightning:button>
+                        	<lightning:button variant="base" label="FAQ" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">FAQ</lightning:button>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <lightning:button variant="base" label="Account" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Account</lightning:button>
                         </li>
                     </ul>
                 </div>

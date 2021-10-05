@@ -7,17 +7,17 @@ public class IngCont {
         switch on filter {
             when 'T' {
                 String searchKey = search + '%';
-                ret = [SELECT id, Name, Ingredient_Price__c, Type_of_Ingredient__c FROM Ingredient__c WHERE Type_of_Ingredient__c LIKE: searchKey];
+                ret = [SELECT id, Name, Ingredient_Price__c, Type_of_Ingredient__c, Available_Potion__c FROM Ingredient__c WHERE Type_of_Ingredient__c LIKE: searchKey];
             }when 'PU' {
                 Decimal price = decimal.valueOf(search);
-                ret = [SELECT id, Name, Ingredient_Price__c, Type_of_Ingredient__c FROM Ingredient__c WHERE Ingredient_Price__c <: price];
+                ret = [SELECT id, Name, Ingredient_Price__c, Type_of_Ingredient__c, Available_Potion__c FROM Ingredient__c WHERE Ingredient_Price__c <: price];
             }when 'PO' {
                 Decimal price = decimal.valueOf(search);
-                ret = [SELECT id, Name, Ingredient_Price__c, Type_of_Ingredient__c FROM Ingredient__c WHERE Ingredient_Price__c >: price];
+                ret = [SELECT id, Name, Ingredient_Price__c, Type_of_Ingredient__c, Available_Potion__c FROM Ingredient__c WHERE Ingredient_Price__c >: price];
             }when'N' {
-                ret = [SELECT id, Name, Ingredient_Price__c, Type_of_Ingredient__c FROM Ingredient__c];
+                ret = [SELECT id, Name, Ingredient_Price__c, Type_of_Ingredient__c, Available_Potion__c FROM Ingredient__c];
             }when else {
-                ret = [SELECT id, Name, Ingredient_Price__c, Type_of_Ingredient__c FROM Ingredient__c];
+                ret = [SELECT id, Name, Ingredient_Price__c, Type_of_Ingredient__c, Available_Potion__c FROM Ingredient__c];
             }
         }
         

@@ -14,7 +14,7 @@
         <div id="googleMap" class="slds-grid slds-has-coordinates">
             <div class="slds-map_container">
                 <div id="map" class="slds-map">
-                    <iframe style="filter: invert(90%)" id="GoogleMapID" title="Google Maps iframe" src="https://www.google.com/maps/embed/v1/place?key=INSERTKEYHERE&amp;q=6120+Franklin+Ave,+New+Orleans,+LA+70122"></iframe>
+                    <iframe style="filter: invert(90%)" id="GoogleMapID" title="Google Maps iframe" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0j9uH8onBNtGtp-bRf27Xx8Kg2xQSPuI&amp;q=6120+Franklin+Ave,+New+Orleans,+LA+70122"></iframe>
                 </div>
             </div>
             <div class="slds-coordinates">
@@ -45,16 +45,18 @@
                             
                         </div>
                     </header>
-                    <div class="slds-card__body slds-card__body_inner">
-                        <h1>{!v.moonPhase}</h1>
-                        <aura:if isTrue="{!v.loading}">
-                           <div class="exampleHolder">
-                               <lightning:spinner alternativeText="Loading" size="small" />
-                            </div>  
-                        	<aura:set attribute="else">
-                            	<img src="{!v.moonPicture}" alt="moon phase"></img> 
-                         	</aura:set>
-                        </aura:if>
+                    <div class="moonPhase slds-card__body slds-card__body_inner">
+                        <h6>{!v.moonPhase}</h6>
+                        <div class="exampleHolder">
+                            <aura:if isTrue="{!v.loading}">
+                                
+                                <lightning:spinner alternativeText="Loading" size="small" />
+                                
+                                <aura:set attribute="else">
+                                    <img src="{!v.moonPicture}" alt="moon phase"></img> 
+                                </aura:set>
+                            </aura:if>
+                        </div>
                     </div>
                 </div>
                                                                                                               

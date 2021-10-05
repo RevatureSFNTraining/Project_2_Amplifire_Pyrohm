@@ -1,3 +1,3 @@
 <aura:application extends="force:slds">
-    <c:NewReviewForm/>
+    <c:Main/>
 </aura:application>

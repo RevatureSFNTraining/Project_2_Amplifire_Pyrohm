@@ -16,7 +16,7 @@
 
 body {
 	min-height: 100vh;
-	background-color: var(--main-bg-color) !important;
+	background: linear-gradient(35deg, #15bdc5, #dba6ee); 
 	font-family: 'Charm', sans-serif;
 }
 
@@ -107,3 +107,35 @@ body {
 		border:2px solid linear-gradient(35deg, #15bdc5, #dba6ee);
 	}
   }
+                                                    
+lightning-card.THIS{
+    --sds-c-card-color-background: #aadae9d8;
+    --sds-c-card-color-border: #aadae9d8;
+    --sds-c-button-brand-color-background: purple;
+}
+                                                        
+                                                        
+h1 {
+font-size: xxx-large;
+}
+
+h2 {
+font-size: xx-large;
+}
+
+h3 {
+font-size: x-large;
+}
+
+h4 {
+font-size: large;
+}
+
+p {
+font-size: medium;
+}                                                        
+                                                        
+                                                         
+                                                            
+                                                            
+                                                       

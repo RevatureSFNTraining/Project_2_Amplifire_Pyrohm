@@ -1,7 +1,16 @@
 .THIS {
 }
 
-.THIS#welcomeHeader {
+.THIS .exampleHolder {
+    width: 100px;
+    height: 100px;
+}
+
+.THIS .moonPhase {
+    height: 200px;
+}
+
+.THIS #welcomeHeader {
     margin: 0 auto 3rem auto;
     font-size: 2rem;
     color: var(--blurple);
@@ -67,10 +76,7 @@
     font-family: charm, sans-serif !important;
 }
                                                         
-.THIS.exampleHolder {
-	 height: 200px;
-     width: 200px;
-}
+
 
 @media all and (min-width: 1200px) {
     .THIS.container {

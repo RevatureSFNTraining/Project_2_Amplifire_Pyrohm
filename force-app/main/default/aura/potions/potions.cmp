@@ -31,10 +31,6 @@
     <div class="mainDiv">
         
         <!-- HEADER -->
-        <div class="header-footer slds-p-vertical_small">
-            <h2 >HEADER</h2>   
-        </div>  
-        <!-- HEADER -->
         
         <!-- SUCCESS MODAL -->
         <aura:if isTrue="{!v.ifSuccess}">  
@@ -97,59 +93,54 @@
                     
                 </div>
             </div>
-            </div>
-            <!-- ALL CARDS IN HERE-->
-            
-            
-            <!-- MODAL FOR CREATING AN ORDER -->  
-            <div class="{! v.single ? '' : 'slds-hide'}">
-                <div class="slds-grid" style="display: flex;justify-content: center">
-                    <div class="slds-p-around_large slds-m-around_large slds-col slds-size_6-of-12" >
-                        <c:order one="{!v.single}" />
-                    </div>
-                </div>
-            </div>       
-            <!-- MODAL FOR CREATING AN ORDER -->  
-            
-            <!-- Aura if for showing / hiding cards -->     
-            <aura:if isTrue="{!v.potion}">
-                
-                <!-- card Detail -->
-                <!--  <lightning:card title="{!v.potion.Name}" iconName="utility:recipe" footer="Kraken potions inc">  -->
-                <div id="detail-card" class="slds-card slds-m-around_large slds-p-around_large  " style="width:60%;max-height:70%">
-                    
-                    <h1 class="slds-p-vertical_medium" id="title">{!v.potion.Name}</h1>        
-                    <h1 style="font-size: 1.2rem">Type: <b> {!v.potion.Type_of_Potion__c} </b></h1>              
-                    <h1 style="font-size: 1.2rem">Ingredients:</h1>
-                    
-                    <div class="slds-box slds-box_x-small slds-m-around_x-small">
-                        <h1 style="font-size: 1rem"> Base: <b>{!v.potion.Base_Ingredient__r.Name}</b></h1>
-                        <h1 style="font-size: 1rem">Price: <lightning:formattedNumber value="{!v.potion.Base_Ingredient__r.Ingredient_Price__c}" style="currency"/></h1>
-                        <br/>
-                        <div class="{!v.potion.Secondary_Ingredient__r ? '' : 'slds-hide'}">
-                            <h1 style="font-size: 1rem"> Secondary: <b>{!v.potion.Secondary_Ingredient__r.Name}</b> </h1>
-                            <h1 style="font-size: 1rem">Price: <lightning:formattedNumber value="{!v.potion.Secondary_Ingredient__r.Ingredient_Price__c}" style="currency"/></h1>
-                        </div>
-                    </div>
-                    
-                    <div>                  
-                        <img style="width: 300px; height: 337px; object-fit: cover;" src="{!v.potion.Potion_URL__c ? v.potion.Potion_URL__c : $Resource.nopic}" />
-                    </div>
-                    
-                    <br/>
-                    <h1 style="font-size: 1rem">Potion Price: <b><lightning:formattedNumber value="{!v.potion.Total_Price__c}" style="currency"/></b></h1>
-                    
-                    <lightning:button variant="brand-outline" label="Back" title="Click Me see all Cards" onclick="{!c.handleClose}" class="slds-m-top_large" />
-                    
-                    
-                </div>
-                
-            </aura:if>
-            
-            <!-- FOOTER -->
-            <div class="slds-docked-form-footer header-footer slds-p-vertical_small">
-                <h2 >Potions Co. 2021 </h2>
-            </div>
         </div>
+        <!-- ALL CARDS IN HERE-->
+        
+        
+        <!-- MODAL FOR CREATING AN ORDER -->  
+        <div class="{! v.single ? '' : 'slds-hide'}">
+            <div class="slds-grid" style="display: flex;justify-content: center">
+                <div class="slds-p-around_large slds-m-around_large slds-col slds-size_6-of-12" >
+                    <c:order one="{!v.single}" />
+                </div>
+            </div>
+        </div>       
+        <!-- MODAL FOR CREATING AN ORDER -->  
+        
+        <!-- Aura if for showing / hiding cards -->     
+        <aura:if isTrue="{!v.potion}">
+            
+            <!-- card Detail -->
+            <!--  <lightning:card title="{!v.potion.Name}" iconName="utility:recipe" footer="Kraken potions inc">  -->
+            <div id="detail-card" class="slds-card slds-m-around_large slds-p-around_large  " style="width:60%;max-height:70%">
+                
+                <h1 class="slds-p-vertical_medium" id="title">{!v.potion.Name}</h1>        
+                <h1 style="font-size: 1.2rem">Type: <b> {!v.potion.Type_of_Potion__c} </b></h1>              
+                <h1 style="font-size: 1.2rem">Ingredients:</h1>
+                
+                <div class="slds-box slds-box_x-small slds-m-around_x-small">
+                    <h1 style="font-size: 1rem"> Base: <b>{!v.potion.Base_Ingredient__r.Name}</b></h1>
+                    <h1 style="font-size: 1rem">Price: <lightning:formattedNumber value="{!v.potion.Base_Ingredient__r.Ingredient_Price__c}" style="currency"/></h1>
+                    <br/>
+                    <div class="{!v.potion.Secondary_Ingredient__r ? '' : 'slds-hide'}">
+                        <h1 style="font-size: 1rem"> Secondary: <b>{!v.potion.Secondary_Ingredient__r.Name}</b> </h1>
+                        <h1 style="font-size: 1rem">Price: <lightning:formattedNumber value="{!v.potion.Secondary_Ingredient__r.Ingredient_Price__c}" style="currency"/></h1>
+                    </div>
+                </div>
+                
+                <div>                  
+                    <img style="width: 300px; height: 337px; object-fit: cover;" src="{!v.potion.Potion_URL__c ? v.potion.Potion_URL__c : $Resource.nopic}" />
+                </div>
+                
+                <br/>
+                <h1 style="font-size: 1rem">Potion Price: <b><lightning:formattedNumber value="{!v.potion.Total_Price__c}" style="currency"/></b></h1>
+                
+                <lightning:button variant="brand-outline" label="Back" title="Click Me see all Cards" onclick="{!c.handleClose}" class="slds-m-top_large" />
+                
+            </div>
+            
+        </aura:if>
+        
+    </div>
     
 </aura:component>
