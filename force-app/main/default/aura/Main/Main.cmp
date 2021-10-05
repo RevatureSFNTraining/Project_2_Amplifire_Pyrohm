@@ -22,7 +22,7 @@
     <aura:if isTrue="{!v.pageToShow == 'Zabian'}">
         <!-- go to zabian's page -->
     </aura:if>
-    
+    <br/><br/>
     <!-- FOOTER -->
     <div style="background-color: rgba(78, 4, 252, 0.8);color:white;" class="slds-docked-form-footer header-footer slds-p-vertical_small">
         <h2 >Potions Co. 2021 </h2>

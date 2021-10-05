@@ -14,6 +14,7 @@
         <p class="slds-p-horizontal_small">
             <h3><lightning:formattedNumber value="{!v.ing.Ingredient_Price__c}" style="currency"/></h3>
             <h3>{!v.ing.Type_of_Ingredient__c}</h3>
+            <h3>{!v.ing.Available_Potion__c}</h3>
         </p>
         
         <div class="slds-align_absolute-center">

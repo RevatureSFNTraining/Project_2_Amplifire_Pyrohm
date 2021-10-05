@@ -113,7 +113,28 @@ lightning-card.THIS{
     --sds-c-card-color-border: #aadae9d8;
     --sds-c-button-brand-color-background: purple;
 }
+                                                        
+                                                        
+h1 {
+font-size: xxx-large;
+}
 
+h2 {
+font-size: xx-large;
+}
+
+h3 {
+font-size: x-large;
+}
+
+h4 {
+font-size: large;
+}
+
+p {
+font-size: medium;
+}                                                        
+                                                        
                                                          
                                                             
                                                             

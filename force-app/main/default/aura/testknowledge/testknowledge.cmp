@@ -1,0 +1,47 @@
+<aura:component controller="testknowledgecontroller" implements="force:hasRecordId">
+    <aura:attribute name="knowledge" type="Knowledge__kav[]"/>
+    <aura:attribute name="Title" type="String" />
+    <aura:attribute name="Question" type="String" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <force:recordData aura:id="FAQCreator"
+                      fields="Title,UrlName,Question__c"
+                      targetFields="{!v.newQuestion}"
+                      targetError="{!v.newError}"
+                      />
+    
+    <aura:iteration items="{!v.knowledge}" var="FAQ">
+        <div class="slds-grid slds-box">
+            <lightning:card class="slds-col slds-box" title="Question:">
+                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Question__c}"/>           
+            </lightning:card>
+            <br/>
+            <lightning:card class="slds-col slds-box" title="Answer:">
+                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Answer__c}"/> 
+            </lightning:card>
+            
+        </div>
+    </aura:iteration>
+    
+    <center>
+        <lightning:layout class="slds-align_absolute-center">
+            <lightning:layoutItem padding="around-small" size="6">
+                <div aria-labelledby="newquestionform">
+                    <fieldset class="slds-box slds-theme_default slds-container_medium">
+                        <legend id="newquestionform" class="slds-text-heading_small slds-p-vertical_medium">
+                            Don't see your question? Ask a new one:
+                        </legend>
+                        <form class="slds-form_stacked">
+                            <lightning:input aura:id="QuestionField" label="Title:" value="{!v.newQuestion.Title}" required="true"/>
+                            <h1>Question:</h1>
+                            <lightning:inputRichText aura:id="QuestionField" value="{!v.newQuestion.Question__c}" required="true"/>
+                            <br/>
+                            
+                            <lightning:button label="Ask!" variant="brand" onclick="{!c.handleSave}" />
+                        </form>
+                    </fieldset>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </center>
+    
+</aura:component>
