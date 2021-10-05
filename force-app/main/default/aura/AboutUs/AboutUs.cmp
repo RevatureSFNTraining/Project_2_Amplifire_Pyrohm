@@ -1,0 +1,27 @@
+<aura:component controller="RevCon">
+    <aura:attribute name="reviewList" type="list" />
+    <aura:handler name="init" action="{!c.findReviews}" value="{!this}"/>
+    
+    <h1>From an Essence of Potential to Our Essential Potions</h1>
+    <h2>Our Wand-erful History</h2>
+    <br/>
+    <br/>
+    <p>Imagine: sitting alone in a bleak, gray room, staring out the dirty window at the droplets of rain as they seem to race each other, asking yourself "is this all the fun life has to offer? Where's the magic?"</p>
+    <br/>
+    <p>That's exactly what happened to our founder. After his time working in an NYC borough as a detective, he decided he still had one mystery left to solve: where to find magic. Though Mr. Peralta never found magic in the real world, but he did learn how to create it.</p>
+    <br/>
+    <p>There was a lot of trial and error, but he finally cracked the biggest case of his life: potions, and their proper ingredient ratio. He wanted to share this with the world-- he'd ACTUALLY created magic!</p>
+    <br/>
+    <p>Now, you've never met Jake. But let me tell you--when he sets his mind to something, there's no stopping him. He was laughed at, teased, and then, finally, believed.</p>
+    <br/>
+    <p>Welcome to Kraken Potion Brewing Company, where we can make your dreams come true (and also help you dream).</p>
+    
+    <div class="slds-grid slds-wrap">
+        <aura:iteration var="rev" items="{!v.reviewList}" >
+            <div class="slds-col slds-size_1-of-2 slds-p-around_small">
+        <c:ReviewCard rev="{!rev}"/>
+            </div> 
+        </aura:iteration>
+    </div>
+    
+</aura:component>
