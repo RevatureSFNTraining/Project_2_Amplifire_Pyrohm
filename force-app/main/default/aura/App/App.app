@@ -1,3 +1,4 @@
 <aura:application extends="force:slds">
-    <c:Main/>
+    <!-- <c:AboutUs/> -->
+	<c:IngPage/>
 </aura:application>

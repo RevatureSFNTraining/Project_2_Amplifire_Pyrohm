@@ -9,7 +9,7 @@
                 let rec = component.get("v.newReview");
                 let error = component.get("v.newReviewError");
                 if(error || (rec === null)) {
-                    console.log("Error");
+                    console.log(error);
                 } else {
                     console.log("sick");
                 }
@@ -21,6 +21,7 @@
         action.setCallback(this, function(response) {
             let state = response.getState();
             if(state === "SUCCESS") {
+                console.log(response.getReturnValue());
                 component.set("v.reviews", response.getReturnValue());
                 component.set("v.filterReviews", response.getReturnValue());
             } else {
