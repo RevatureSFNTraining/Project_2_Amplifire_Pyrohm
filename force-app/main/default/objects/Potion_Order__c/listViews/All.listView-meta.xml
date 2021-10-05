@@ -5,7 +5,7 @@
     <columns>Potion_Type__c</columns>
     <columns>Number_of_Potions__c</columns>
     <columns>Order_Price__c</columns>
-    <columns>Delivery_Truck_ID__c</columns>
+    <columns>CREATED_DATE</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

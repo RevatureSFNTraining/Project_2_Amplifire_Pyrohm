@@ -3,7 +3,9 @@
         //setting some random string so when first loading page to avoid out of potions picture to render
         // need to find out how to show loader first not an empty card
         
-        component.set("v.potions", "start");
+       // component.set("v.potions", "start");
+        component.set("v.myTest", 'test')
+       
         //TEST
         //
         console.log('teeeeeeest    ', component.get("v.myTest"));

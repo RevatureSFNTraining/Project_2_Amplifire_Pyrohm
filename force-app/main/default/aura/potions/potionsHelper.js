@@ -8,8 +8,12 @@
             if(state === "SUCCESS") {
                 console.log('Returning all the potions >>>>   ', response.getReturnValue());
                 component.set("v.potions", response.getReturnValue());
-                //getting all and store so i can get them later when filtering 
                 component.set("v.potions2", response.getReturnValue());
+                //getting all and store so i can get them later when filtering 
+                //TEST
+                //
+                 component.set("v.myTest", "");
+                
                 component.set("v.myTest", 'kor')
                 console.log('after   ', component.get("v.myTest"));
                 

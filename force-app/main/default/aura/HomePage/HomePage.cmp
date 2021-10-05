@@ -1,0 +1,84 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    <aura:attribute name="weather" type="String[]" />
+    <aura:attribute name="moonPhase" type="String" />
+    <aura:attribute name="moonPicture" type="String" />
+    <aura:attribute name="api" type="String" />
+    <aura:attribute name="loading" type="Boolean" default="true" />
+    
+
+    <ltng:require styles="{!$Resource.mainCSS}"/>
+    <h1 id="welcomeHeader">Welcome to Kraken Potion Brewing Company!</h1>
+    <div class="container">
+        <div id="googleMap" class="slds-grid slds-has-coordinates">
+            <div class="slds-map_container">
+                <div id="map" class="slds-map">
+                    <iframe style="filter: invert(90%)" id="GoogleMapID" title="Google Maps iframe" src="https://www.google.com/maps/embed/v1/place?key=INSERTKEYHERE&amp;q=6120+Franklin+Ave,+New+Orleans,+LA+70122"></iframe>
+                </div>
+            </div>
+            <div class="slds-coordinates">
+                <div class="slds-coordinates__header">
+                    <h2 id="KrakenPotions" class="slds-coordinates__title">Kraken Potions</h2>
+                </div>
+                <ul class="slds-coordinates__list">
+                    <li class="slds-coordinates__item">
+                        <span class="slds-assistive-text" aria-live="polite"></span>
+                        <button id="mapLiContent" class="slds-coordinates__item-action slds-button_reset slds-media" aria-pressed="false">
+                            <span class="slds-media__body">
+                                <span id="mapLinkText" class="slds-text-link">Come and see us!</span>
+                                <span>6120 Franklin Ave, New Orleans, LA 70122</span>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="cardContainer">
+            <article id="astroCard" class="slds-card">
+                <div class="slds-card__header">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 id="moonCardTitle" class="slds-card__header-title">
+                                Current Moon Phase
+                            </h2>
+                            
+                        </div>
+                    </header>
+                    <div class="slds-card__body slds-card__body_inner">
+                        <h1>{!v.moonPhase}</h1>
+                        <aura:if isTrue="{!v.loading}">
+                           <div class="exampleHolder">
+                               <lightning:spinner alternativeText="Loading" size="small" />
+                            </div>  
+                        	<aura:set attribute="else">
+                            	<img src="{!v.moonPicture}" alt="moon phase"></img> 
+                         	</aura:set>
+                        </aura:if>
+                    </div>
+                </div>
+                                                                                                              
+            </article>
+            <article id="weatherCard" class="slds-card">
+                <div class="slds-card__header">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 id="weatherCardTitle" class="slds-card__header-title">
+                                Current Weather
+                            </h2>
+                        </div>
+                    </header>
+                    <div class="slds-card__body slds-card__body_inner">
+                        <ul>
+                            <li>Weather: {!v.weather[0]}</li>
+                            <li>Precipitation (In.): {!v.weather[1]}</li>
+                            <li>Humidity: {!v.weather[2]}</li>
+                            <li>Cloud Index: {!v.weather[3]}</li>
+                            <li>UV Index: {!v.weather[4]}</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>    
+</aura:component>

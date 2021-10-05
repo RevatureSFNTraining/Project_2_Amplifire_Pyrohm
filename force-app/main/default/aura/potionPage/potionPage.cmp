@@ -1,0 +1,41 @@
+<aura:component controller="PotionController"  implements="force:appHostable" access="global" >
+    <aura:attribute name="potions" type="Potion__c[]"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:attribute name="showCard" type="boolean" default="false" />
+    <aura:attribute name="potion" type="Potion__c" />
+    
+    <aura:iteration items="{!v.potions}" var="potion">
+        
+        <div aura:id="card" id="{!potion.Id}">
+            
+            <lightning:card title="{!potion.Name}" footer="kraken potions inc">
+                
+                <h1>{!potion.Base_Ingredient__r.Name}</h1>
+                
+                <h1>{!potion.Type_of_Potion__c}</h1>
+                
+                <lightning:button variant="brand-outline" label="Info" title="Click Me for More Info" onclick="{!c.handleClick}" class="slds-m-left_x-small" />
+                
+            </lightning:card>
+            
+        </div>
+        
+    </aura:iteration>
+    
+    <aura:if isTrue="{!v.showCard}">
+		 <lightning:card title="{!v.potion.Name}" iconName="custom:Potion__C" footer="kraken potions inc">
+                
+             <h1>{!v.potion.Base_Ingredient__r.Name}</h1>
+             
+             <h1>{!v.potion.Type_of_Potion__c}</h1>
+             
+             <lightning:button variant="brand-outline" label="Close" title="Click Me see all Cards" onclick="{!c.handleClose}" class="slds-m-left_x-small" />
+             
+        </lightning:card>
+        
+       
+        <aura:set attribute="else">
+            <h1>Cards Will Appear Here</h1>
+        </aura:set>
+    </aura:if>    
+</aura:component>

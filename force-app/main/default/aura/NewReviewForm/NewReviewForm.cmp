@@ -1,0 +1,101 @@
+<!-- This Component Is used as the "main" component for this "page" of the SPA -->
+<!-- It's main functionality is to Display a form for creating a new Potion Review -->
+<aura:component controller="DisplayReviewsController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+    
+    <!-- Attribute Definitions -->
+    <!-- Attribute of type Object to use in the force:recordData for saving a newly created record on the form -->
+    <aura:attribute name="newReview" type="Object" />
+    <!-- Attribute of type String to store any error that is recieved when trying to use force:recordData -->
+    <aura:attribute name="newReviewError" type="String" />
+    <!-- Keep an updated list with all of the records of type Potion_Review__c, useful for updating the component that displays the Records -->
+    <aura:attribute name="reviews" type="Potion_Review__c" />
+    <aura:attribute name="filterReviews" type="Potion_Review__c" />
+    <!-- Attribute of type string to dynamically change the label for the section that shows the reviews -->
+    <aura:attribute name="filterReviewLabel" type="String" />
+    <!-- force:recordData to allow quickly saving a new record that is created in the form -->
+    <force:recordData aura:id="reviewRecordCreator"
+                      fields="Review_Message__c,Reviewer_Name__c,Review_Rating__c,Potion_Type__c"
+                      targetFields="{!v.newReview}"
+                      targetError="{!v.newReviewError}"
+                      />
+    
+    <!-- Handler Definitions -->
+    <!-- Handler for running the doInit function in the controller, automatically runs when the component is loaded -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- handler to recieve the send potion select event for the picklist in the form -->
+    <aura:handler name="sendPotionSelect" event="c:sendDataEvent" action="{!c.handleSendPotionSelect}"/>
+    <!-- handler to recieve the send potion select event for filtering by potion type -->
+    <aura:handler name="sendFilterPotion" event="c:sendDataEvent" action="{!c.handlesendFilterPotion}"/>
+    <!-- handler to recieve the send reviewer event for filtering by reviewer -->
+    <aura:handler name="sendFilterReviewer" event="c:sendDataEvent" action="{!c.handleSendReviewer}"/>
+    <!-- handler to recieve the send rating event for filtering by rating -->
+    <aura:handler name="sendFilterRating" event="c:sendDataEvent" action="{!c.handleSendRating}"/>
+    <!-- Setup for displaying the form to create a new review -->
+    <center>
+        <lightning:layout class="slds-align_absolute-center">
+            <lightning:layoutItem padding="around-small" size="6">
+                <div aria-labelledby="newexpenseform">
+                    <fieldset class="slds-box slds-theme_default slds-container_medium">
+                        <legend id="newexpenseform" class="slds-text-heading_small slds-p-vertical_medium">
+                            Create a New Review!
+                        </legend>
+                        <!-- The actual form for creating a new review -->
+                        <form class="slds-form_stacked">
+                            <!-- Input Sections For Form -->
+                            <!-- Simple lightning input for writing out the description part of the review -->
+                            <lightning:input aura:id="ReviewField" label="Review Description" value="{!v.newReview.Review_Message__c}" required="true"/>
+                            <!-- Simple lightning input for writing out the reviewer's name -->
+                            <lightning:input aura:id="ReviewField" label="Reviewer Name" value="{!v.newReview.Reviewer_Name__c}" required="true"/>
+                            <!-- A lightning slider component for choosing the rating of the potion for the review -->
+                            <lightning:slider label="Rating" value="{!v.newReview.Review_Rating__c}" max="5" size="medium" required="true"/>
+                            <!-- a component that creates a picklist for the potion that is being reviewed; sends an event whenever a selection is made -->
+                            <c:GetPotionIds eventSelector="true" />
+                            <br/>
+                            <!-- Button to submit the review and save the record to the org -->
+                            <lightning:button label="Save Review" variant="brand" onclick="{!c.handleSaveReview}" />
+                        </form>
+                    </fieldset>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </center>
+    
+    <br/>
+    
+    <!-- This section displays the reviews that are in the org -->
+    <lightning:card class="slds-box slds-theme_default slds-container_small slds-align_absolute-center">
+        <p class="slds-text-heading_large">{!v.filterReviewLabel}</p>
+    </lightning:card>
+    <!-- Creates a scrollable div to house the displayed reviews -->
+    <div class="scrollable slds-box slds-theme_default">
+        <!-- iterates through the list of reviews stored in the reviews attribute on this component -->
+        <aura:iteration items="{!v.reviews}" var="review">
+            <!-- a component that displays an individual review -->
+            <c:DisplayReview review="{!review}" />
+        </aura:iteration>
+    </div>
+    <!-- Filter Section -->
+    <lightning:card>
+        <p class="slds-text-heading_medium">Filter By:</p>
+        <!-- Contains 3 components for each filter picklist -->
+        <div class="slds-grid">
+            <div class="slds-col">
+                <!-- a component to select a potion type to filter by -->
+                <c:GetPotionIds eventSelector="false" />
+            </div>
+            <div class="slds-col">
+                <!-- a component to select a reviewer to filter by -->
+                <c:filterByReviewer reviews="{!v.filterReviews}"/>
+                <br/>
+                <center>
+                    <!-- a button to reset the filtering to none -->
+                    <lightning:button label="Clear Filter " variant="brand-outline" onclick="{!c.resetFilter}" />
+                </center>
+            </div>
+            <div class="slds-col">
+                <!-- a component to select a rating to filter by -->
+                <c:filterByRating/>
+            </div>
+        </div>    
+    </lightning:card>
+</aura:component>
