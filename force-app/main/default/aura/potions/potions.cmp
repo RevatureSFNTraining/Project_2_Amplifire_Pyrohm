@@ -1,0 +1,146 @@
+<aura:component controller="PotionCatalogueController" implements="forceCommunity:availableForAllPageTypes,force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    
+    <!-- getting All potions, and all PickList Values for the filter -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- populate all of the potions on oninit -->
+    <aura:attribute name="potions" type="Potion__c[]"/>
+    <aura:attribute name="potions2" type="Potion__c[]"/>
+    
+    <!-- getting a single potion if add to cart clicked -->
+    <aura:attribute name="single" type="Potion__c"/>
+    
+    <!-- for filtering -->
+    <aura:attribute name="options" type="String[]" />
+    
+    <!-- boolean for the success modal -->
+    <aura:attribute name="ifSuccess" type="boolean" default="false" />
+    
+    <!-- events for order and singlePotion -->
+    <aura:handler name="regAdd" event="c:addToCartEvent" action="{! c.handleSingleRecord}" />
+    <aura:handler name="createOrder" event="c:orderEvent" action="{!c.handleOrder}" />
+    
+    <!-- TEST -->
+    <aura:attribute name="myTest" type="string" default="empty" />
+    
+    <!-- Johns Setup -->
+    <!-- Attribute similar if not the same as you single attribute -->  
+    <aura:attribute name="potion" type="Potion__c" />
+    <!-- / Johns Setup -->
+    
+    <div class="mainDiv">
+        
+        <!-- HEADER -->
+        
+        <!-- SUCCESS MODAL -->
+        <aura:if isTrue="{!v.ifSuccess}">  
+            <div class="success">
+                <p>SUCCESS!</p>
+                <p>Your order has been placed!</p>
+            </div>
+        </aura:if>
+        <!-- SUCCESS MODAL -->
+        
+        
+        <!-- FILTER -->
+        <div class="slds-select_container slds-m-around_large">
+            <lightning:select aura:id="selectOne" label="" onchange="{!c.selectedType}" >
+                <aura:iteration items="{!v.options}" var="opt" >
+                    <option value="{!opt}" style="color:black;" text="{!opt}"></option>
+                </aura:iteration>
+            </lightning:select> 
+        </div>
+        <!-- FILTER -->
+        
+        <div id="loader" class="{!v.myTest == 'test' ? '' : 'slds-hide'}"></div>
+        
+        <!-- ALL CARDS IN HERE IF ANY -->
+        <div class="{!v.single ? 'slds-hide' : ''}">
+            <div class="{!v.myTest == 'test' ? 'slds-hide' : ''}">
+                <div class="{!v.potion ? 'slds-hide' : ''}">
+                    
+                    <div class="slds-grid slds-gutters slds-wrap slds-m-horizontal_small slds-align_absolute-center">
+                        <aura:if isTrue="{!not(empty(v.potions))}">
+                            <!-- Iterating through the all of the potions, here's going to put a single potion component--> 
+                            <aura:iteration items="{!v.potions}" var="potion" >
+                                
+                                <!-- Added aura:id to be able to target this class for showing and hiding  -->
+                                <div aura:id="card" class="slds-col slds-m-bottom_medium slds-m-top_medium slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3">     
+                                    <c:singlePotion potion="{!potion}"/>
+                                </div>
+                                
+                            </aura:iteration>    
+                            
+                            <aura:set attribute="else">
+                                
+                                <div class="slds-col slds-m-around_xx-large slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_2-of-3 slds-align_absolute-center"> 
+                                    
+                                    <lightning:card >
+                                        <h2 class="slds-text-align_center slds-text-heading_medium" >Sorry</h2>
+                                        <div style="max-width:400px">
+                                            <img src="{!$Resource.po404}"/>
+                                        </div>
+                                        <div class="slds-text-longform">
+                                            <h3 class="slds-text-heading_medium slds-align_absolute-center slds-p-top_medium">OUT OF POTIONS</h3><br/>
+                                            <p class="slds-text-body_regular slds-align_absolute-center">Please check again later.</p>
+                                        </div>
+                                    </lightning:card>
+                                </div>
+                                
+                            </aura:set> 
+                        </aura:if>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- ALL CARDS IN HERE-->
+        
+        
+        <!-- MODAL FOR CREATING AN ORDER -->  
+        <div class="{! v.single ? '' : 'slds-hide'}">
+            <div class="slds-grid" style="display: flex;justify-content: center">
+                <div class="slds-p-around_large slds-m-around_large slds-col slds-size_6-of-12" >
+                    <c:order one="{!v.single}" />
+                </div>
+            </div>
+        </div>       
+        <!-- MODAL FOR CREATING AN ORDER -->  
+        
+        <!-- Aura if for showing / hiding cards -->     
+        <aura:if isTrue="{!v.potion}">
+            
+            <!-- card Detail -->
+            <!--  <lightning:card title="{!v.potion.Name}" iconName="utility:recipe" footer="Kraken potions inc">  -->
+            <div id="detail-card" class="slds-card slds-m-around_large slds-p-around_large  " style="width:60%;max-height:70%">
+                
+                <h1 class="slds-p-vertical_medium" id="title">{!v.potion.Name}</h1>        
+                <h1 style="font-size: 1.2rem">Type: <b> {!v.potion.Type_of_Potion__c} </b></h1>              
+                <h1 style="font-size: 1.2rem">Ingredients:</h1>
+                
+                <div class="slds-box slds-box_x-small slds-m-around_x-small">
+                    <h1 style="font-size: 1rem"> Base: <b>{!v.potion.Base_Ingredient__r.Name}</b></h1>
+                    <h1 style="font-size: 1rem">Price: <lightning:formattedNumber value="{!v.potion.Base_Ingredient__r.Ingredient_Price__c}" style="currency"/></h1>
+                    <br/>
+                    <div class="{!v.potion.Secondary_Ingredient__r ? '' : 'slds-hide'}">
+                        <h1 style="font-size: 1rem"> Secondary: <b>{!v.potion.Secondary_Ingredient__r.Name}</b> </h1>
+                        <h1 style="font-size: 1rem">Price: <lightning:formattedNumber value="{!v.potion.Secondary_Ingredient__r.Ingredient_Price__c}" style="currency"/></h1>
+                    </div>
+                </div>
+                
+                <div>                  
+                    <img style="width: 300px; height: 337px; object-fit: cover;" src="{!v.potion.Potion_URL__c ? v.potion.Potion_URL__c : $Resource.nopic}" />
+                </div>
+                
+                <br/>
+                <h1 style="font-size: 1rem">Potion Price: <b><lightning:formattedNumber value="{!v.potion.Total_Price__c}" style="currency"/></b></h1>
+                
+                <lightning:button variant="brand-outline" label="Back" title="Click Me see all Cards" onclick="{!c.handleClose}" class="slds-m-top_large" />
+                
+            </div>
+            
+        </aura:if>
+        
+    </div>
+    
+</aura:component>

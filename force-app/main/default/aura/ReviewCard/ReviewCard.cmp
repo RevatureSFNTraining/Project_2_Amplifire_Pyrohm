@@ -1,0 +1,21 @@
+<aura:component >
+    
+    <aura:attribute name="rev" 
+                    type="Potion_Review__C" />
+    <lightning:card>
+        <aura:set attribute="title">
+            <lightning:icon iconName="utility:recipe" 
+                            size="small"/>
+            {!v.rev.Reviewer_Name__c} Says:
+        </aura:set>
+        
+        <p class="slds-p-horizontal_small">
+            <h3>{!v.rev.Review_Message__c}</h3>
+            <!-- <h3>{!v.rev.Phone}</h3> -->
+        </p>
+           
+        <aura:set attribute="footer">
+        </aura:set>
+        
+    </lightning:card>
+</aura:component>

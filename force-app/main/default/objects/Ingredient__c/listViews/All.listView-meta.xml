@@ -5,6 +5,7 @@
     <columns>Type_of_Ingredient__c</columns>
     <columns>Available_Potion__c</columns>
     <columns>Ingredient_Price__c</columns>
+    <columns>CREATED_DATE</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

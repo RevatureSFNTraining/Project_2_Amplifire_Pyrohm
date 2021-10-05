@@ -1,0 +1,28 @@
+<aura:component  controller="PotionController"  access="global">
+    
+    <aura:attribute name="potion" type="Potion__c" />   
+    <aura:registerEvent name="regAdd" type="c:addToCartEvent"/>
+     
+    <lightning:card title="{!v.potion.Name}" iconName="utility:recipe"  >
+        
+        
+        <div class="slds-border_top">
+            <p class="slds-p-horizontal_small"> Base Ingredient: {!v.potion.Base_Ingredient__r.Name}</p>
+        </div>
+        
+        <p class="slds-p-horizontal_small"> Type of Potion : {!v.potion.Type_of_Potion__c}</p>
+        <p class="slds-p-horizontal_small">Total Price: 
+            <lightning:formattedNumber value="{!v.potion.Total_Price__c}" style="currency"/> 
+        </p>
+        
+        <!-- trying to do something -->
+        <div style="background-color:white;padding-top:0.5rem;padding-left:0.5rem">
+            <!-- Added on click that triggers an event to show / hide cards -->
+            <lightning:button label="Details" name="detail" class="slds-button slds-button_outline-brand" onclick="{!c.handleClick}"/>
+            <lightning:button label="Add to Cart" name="cart" class="slds-button slds-button_outline-brand" onclick="{!c.handleClick}"/>
+        </div>
+        
+    </lightning:card>
+        
+     
+</aura:component>

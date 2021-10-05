@@ -1,0 +1,53 @@
+<aura:component >
+    <aura:attribute name="title" type="String" default="Home" />
+    
+    <aura:registerEvent name="switchHeader" type="c:changePage" />
+    
+    <div class="header" id="header">
+        <span class="slds-page-header__title slds-truncate" id="headerTitle" title="{!v.title}">{!v.title}</span>
+        
+        <!-- star animations -->
+        <div class="star-1 stars"></div>
+        <div class="star-2 stars"></div>
+        <div class="star-3 stars"></div>
+        <div class="star-4 stars"></div>
+        <div class="star-5 stars"></div>
+        
+        <div id="navMenu" style="display:flex; justify-content:flex-end">
+            <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
+                <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
+                    Menu
+                    <span class="slds-assistive-text">Show More</span>
+                </button>
+                <div class="slds-dropdown slds-dropdown_right">
+                    <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
+                        <li class="slds-dropdown__item" role="presentation">
+                            <lightning:button variant="base" label="Home" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Home</lightning:button>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <lightning:button variant="base" label="Review" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Review</lightning:button>
+                            
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <lightning:button variant="base" label="Potions" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Potions</lightning:button>
+                            
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <lightning:button variant="base" label="Ingredient" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Ingredient</lightning:button>
+                            
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <lightning:button variant="base" label="AboutUs" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">About Us</lightning:button>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                        	<lightning:button variant="base" label="FAQ" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">FAQ</lightning:button>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <lightning:button variant="base" label="Account" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Account</lightning:button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

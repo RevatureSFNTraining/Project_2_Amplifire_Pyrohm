@@ -1,0 +1,18 @@
+<!-- Component to display a picklist that allows you to filter by potion rating -->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <!-- Attribute Definitions -->
+    <!-- Attribute to store the rating getting sent back to the parent when the event is fired -->
+    <aura:attribute name="filterRating" type="Integer"/>
+    <aura:attribute name="ratings" type="Integer[]" default="[0,1,2,3,4,5]"/>
+    <!-- Event Registrations -->
+    <!-- Event to send the selected rating value to the parent component -->
+    <aura:registerEvent name="sendFilterRating" type="c.sendDataEvent" />
+    <!-- A picklist that displays the rating values for filtering -->
+    <lightning:select name="ratingsList" aura:id="picklist" label="Rating" value="{!v.filterRating}" onchange="{!c.sendRating}">
+        <option value="">choose one...</option>
+        <!-- Iterates through the array of numbers and makes the value of each rating an option in the picklist -->
+        <aura:iteration items="{!v.ratings}" var="rating">
+            <option value="{!rating}">{!rating}</option>
+        </aura:iteration>
+    </lightning:select>
+</aura:component>
