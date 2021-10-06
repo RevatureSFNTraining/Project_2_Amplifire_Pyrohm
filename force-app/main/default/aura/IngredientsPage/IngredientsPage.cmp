@@ -1,12 +1,29 @@
-<aura:component >
+<aura:component controller="relatedPotionsController">
     <ltng:require styles="{!$Resource.mainCSS}"/>
     <aura:attribute name="ing" type="Ingredient__c" />
     <aura:attribute name="relatedPotions" type="Potion__c[]" />
+    <aura:registerEvent name="IngEvent" type="c:IngPageEvent" />
+    <lightning:button label="Back" variant="brand" onclick="{!c.back}"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+
     <lightning:card variant="Narrow" title="{!v.ing.Name}" iconName="standard:account">
         <p class="slds-p-horizontal_small">
-            {!v.ing.Ingredient_Price__c}
+            <h3><lightning:formattedNumber value="{!v.ing.Ingredient_Price__c}" style="currency" /></h3>
+            <h3>{!v.ing.Type_of_Ingredient__c}</h3>
+            <h3>{!v.ing.Available_Potion__c}</h3>
         </p>
     </lightning:card>
     
-    
+    <lightning:card variant="basic" title="You may also enjoy..."></lightning:card>
+
+    <aura:iteration var="relatedRecord" items="{!v.relatedRecords}">
+        <div class="slds-col slds-size_1-of-3 slds-var-p-around_large">
+        <lightning:card variant="Narrow" title="{!relatedRecord.Name}" 
+                            iconName="standard:account">
+                            <div class="slds-align_absolute-center">
+                                <lightning:button name="{!relatedRecord.Id}" label="View Potion" variant="brand" onclick="{!c.cardEventClick}"/>
+                            </div>
+         </lightning:card>
+        </div> 
+    </aura:iteration>
 </aura:component>

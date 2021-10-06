@@ -14,6 +14,7 @@
         <div class="star-5 stars"></div>
         
         <div id="navMenu" style="display:flex; justify-content:flex-end">
+            <lightning:button class="slds-button slds-button_neutral"  label="Logout" onclick="{!c.logoutButton}" />
             <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
                 <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
                     Menu

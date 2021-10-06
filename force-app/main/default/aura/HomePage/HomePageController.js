@@ -45,5 +45,28 @@
  		fetch('')                                                                                                                                                              
         // weather fetch                                                                                                                                                     
         fetch('http://api.weatherapi.com/v1/current.json?key=f90129e267b94b479df182646211409&q=70122&aqi=no').then(response => response.json()).then(data => { console.log(data), component.set("v.weather", [data.current.condition.text, data.current.precip_in, data.current.humidity, data.current.cloud, data.current.uv]) }).catch(error => { throw(error) } );                                                                                                                                                                                                                                                                                                              
+	
+          let action = component.get("c.getTopSeller");
+         
+                                       
+          action.setCallback(this, function(response) {
+          let state = response.getState();
+          console.log(response.getReturnValue());
+          state === "SUCCESS" ? component.set('v.reviews', response.getReturnValue()) : console.log("didn't work")
+        })
+        
+    	$A.enqueueAction(action);
+	},
+    handleClick : function(component, event, helper) {
+       
+        let button = event.getSource().get("v.label");
+        console.log(button);
+        component.set("v.title", button);
+		let evt = component.getEvent("switchHeader");
+        evt.setParams({
+            "page": button,
+        });
+		console.log(evt.getParam("page"));        
+        evt.fire();
 	}
 })

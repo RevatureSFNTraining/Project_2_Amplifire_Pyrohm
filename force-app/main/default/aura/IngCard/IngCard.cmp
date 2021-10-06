@@ -22,6 +22,10 @@
         <lightning:button label="Set Secondary Ingredient" variant="brand" onclick="{!c.cardEventA2}"/>
         </div>
         
+        <div class="slds-align_absolute-center">
+        <lightning:button label="Go to ingredent page" variant="brand" onclick="{!c.cardEventClick}"/>
+        </div>
+        
         
         
         <aura:set attribute="footer">

@@ -6,34 +6,34 @@
     <div class="mainDiv"> 
         <c:header/> 
         <div id="main" >
-        <aura:if isTrue="{!v.pageToShow == 'Home'}">
-            <c:HomePage/>
-        </aura:if>
-        <aura:if isTrue="{!v.pageToShow == 'Review'}">
-            <c:NewReviewForm/>
-        </aura:if>
-        <aura:if isTrue="{!v.pageToShow == 'Potions'}">
-            <c:potions/>
-        </aura:if>
-        <aura:if isTrue="{!v.pageToShow == 'Ingredient'}">
-            <c:IngPage/>
-        </aura:if>
-        <aura:if isTrue="{!v.pageToShow == 'AboutUs'}">
-            <c:AboutUs/>
-        </aura:if>
-        <aura:if isTrue="{!v.pageToShow == 'Zabian'}">
-            <!-- go to zabian's page -->
-        </aura:if>
-        <aura:if isTrue="{!v.pageToShow == 'FAQ'}">
-            <c:testknowledge/>
-        </aura:if>
-      	</div>
+            <aura:if isTrue="{!v.pageToShow == 'Home'}">
+                <c:HomePage/>
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'Review'}">
+                <c:NewReviewForm/>
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'Potions'}">
+                <c:potions/>
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'Ingredient'}">
+                <c:IngPage/>
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'AboutUs'}">
+                <c:AboutUs/>
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'Account'}">
+                <c:accountsPage />
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'FAQ'}">
+                <c:testknowledge/>
+            </aura:if>
+        </div>
         
-        <!-- FOOTER -->
-    <div id="footer" style="background-color: rgba(78, 4, 252, 0.8);color:white;" >
-        <h2 >Potions Co. 2021 </h2>
-    </div>
-    <!--FOOTER -->
+        <!-- FOOTER  class="slds-docked-form-footer"  -->
+        <div id="footer" style="background-color: rgba(78, 4, 252, 0.8);color:white;" >
+            <h3 style="text-align:center;padding-top:6px" >Potions Co. 2021 </h3>
+        </div>
+        <!--FOOTER -->
     </div>
     
 </aura:component>

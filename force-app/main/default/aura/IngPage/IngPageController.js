@@ -1,7 +1,7 @@
 ({
 	  findIngredient : function(component, event, helper) {
        
-        var action=component.get('c.grabAccount');
+        var action = component.get('c.grabIng');
 
         action.setParams({
             search : component.get("v.search"),
@@ -25,6 +25,17 @@
             cmp.set("v.a1", ing);
         }else if (event.getParam("type") == "A2") {
             cmp.set("v.a2", ing);
+        } else if (event.getParam("type") == "E") {
+            cmp.set("v.ingSet", ing);
+            //cmp.set("v.a2", ing);
+            cmp.set("v.ifIngPage", "false");
+        }
+    },
+    
+    handleIngEvent : function(cmp, event){
+        
+        if(event.getParam("type") == "P"){
+            cmp.set("v.ifIngPage", "true");
         }
     },
     

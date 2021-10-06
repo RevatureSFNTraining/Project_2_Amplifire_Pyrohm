@@ -1,12 +1,16 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="homeControllerNew">
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    <aura:attribute name="reviews" type="Potion_Review__c[]" />
     
     <aura:attribute name="weather" type="String[]" />
     <aura:attribute name="moonPhase" type="String" />
     <aura:attribute name="moonPicture" type="String" />
     <aura:attribute name="api" type="String" />
     <aura:attribute name="loading" type="Boolean" default="true" />
-    
+    <aura:attribute name="potionUrl" type="String" default="https://kraken-potion-developer-edition.na163.force.com/login" />
+   
+    <aura:registerEvent name="switchHeader" type="c:changePage" />
 
     <!--<ltng:require styles="{!$Resource.mainCSS}"/>-->
     <h1 class="welcomeHeader">Welcome to Kraken Potion Brewing Company!</h1>
@@ -82,5 +86,32 @@
                 </div>
             </article>
         </div>
-    </div>    
+    </div>  
+    
+    <lightning:carousel disableAutoRefresh="false" disableAutoScroll="false">
+        <lightning:carouselImage
+            src = "/docs/component-library/app/images/examples/carousel-01.png"
+            header = "{!v.reviews[0].Reviewer_Name__c}"
+            description = "{!v.reviews[0].Potion_Type__r.Name}"
+            alternativeText = "First card accessible description."
+            label="Potions"
+            onclick="{!c.handleClick}">
+        </lightning:carouselImage>
+        <lightning:carouselImage
+            src = "/docs/component-library/app/images/examples/carousel-02.png"
+            header = "{!v.reviews[1].Reviewer_Name__c}"
+            description = "{!v.reviews[1].Potion_Type__r.Name}"
+            alternativeText = "Second card accessible description."
+            label="Potions"
+            onclick="{!c.handleClick}" >
+        </lightning:carouselImage>
+        <lightning:carouselImage
+            src = "/docs/component-library/app/images/examples/carousel-03.png"
+            header = "{!v.reviews[2].Reviewer_Name__c}"
+            description = "{!v.reviews[2].Potion_Type__r.Name}"
+            alternativeText = "Third card accessible description."
+            label="Potions"
+            onclick="{!c.handleClick}" >
+        </lightning:carouselImage>
+    </lightning:carousel>
 </aura:component>
