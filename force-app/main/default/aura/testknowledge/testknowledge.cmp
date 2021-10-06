@@ -10,29 +10,23 @@
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
     
     <!-- Input field and button for the search bar -->
-    <div class="slds-grid slds-container--small slds-box">
+    <div class="slds-container--large slds-grid slds-grid_vertical-align-end">
+            <lightning:input class="slds-col" aura:id="QuestionField" value="{!v.Question}"/>
         <div class="slds-col">
-            <lightning:input aura:id="QuestionField" value="{!v.Question}"/> 
-        </div>
-        <div class="slds-col">
-            <br/>
-        </div>
-        <div class="slds-col">
-            <lightning:button label="Search" variant="brand" onclick="{!c.handleSave}" />
-        </div>
+            <lightning:button label="Search" onclick="{!c.handleSave}" />
+            </div>
     </div>
     
     
     <!-- Display all of the questions and answers in the org that are verified -->
     <aura:iteration items="{!v.knowledge}" var="FAQ">
         <div class="slds-grid slds-box">
-            <lightning:card class="slds-col slds-box" title="Question:">
-                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Question__c}"/>           
-            </lightning:card>
-            <br/>
-            <lightning:card class="slds-col slds-box" title="Answer:">
-                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Answer__c}"/> 
-            </lightning:card>
+            <div class="slds-col slds-box slds-size_1-of-2">
+                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Question__c}"/>
+            </div>
+            <div class="slds-col slds-box slds-size_1-of-2">
+                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Answer__c}"/>
+            </div>
         </div>
     </aura:iteration>
     

@@ -3,8 +3,9 @@
     <aura:attribute name="pageToShow" type="String" default="Home"/>
     <aura:handler name="switchHeader" event="c:changePage" action="{!c.handleChangePage}"/>
     
-    <div class="mainDiv">
-        <c:header/>
+    <div class="mainDiv"> 
+        <c:header/> 
+        <div id="main" >
         <aura:if isTrue="{!v.pageToShow == 'Home'}">
             <c:HomePage/>
         </aura:if>
@@ -26,10 +27,13 @@
         <aura:if isTrue="{!v.pageToShow == 'FAQ'}">
             <c:testknowledge/>
         </aura:if>
-    </div>
-    <!-- FOOTER -->
-    <div style="background-color: rgba(78, 4, 252, 0.8);color:white;" class="slds-docked-form-footer header-footer slds-p-vertical_small">
+      	</div>
+        
+        <!-- FOOTER -->
+    <div id="footer" style="background-color: rgba(78, 4, 252, 0.8);color:white;" >
         <h2 >Potions Co. 2021 </h2>
     </div>
     <!--FOOTER -->
+    </div>
+    
 </aura:component>

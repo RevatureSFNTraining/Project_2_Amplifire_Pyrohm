@@ -8,8 +8,8 @@
     <aura:attribute name="loading" type="Boolean" default="true" />
     
 
-    <ltng:require styles="{!$Resource.mainCSS}"/>
-    <h1 id="welcomeHeader">Welcome to Kraken Potion Brewing Company!</h1>
+    <!--<ltng:require styles="{!$Resource.mainCSS}"/>-->
+    <h1 class="welcomeHeader">Welcome to Kraken Potion Brewing Company!</h1>
     <div class="container">
         <div id="googleMap" class="slds-grid slds-has-coordinates">
             <div class="slds-map_container">
