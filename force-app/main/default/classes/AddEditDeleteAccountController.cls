@@ -12,10 +12,12 @@ public class AddEditDeleteAccountController{
         accountList.add(act);
     }
     
+   
     Public void addAccount(){
         Account a = new Account();
         accountList.add(a);                        
     }
+    
     
     public pageReference saveAccount(){
         if(accountList.size() > 0)

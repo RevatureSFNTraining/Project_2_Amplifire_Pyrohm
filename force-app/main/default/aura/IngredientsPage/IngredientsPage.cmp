@@ -1,0 +1,12 @@
+<aura:component >
+    <ltng:require styles="{!$Resource.mainCSS}"/>
+    <aura:attribute name="ing" type="Ingredient__c" />
+    <aura:attribute name="relatedPotions" type="Potion__c[]" />
+    <lightning:card variant="Narrow" title="{!v.ing.Name}" iconName="standard:account">
+        <p class="slds-p-horizontal_small">
+            {!v.ing.Ingredient_Price__c}
+        </p>
+    </lightning:card>
+    
+    
+</aura:component>
