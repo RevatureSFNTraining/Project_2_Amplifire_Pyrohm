@@ -2,6 +2,9 @@
     
     <ltng:require styles="{!$Resource.mainCSS}"/> 
     
+    <aura:attribute name="ifIngPage" type="Boolean" default="true"/>
+    <aura:attribute name="ingSet" type="Ingredient__c" default=""/>
+    
     <aura:attribute name="search" type="string" />
     <aura:attribute name="ingredientList" type="list" />
     <aura:attribute name="picvalue" type="List"/>
@@ -12,61 +15,75 @@
     <aura:attribute name="potionType" type="string" />
     
     <aura:handler name="CardEventRegister" event="c:CardEvent" action="{!c.handleCardEvent}"/>
+    <aura:handler name="IngEvent" event="c:IngPageEvent" action="{!c.handleIngEvent}"/>
     <aura:handler name="init" action="{!c.findIngredient}" value="{!this}"/>
     
-    <div class="slds-grid slds-wrap">
-        <div class="slds-col slds-size_1-of-3 slds-p-around_small">
-            <c:IngCardUp ing="{!v.a1}" ingType="Base"/>
-            <c:IngCardUp ing="{!v.a2}" ingType="Secondary"/>
-        </div>
-        
-        <div class="slds-col slds-size_1-of-3 slds-p-around_small">
-            <lightning:input class="slds-size--2-of-3" name="Search" label="Potion Name:" value="{!v.potionName}"/>
-            <lightning:select value="" name="TypeSelect" aura:id="TypeSelect" label="Type:" required="true">
-                <option value="">---</option>
-                <option value="Healing">Healing</option>
-                <option value="Poison">Poison</option>
-                <option value="Speed">Speed</option>
-                <option value="Visions">Visions</option>
-                <option value="Sleep">Sleep</option>
-            </lightning:select>
+    
+    <aura:if isTrue="{!v.ifIngPage}">
+        <div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-3 slds-p-around_small">
+                    <c:IngCardUp ing="{!v.a1}" ingType="Base"/>
+                    <c:IngCardUp ing="{!v.a2}" ingType="Secondary"/>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-3 slds-p-around_small">
+                    <lightning:input class="slds-size--2-of-3" name="Search" label="Potion Name:" value="{!v.potionName}"/>
+                    <lightning:select value="" name="TypeSelect" aura:id="TypeSelect" label="Type:" required="true">
+                        <option value="">---</option>
+                        <option value="Healing">Healing</option>
+                        <option value="Poison">Poison</option>
+                        <option value="Speed">Speed</option>
+                        <option value="Visions">Visions</option>
+                        <option value="Sleep">Sleep</option>
+                    </lightning:select>
+                    <br/>
+                    <lightning:button label="Make Potion" variant="success" onclick="{!c.createPotion}" />
+                    <br/><br/>
+                    <lightning:button label="Remove A1" variant="destructive" onclick="{!c.clearA1}" />
+                    <lightning:button label="Remove A2" variant="destructive" onclick="{!c.clearA2}" />
+                </div>
+                
+            </div>
+            
             <br/>
-            <lightning:button label="Make Potion" variant="success" onclick="{!c.createPotion}" />
-            <br/><br/>
-            <lightning:button label="Remove A1" variant="destructive" onclick="{!c.clearA1}" />
-            <lightning:button label="Remove A2" variant="destructive" onclick="{!c.clearA2}" />
-    </div>
-        
-    </div>
-        
-        <br/><br/><br/>
-    
-    <div class="slds-grid slds-wrap">
-        <div class="slds-col slds-size_1-of-4 slds-p-around_small">
-            <lightning:select class="slds-size--1-of-1" value="N" name="Select" aura:id="Select" label="Filter By:" required="true">
-                <option value="N">None</option>
-                <option value="PU">Price Under: </option>
-                <option value="PO">Price Over: </option>
-                <option value="T">Type Is: </option>
-            </lightning:select>
+            
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-4 slds-p-around_small">
+                    <lightning:select class="slds-size--1-of-1" value="N" name="Select" aura:id="Select" label="Filter By:" required="true">
+                        <option value="N">None</option>
+                        <option value="PU">Price Under: </option>
+                        <option value="PO">Price Over: </option>
+                        <option value="T">Type Is: </option>
+                    </lightning:select>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-around_small">
+                    <lightning:input class="slds-size--1-of-1" name="Search" label="Filter:" value="{!v.search}"/>
+                </div>
+                
+                
+            </div>
+            <br/>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-4 slds-p-around_small">
+            <lightning:button label="Search Ingredient" variant="neutral" onclick="{!c.findIngredient}" />
+                </div></div>
+            <br/>
+            
+            
+            <div class="slds-grid slds-wrap">
+                <aura:iteration var="ing" items="{!v.ingredientList}" >
+                    <div class="slds-col slds-size_1-of-4 slds-p-around_small">
+                        <c:IngCard ing="{!ing}"/>
+                    </div> 
+                </aura:iteration>
+            </div>
+            <br/>
+            <br/>
         </div>
-        <div class="slds-col slds-size_1-of-4 slds-p-around_small">
-            <lightning:input class="slds-size--1-of-1" name="Search" label="" value="{!v.search}"/>
-        </div>
-        
-        <lightning:button label="Search Ingredient" variant="neutral" onclick="{!c.findIngredient}" />
-    </div>
-    
-
-    <br/>
-    
-    <div class="slds-grid slds-wrap">
-        <aura:iteration var="ing" items="{!v.ingredientList}" >
-            <div class="slds-col slds-size_1-of-4 slds-p-around_small">
-                <c:IngCard ing="{!ing}"/>
-            </div> 
-        </aura:iteration>
-    </div>
-    
+        <aura:set attribute="else">
+            <c:IngredientsPage ing="{!v.ingSet}"/>    
+        </aura:set>
+    </aura:if>
     
 </aura:component>

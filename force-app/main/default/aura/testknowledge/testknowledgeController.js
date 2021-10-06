@@ -1,45 +1,14 @@
 ({
-	doInit : function(component, event, helper) {
-        component.find("FAQCreator").getNewRecord(
-            "Potion_Review__c",
-            null,
-            false,
-            $A.getCallback(function() {
-                let rec = component.get("v.newQuestion");
-                let error = component.get("v.newError");
-                if(error || (rec === null)) {
-                    console.log(error);
-                } else {
-                    console.log("sick");
-                }
-            }));
-        
+    // Initialization function that grabs the apex controller method then calls the doInit helper function
+	doInit : function(component, event, helper) {        
         let action = component.get("c.getPublishedKnowledge");
-		action.setCallback(this, function(response) {
-            let state = response.getState();
-            if(state === "SUCCESS") {
-                console.log(response.getReturnValue());
-                component.set("v.knowledge", response.getReturnValue());
-            } else {
-                console.log(state);
-            }
-        });
-        $A.enqueueAction(action);
+		helper.doInit(component, action);
 	},
+    // handler function for pushing the search button, grabs the searchButton method from the apex controlelr and the Question value from the View
+    // then calls the helper function searchHelper
     handleSave: function(component, event, helper) {
-        let question = component.get("v.newQuestion");
-        let title = component.get("v.newQuestion.Title");
-        component.set("v.newQuestion.UrlName", title);
-        component.find("FAQCreator").saveRecord(function(saveResult) {
-            if(saveResult.state === "SUCCESS") {
-                console.log("success");
-            } else if(saveResult.state === "ERROR") {
-                console.log(JSON.stringify(saveResult.error));
-            }
-        });
-        component.set("v.newReview",{ 'sobjectType': 'Knowledge__kav',
-                                     'Title': '',
-                                     'UrlName': '',
-                                     'Question__c': '' });
+        let action = component.get("c.searchButton");
+        let Question = component.get("v.Question");
+        helper.searchHelper(component, action, Question);
     }
 })

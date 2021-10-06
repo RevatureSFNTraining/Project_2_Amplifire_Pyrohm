@@ -96,6 +96,7 @@ insert testPotions;
 }
 
 @isTest public static void savingBulkPositive() {
+    //bulk Test
         Account myAcc = new Account(Name='myTest');
         insert myAcc;
 
@@ -117,15 +118,17 @@ insert testPotions;
 }
 
 @isTest public static void getOptions() {
+        //getting all the strings in a list from the controller
         String[] options = PotionCatalogueController.getOptions();
-    
+
         List<String> mockData = new List<String>{'Healing', 'Poison', 'Speed', 'Visions', 'Sleep'};
-    
+
         System.assertEquals(options.size(), 5);
         System.assertEquals(options, mockData);
 }
 
 @isTest public static void getOptionsNegative() {
+    //getting all the strings in a list from the controller negative test
     String[] options = PotionCatalogueController.getOptions();
 
     List<String> mockData = new List<String>{'some', 'Poison', 'Speed', 'Sleep'};

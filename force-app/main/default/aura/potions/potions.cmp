@@ -34,7 +34,7 @@
         
         <!-- SUCCESS MODAL -->
         <aura:if isTrue="{!v.ifSuccess}">  
-            <div class="success">
+            <div class="successModal">
                 <p>SUCCESS!</p>
                 <p>Your order has been placed!</p>
             </div>
@@ -52,6 +52,7 @@
         </div>
         <!-- FILTER -->
         
+        <!-- LOADER -->
         <div id="loader" class="{!v.myTest == 'test' ? '' : 'slds-hide'}"></div>
         
         <!-- ALL CARDS IN HERE IF ANY -->

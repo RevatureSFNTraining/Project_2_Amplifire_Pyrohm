@@ -1,4 +1,4 @@
-<aura:component >
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
     <aura:attribute name="title" type="String" default="Home" />
     
     <aura:registerEvent name="switchHeader" type="c:changePage" />
@@ -14,6 +14,7 @@
         <div class="star-5 stars"></div>
         
         <div id="navMenu" style="display:flex; justify-content:flex-end">
+            <lightning:button class="slds-button slds-button_neutral"  label="Logout" onclick="{!c.logoutButton}" />
             <div class="slds-dropdown-trigger dropdown-trigger_click slds-is-open">
                 <button class="slds-button slds-button slds-button_neutral" aria-haspopup="true" aria-expanded="true" title="Show More">
                     Menu
@@ -38,10 +39,12 @@
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
                             <lightning:button variant="base" label="AboutUs" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">About Us</lightning:button>
-                            
                         </li>
                         <li class="slds-dropdown__item" role="presentation">
-                            <lightning:button variant="base" label="Zabian" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Zabian</lightning:button>
+                        	<lightning:button variant="base" label="FAQ" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">FAQ</lightning:button>
+                        </li>
+                        <li class="slds-dropdown__item" role="presentation">
+                            <lightning:button variant="base" label="Account" title="Looks like a link" onclick="{!c.handleClick}" class="slds-m-left_x-small">Account</lightning:button>
                         </li>
                     </ul>
                 </div>

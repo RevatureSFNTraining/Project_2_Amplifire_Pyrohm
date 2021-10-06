@@ -45,5 +45,37 @@
  		fetch('')                                                                                                                                                              
         // weather fetch                                                                                                                                                     
         fetch('http://api.weatherapi.com/v1/current.json?key=f90129e267b94b479df182646211409&q=70122&aqi=no').then(response => response.json()).then(data => { console.log(data), component.set("v.weather", [data.current.condition.text, data.current.precip_in, data.current.humidity, data.current.cloud, data.current.uv]) }).catch(error => { throw(error) } );                                                                                                                                                                                                                                                                                                              
+	
+          let action = component.get("c.getTopSeller");
+         
+                                       
+          action.setCallback(this, function(response) {
+          let state = response.getState();
+          console.log(response.getReturnValue());
+          state === "SUCCESS" ? component.set('v.reviews', response.getReturnValue()) : console.log("didn't work")
+        })
+        
+    	$A.enqueueAction(action);
+        let action2 = component.get("c.getUserName");
+         
+                                       
+          action2.setCallback(this, function(response) {
+          let state = response.getState();
+          console.log(response.getReturnValue());
+          state === "SUCCESS" ? component.set('v.username', response.getReturnValue()) : console.log("didn't work")
+        })
+        
+    	$A.enqueueAction(action2);
+	},
+    handleClick : function(component, event, helper) {
+       
+        let button = event.getSource().get("v.label");
+		let evt = component.getEvent("switchHeader");
+        component.set("v.title", "Potions");
+        evt.setParams({
+            "page": "Potions",
+        });
+		console.log(evt.getParam("page"));        
+        evt.fire();
 	}
 })

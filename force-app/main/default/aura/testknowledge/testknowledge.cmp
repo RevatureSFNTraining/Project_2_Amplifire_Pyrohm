@@ -1,47 +1,33 @@
+<!-- This Component Utilizes Service Cloud Knowledge to create a FAQ Page -->
 <aura:component controller="testknowledgecontroller" implements="force:hasRecordId">
+    <!-- Attribute Definitions -->
+    <!-- Attribute to contain the list of knowledge to display -->
     <aura:attribute name="knowledge" type="Knowledge__kav[]"/>
-    <aura:attribute name="Title" type="String" />
+    <!-- Attribute to hold the string value for the question from the search box -->
     <aura:attribute name="Question" type="String" />
+    <!-- Handler Definitions -->
+    <!-- Initialization Handler to handle grabbing the knowledge data from the org on load of the component -->
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
-    <force:recordData aura:id="FAQCreator"
-                      fields="Title,UrlName,Question__c"
-                      targetFields="{!v.newQuestion}"
-                      targetError="{!v.newError}"
-                      />
     
+    <!-- Input field and button for the search bar -->
+    <div class="slds-container--large slds-grid slds-grid_vertical-align-end">
+            <lightning:input class="slds-col" aura:id="QuestionField" value="{!v.Question}"/>
+        <div class="slds-col">
+            <lightning:button label="Search" onclick="{!c.handleSave}" />
+            </div>
+    </div>
+    
+    
+    <!-- Display all of the questions and answers in the org that are verified -->
     <aura:iteration items="{!v.knowledge}" var="FAQ">
         <div class="slds-grid slds-box">
-            <lightning:card class="slds-col slds-box" title="Question:">
-                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Question__c}"/>           
-            </lightning:card>
-            <br/>
-            <lightning:card class="slds-col slds-box" title="Answer:">
-                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Answer__c}"/> 
-            </lightning:card>
-            
+            <div class="slds-col slds-box slds-size_1-of-2">
+                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Question__c}"/>
+            </div>
+            <div class="slds-col slds-box slds-size_1-of-2">
+                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Answer__c}"/>
+            </div>
         </div>
     </aura:iteration>
-    
-    <center>
-        <lightning:layout class="slds-align_absolute-center">
-            <lightning:layoutItem padding="around-small" size="6">
-                <div aria-labelledby="newquestionform">
-                    <fieldset class="slds-box slds-theme_default slds-container_medium">
-                        <legend id="newquestionform" class="slds-text-heading_small slds-p-vertical_medium">
-                            Don't see your question? Ask a new one:
-                        </legend>
-                        <form class="slds-form_stacked">
-                            <lightning:input aura:id="QuestionField" label="Title:" value="{!v.newQuestion.Title}" required="true"/>
-                            <h1>Question:</h1>
-                            <lightning:inputRichText aura:id="QuestionField" value="{!v.newQuestion.Question__c}" required="true"/>
-                            <br/>
-                            
-                            <lightning:button label="Ask!" variant="brand" onclick="{!c.handleSave}" />
-                        </form>
-                    </fieldset>
-                </div>
-            </lightning:layoutItem>
-        </lightning:layout>
-    </center>
     
 </aura:component>
