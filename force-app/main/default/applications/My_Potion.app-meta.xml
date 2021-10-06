@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#E40E0E</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>My Potion</label>
+    <navType>Standard</navType>
+    <tabs>standard-Account</tabs>
+    <tabs>FAQ__c</tabs>
+    <tabs>Delivery_Truck__c</tabs>
+    <tabs>Ingredient__c</tabs>
+    <tabs>Potion__c</tabs>
+    <tabs>Potion_Order__c</tabs>
+    <tabs>Potion_Review__c</tabs>
+    <tabs>Advertisement__c</tabs>
+    <tabs>Website__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

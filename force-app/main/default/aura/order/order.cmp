@@ -1,0 +1,52 @@
+<aura:component  access="global">
+    
+    <!-- Passing single Potion__c from the potions cmp. -->
+    <aura:attribute name="one" type="Potion__c"/>
+    <aura:attribute name="total" type="string" default="0" />  
+    <aura:attribute name="order" type="Potion_Order__c" default="{
+                                                                 'sobjectType':'Potion_Order__c',
+                                                                 'Potion_Type__c': '',
+                                                                 'Number_of_Potions__c': 0,
+                                                                 'Order_Price__c':0,
+                                                                 'Account_Purchasing__c': '0015f000005xLmSAAU',
+                                                                 }"/>
+    
+    <aura:registerEvent name="createOrder" type="c:orderEvent"/>
+    
+    <!-- CREATE AN ORDER -->
+    <lightning:card title="YOUR CART" iconName="standard:webcart"  >
+        <div class="slds-m-around_x-large">
+            
+            <p class="slds-p-horizontal_small"> Your Product:<div class="slds-text-heading_medium"> {!v.one.Name} </div></p><br/>
+            <p class="slds-p-horizontal_small"> Price per unit: <div class="slds-text-heading_medium"><lightning:formattedNumber value="{!v.one.Total_Price__c}" style="currency"/></div> </p>
+            
+            <form class="slds-form_stacked">          
+                <lightning:input aura:id="orderform"
+                                 type="number"
+                                 label="Number of Potions"
+                                 name="numberorder"
+                                 value="{!v.order.Number_of_Potions__c}"
+                                 required="true"
+                                 onchange="{!c.handlingTotal}"
+                                 min="1"
+                                 messageWhenRangeUnderflow="Enter an amount that's at least 1."
+                                 />
+                
+                <!-- Displaying total -->
+                <p class="slds-p-horizontal_small"> Your total is: <div style="font-size: 1.4rem; font-weight:600"><lightning:formattedNumber value="{!v.total}" style="currency"/></div> </p>    
+                
+                <lightning:button label="Place Order"
+                                  class="slds-m-top_medium"
+                                  variant="brand"
+                                  onclick="{!c.handleOrder}" />
+                
+                <lightning:button label="Cancel"
+                                  class="slds-m-top_medium"
+                                  variant="brand"
+                                  onclick="{!c.cancelOrder}" />
+            </form>
+            
+        </div>  
+    </lightning:card>
+    
+</aura:component>

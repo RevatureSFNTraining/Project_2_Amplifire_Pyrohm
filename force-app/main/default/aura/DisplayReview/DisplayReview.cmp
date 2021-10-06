@@ -1,0 +1,26 @@
+<!-- Component that displays an individual Review record -->
+<aura:component controller="DisplayReviewsController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <!-- Attribute Definitions -->
+    <!-- Attribute to hold the single potion review record -->
+    <aura:attribute name="review" type="Potion_Review__c" />
+    <!-- attribute to hold the name of the potion fetched from calling the apex controller method -->
+    <aura:attribute name="potion" type="Potion__c"/>
+    <!-- Handler Definitions -->
+    <!-- Initialization Handler ran at load time of the component -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- The card holding the individual review display, the title displayed is the name of the reviewer -->
+    <lightning:card title="{!v.review.Reviewer_Name__c}">
+        <!-- aura:set to enable a line break in the footer of the card -->
+        <aura:set attribute="footer">
+            Rating: {!v.review.Review_Rating__c} out of 5
+            <br/>
+            Potion Type: {!v.potion.Name}
+        </aura:set>
+        <!-- dislay the message of the review -->
+        <div class="slds-text-heading--small slds-border_top slds-border_bottom slds-align_absolute-center">
+            <br/>
+            {!v.review.Review_Message__c}
+            <br/><br/>
+        </div>
+    </lightning:card>
+</aura:component>

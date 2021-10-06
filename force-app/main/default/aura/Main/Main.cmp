@@ -1,0 +1,39 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <ltng:require styles="{!$Resource.mainCSS}"/>
+    <aura:attribute name="pageToShow" type="String" default="Home"/>
+    <aura:handler name="switchHeader" event="c:changePage" action="{!c.handleChangePage}"/>
+    
+    <div class="mainDiv"> 
+        <c:header/> 
+        <div id="main" >
+            <aura:if isTrue="{!v.pageToShow == 'Home'}">
+                <c:HomePage/>
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'Review'}">
+                <c:NewReviewForm/>
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'Potions'}">
+                <c:potions/>
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'Ingredient'}">
+                <c:IngPage/>
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'AboutUs'}">
+                <c:AboutUs/>
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'Account'}">
+                <c:accountsPage />
+            </aura:if>
+            <aura:if isTrue="{!v.pageToShow == 'FAQ'}">
+                <c:testknowledge/>
+            </aura:if>
+        </div>
+        
+        <!-- FOOTER  class="slds-docked-form-footer"  -->
+        <div id="footer" style="background-color: rgba(78, 4, 252, 0.8);color:white;" >
+            <h3 style="text-align:center;padding-top:6px" >Potions Co. 2021 </h3>
+        </div>
+        <!--FOOTER -->
+    </div>
+    
+</aura:component>

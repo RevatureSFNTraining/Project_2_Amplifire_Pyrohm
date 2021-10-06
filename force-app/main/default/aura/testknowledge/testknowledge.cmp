@@ -1,0 +1,33 @@
+<!-- This Component Utilizes Service Cloud Knowledge to create a FAQ Page -->
+<aura:component controller="testknowledgecontroller" implements="force:hasRecordId">
+    <!-- Attribute Definitions -->
+    <!-- Attribute to contain the list of knowledge to display -->
+    <aura:attribute name="knowledge" type="Knowledge__kav[]"/>
+    <!-- Attribute to hold the string value for the question from the search box -->
+    <aura:attribute name="Question" type="String" />
+    <!-- Handler Definitions -->
+    <!-- Initialization Handler to handle grabbing the knowledge data from the org on load of the component -->
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    <!-- Input field and button for the search bar -->
+    <div class="slds-container--large slds-grid slds-grid_vertical-align-end">
+            <lightning:input class="slds-col" aura:id="QuestionField" value="{!v.Question}"/>
+        <div class="slds-col">
+            <lightning:button label="Search" onclick="{!c.handleSave}" />
+            </div>
+    </div>
+    
+    
+    <!-- Display all of the questions and answers in the org that are verified -->
+    <aura:iteration items="{!v.knowledge}" var="FAQ">
+        <div class="slds-grid slds-box">
+            <div class="slds-col slds-box slds-size_1-of-2">
+                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Question__c}"/>
+            </div>
+            <div class="slds-col slds-box slds-size_1-of-2">
+                <ui:outputRichText class="slds-align_absolute-center" value="{!FAQ.Answer__c}"/>
+            </div>
+        </div>
+    </aura:iteration>
+    
+</aura:component>

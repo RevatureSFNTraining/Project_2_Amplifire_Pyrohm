@@ -1,0 +1,25 @@
+<!-- Component for displaying the picklist of potions available to review for the form to create a new review -->
+<aura:component controller="DisplayReviewsController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <!-- Attribute Definitions -->
+    <!-- Attribute to store the List of Potions available in the Org -->
+    <aura:attribute name="potions" type="Potion__c[]" />
+    <!-- Attribute to store the selected potion to send in the event to the parent component -->
+    <aura:attribute name="selectedPotion" type="Potion__c" />
+    <!-- Attribute to select which event to fire -->
+    <aura:attribute name="eventSelector" type="Boolean" />
+    <!-- Handler Definitions -->
+    <!-- Handler to initialize the component on load -->
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <!-- Event Registration -->
+    <!-- Registers the event to send the selected potion to the parent component -->
+    <aura:registerEvent name="sendPotionSelect" type="c.sendDataEvent" />
+    <aura:registerEvent name="sendFilterPotion" type="c.sendDataEvent" />
+    <!-- Picklist Definition to display the picklist of available potions to review -->
+    <lightning:select aura:id="picklist" name="potionsList" label="Potion" required="{!v.eventSelector}" value="{!v.selectedPotion}" onchange="{!c.sendPotion}">
+        <option value="">choose one...</option>
+        <!-- Iterates through the List of Potions and makes each one an option in the picklist -->
+        <aura:iteration items="{!v.potions}" var="potion">
+            <option value="{!potion.Id}">{!potion.Name}</option>
+        </aura:iteration>
+    </lightning:select>
+</aura:component>

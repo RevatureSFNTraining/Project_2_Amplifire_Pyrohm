@@ -1,0 +1,35 @@
+<aura:component controller="RevCon">
+    <ltng:require styles="{!$Resource.mainCSS}"/> 
+    <aura:attribute name="reviewList" type="list" />
+    <aura:handler name="init" action="{!c.findReviews}" value="{!this}"/>
+    
+    <center><h1><b>Kraken Brewing Co.</b></h1>
+    <h2> - Our wand-erful history - </h2></center>
+    <br/>
+    <br/>
+    <div style="margin: 0px; 
+                padding-top: 4px; 
+                padding-right: 30px; 
+		        padding-bottom: 30px; 
+                padding-left: 30px;">
+    <h4>
+    Imagine: sitting alone in a bleak, gray room, staring out the dirty window at the droplets of rain as they seem to race each other, asking yourself "is this all the fun life has to offer? Where's the magic?".
+    
+    That's exactly what happened to our founder. After his time working in an NYC borough as a detective, he decided he still had one mystery left to solve: where to find magic. Though Mr. Peralta never found magic in the real world, but he did learn how to create it.
+    
+    There was a lot of trial and error, but he finally cracked the biggest case of his life: potions, and their proper ingredient ratio. He wanted to share this with the world-- he'd ACTUALLY created magic!
+    
+    Now, you've never met Jake. But let me tell you--when he sets his mind to something, there's no stopping him. He was laughed at, teased, and then, finally, believed.
+    
+    Welcome to Kraken Potion Brewing Company, where we can make your dreams come true (and also help you dream).
+    </h4></div>
+    <center><h2>Testimonials:</h2></center>
+    <div class="slds-grid slds-wrap">
+        <aura:iteration var="rev" items="{!v.reviewList}" >
+            <div class="slds-col slds-size_1-of-2 slds-p-around_small">
+        <c:ReviewCard rev="{!rev}"/>
+            </div> 
+        </aura:iteration>
+    </div>
+    
+</aura:component>
