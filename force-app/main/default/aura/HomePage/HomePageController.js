@@ -56,15 +56,24 @@
         })
         
     	$A.enqueueAction(action);
+        let action2 = component.get("c.getUserName");
+         
+                                       
+          action2.setCallback(this, function(response) {
+          let state = response.getState();
+          console.log(response.getReturnValue());
+          state === "SUCCESS" ? component.set('v.username', response.getReturnValue()) : console.log("didn't work")
+        })
+        
+    	$A.enqueueAction(action2);
 	},
     handleClick : function(component, event, helper) {
        
         let button = event.getSource().get("v.label");
-        console.log(button);
-        component.set("v.title", button);
 		let evt = component.getEvent("switchHeader");
+        component.set("v.title", "Potions");
         evt.setParams({
-            "page": button,
+            "page": "Potions",
         });
 		console.log(evt.getParam("page"));        
         evt.fire();

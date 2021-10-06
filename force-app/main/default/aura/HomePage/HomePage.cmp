@@ -8,20 +8,23 @@
     <aura:attribute name="moonPicture" type="String" />
     <aura:attribute name="api" type="String" />
     <aura:attribute name="loading" type="Boolean" default="true" />
-    <aura:attribute name="potionUrl" type="String" default="https://kraken-potion-developer-edition.na163.force.com/login" />
+    <aura:attribute name="username" type="String" default="" />
    
     <aura:registerEvent name="switchHeader" type="c:changePage" />
 
     <!--<ltng:require styles="{!$Resource.mainCSS}"/>-->
-    <h1 class="welcomeHeader">Welcome to Kraken Potion Brewing Company!</h1>
-    <div class="container">
+    <h1 class="welcomeHeader">Welcome to Kraken Potion Brewing Company {!v.username}!</h1>
+    <div class="newContainer">
+        <video class='videoPlayer' autoPlay="true" loop="true" playsInline="true" defaultMuted="true" muted="true">
+            <source src="{!$Resource.potionVideo}" type='video/mp4' />
+        </video>
         <div id="googleMap" class="slds-grid slds-has-coordinates">
             <div class="slds-map_container">
                 <div id="map" class="slds-map">
                     <iframe style="filter: invert(90%)" id="GoogleMapID" title="Google Maps iframe" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0j9uH8onBNtGtp-bRf27Xx8Kg2xQSPuI&amp;q=6120+Franklin+Ave,+New+Orleans,+LA+70122"></iframe>
                 </div>
             </div>
-            <div class="slds-coordinates">
+            <div class="map slds-coordinates">
                 <div class="slds-coordinates__header">
                     <h2 id="KrakenPotions" class="slds-coordinates__title">Kraken Potions</h2>
                 </div>
@@ -87,10 +90,12 @@
             </article>
         </div>
     </div>  
-    
-    <lightning:carousel disableAutoRefresh="false" disableAutoScroll="false">
+    <div class="carouselWrapper" >
+    <lightning:carousel  disableAutoRefresh="false" disableAutoScroll="false">
         <lightning:carouselImage
-            src = "/docs/component-library/app/images/examples/carousel-01.png"
+    
+            src = "{!v.reviews[0].Potion_Type__r.Potion_URL__c ? !v.reviews[0].Potion_Type__r.Potion_URL__c : $Resource.nopic}"
+        
             header = "{!v.reviews[0].Reviewer_Name__c}"
             description = "{!v.reviews[0].Potion_Type__r.Name}"
             alternativeText = "First card accessible description."
@@ -98,7 +103,10 @@
             onclick="{!c.handleClick}">
         </lightning:carouselImage>
         <lightning:carouselImage
-            src = "/docs/component-library/app/images/examples/carousel-02.png"
+        
+            src = "{!v.reviews[1].Potion_Type__r.Potion_URL__c}"
+        
+            style="width: 600px; height: 337px;"
             header = "{!v.reviews[1].Reviewer_Name__c}"
             description = "{!v.reviews[1].Potion_Type__r.Name}"
             alternativeText = "Second card accessible description."
@@ -106,7 +114,10 @@
             onclick="{!c.handleClick}" >
         </lightning:carouselImage>
         <lightning:carouselImage
-            src = "/docs/component-library/app/images/examples/carousel-03.png"
+       
+            src = "{!v.reviews[2].Potion_Type__r.Potion_URL__c}"
+        
+            style="width: 600px; height: 337px;"
             header = "{!v.reviews[2].Reviewer_Name__c}"
             description = "{!v.reviews[2].Potion_Type__r.Name}"
             alternativeText = "Third card accessible description."
@@ -114,4 +125,5 @@
             onclick="{!c.handleClick}" >
         </lightning:carouselImage>
     </lightning:carousel>
+    </div>
 </aura:component>

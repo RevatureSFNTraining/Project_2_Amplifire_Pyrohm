@@ -34,9 +34,10 @@
     
     handleIngEvent : function(cmp, event){
         
-        if(event.getParam("type") == "P"){
+        //if(event.getParam("type") == "P"){
+        console.log("goog");
             cmp.set("v.ifIngPage", "true");
-        }
+        //}
     },
     
     createPotion : function(component, event) {

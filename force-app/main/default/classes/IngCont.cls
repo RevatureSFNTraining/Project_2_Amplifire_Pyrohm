@@ -1,5 +1,6 @@
 public class IngCont {
-	    @AuraEnabled
+	
+    @AuraEnabled
     public static List <Ingredient__c> grabIng(String search, String filter) {
         
         List<Ingredient__c> ret;

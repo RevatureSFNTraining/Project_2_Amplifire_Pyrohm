@@ -8,22 +8,24 @@
 
     <lightning:card variant="Narrow" title="{!v.ing.Name}" iconName="standard:account">
         <p class="slds-p-horizontal_small">
-            <h3><lightning:formattedNumber value="{!v.ing.Ingredient_Price__c}" style="currency" /></h3>
-            <h3>{!v.ing.Type_of_Ingredient__c}</h3>
-            <h3>{!v.ing.Available_Potion__c}</h3>
+            <h3>Price: <lightning:formattedNumber value="{!v.ing.Ingredient_Price__c}" style="currency" /></h3>
+            <h3>Type: {!v.ing.Type_of_Ingredient__c}</h3>
+            <h3>Potion Type: {!v.ing.Available_Potion__c}</h3>
         </p>
     </lightning:card>
     
     <lightning:card variant="basic" title="You may also enjoy..."></lightning:card>
 
-    <aura:iteration var="relatedRecord" items="{!v.relatedRecords}">
+    <div class="slds-grid slds-wrap ">
+    <aura:iteration var="relatedPotion" items="{!v.relatedPotions}">
         <div class="slds-col slds-size_1-of-3 slds-var-p-around_large">
-        <lightning:card variant="Narrow" title="{!relatedRecord.Name}" 
+        <lightning:card variant="Narrow" title="{!relatedPotion.Name}" 
                             iconName="standard:account">
                             <div class="slds-align_absolute-center">
-                                <lightning:button name="{!relatedRecord.Id}" label="View Potion" variant="brand" onclick="{!c.cardEventClick}"/>
+                                <lightning:button name="{!relatedPotion.Id}" label="View Potion" variant="brand" onclick="{!c.cardEventClick}"/>
                             </div>
          </lightning:card>
         </div> 
     </aura:iteration>
+    </div>
 </aura:component>

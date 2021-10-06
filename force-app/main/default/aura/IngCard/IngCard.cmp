@@ -1,6 +1,11 @@
 <aura:component >
     <aura:registerEvent name="CardEventRegister" type="c:CardEvent" />
     <aura:attribute name="ing" type="Ingredient__c" />
+    <aura:attribute name="isBase" type="Boolean" />
+    <aura:attribute name="potType" type="String" default=""/>
+    
+    <aura:handler name="init" action="{!c.findBool}" value="{!this}"/>
+    
     <lightning:card>
         <aura:set attribute="title">
             <lightning:icon iconName="utility:recipe" size="small"/>
@@ -12,16 +17,22 @@
         </aura:set> -->
         
         <p class="slds-p-horizontal_small">
-            <h3><lightning:formattedNumber value="{!v.ing.Ingredient_Price__c}" style="currency"/></h3>
-            <h3>{!v.ing.Type_of_Ingredient__c}</h3>
-            <h3>{!v.ing.Available_Potion__c}</h3>
+            <h3>Price: <lightning:formattedNumber value="{!v.ing.Ingredient_Price__c}" style="currency"/></h3>
+            <h3>Type: {!v.ing.Type_of_Ingredient__c}</h3>
+            <h3>Potion Type: {!v.potType}</h3>
         </p>
-        
+        <br/>
         <div class="slds-align_absolute-center">
-        <lightning:button label="Set Base Ingredient" variant="brand" onclick="{!c.cardEventA1}"/>
-        <lightning:button label="Set Secondary Ingredient" variant="brand" onclick="{!c.cardEventA2}"/>
+            <aura:if isTrue="{!v.isBase}">
+                <div>
+                    <lightning:button label="Set Base Ingredient" variant="brand" onclick="{!c.cardEventA1}"/>
+                </div>
+                <aura:set attribute="else">   
+                    <lightning:button label="Set Secondary Ingredient" variant="brand" onclick="{!c.cardEventA2}"/>
+                </aura:set>
+            </aura:if>
         </div>
-        
+        <br/>
         <div class="slds-align_absolute-center">
         <lightning:button label="Go to ingredent page" variant="brand" onclick="{!c.cardEventClick}"/>
         </div>

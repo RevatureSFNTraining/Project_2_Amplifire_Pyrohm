@@ -15,6 +15,7 @@
     <aura:attribute name="potionType" type="string" />
     
     <aura:handler name="CardEventRegister" event="c:CardEvent" action="{!c.handleCardEvent}"/>
+    <aura:handler name="IngEvent" event="c:IngPageEvent" action="{!c.handleIngEvent}"/>
     <aura:handler name="init" action="{!c.findIngredient}" value="{!this}"/>
     
     
@@ -45,7 +46,7 @@
                 
             </div>
             
-            <br/><br/><br/>
+            <br/>
             
             <div class="slds-grid slds-wrap">
                 <div class="slds-col slds-size_1-of-4 slds-p-around_small">
@@ -57,14 +58,18 @@
                     </lightning:select>
                 </div>
                 <div class="slds-col slds-size_1-of-4 slds-p-around_small">
-                    <lightning:input class="slds-size--1-of-1" name="Search" label="" value="{!v.search}"/>
+                    <lightning:input class="slds-size--1-of-1" name="Search" label="Filter:" value="{!v.search}"/>
                 </div>
                 
-                <lightning:button label="Search Ingredient" variant="neutral" onclick="{!c.findIngredient}" />
+                
             </div>
-            
-            
             <br/>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-4 slds-p-around_small">
+            <lightning:button label="Search Ingredient" variant="neutral" onclick="{!c.findIngredient}" />
+                </div></div>
+            <br/>
+            
             
             <div class="slds-grid slds-wrap">
                 <aura:iteration var="ing" items="{!v.ingredientList}" >
